@@ -25,6 +25,7 @@ namespace RimWorldArchipelago
     public class SlotOptions
     {
         public int ResearchLocationCount { get; set; }
+        public int ResearchBaseCost { get; set; }
     }
 
     public class ExampleSettings : ModSettings
@@ -271,7 +272,7 @@ namespace RimWorldArchipelago
                 {
                     archipelagoResearch.description = $"This research has {scoutedItem.Player.Name}'s garbage filler item, {scoutedItem.ItemName}.";
                 }
-                archipelagoResearch.baseCost = 25;
+                archipelagoResearch.baseCost = slotData.SlotOptions.ResearchBaseCost;
                 archipelagoResearch.tab = archipelagoTab;
                 archipelagoResearch.researchViewX = x * 1.0f;
                 archipelagoResearch.researchViewY = y * 0.7f;
@@ -394,6 +395,33 @@ namespace RimWorldArchipelago
             writer.WriteEndElement();
             writer.WriteEndDocument();
             writer.Flush();
+        }
+    }
+
+    // I don't fully understand why we need this. RimWorld does a bunch of reflection stuff
+    //   to generate its debug menus, and doing that on the MultiClient dll dies horribly
+    //   on System.Numerics.Biginteger. If you understand why and can eliminate this patch,
+    //   please do and you'll be my favorite for at least a few days.
+    [HarmonyPatch(typeof(GenTypes))]
+    [HarmonyPatch(nameof(GenTypes.AllTypes), MethodType.Getter)]
+    static class DebugTabMenu_InitActions_Patch
+    {
+        public static void Postfix(ref List<Type> __result)
+        {
+            List<int> indices = new List<int>();
+            for (int i = 0; i < __result.Count; i++)
+            {
+                if (__result[i].FullName.Contains("MultiClient"))
+                {
+                    indices.Add(i);
+                }
+            }
+
+            indices.Reverse();
+            foreach (int i in indices)
+            {
+                __result.RemoveAt(i);
+            }
         }
     }
 
