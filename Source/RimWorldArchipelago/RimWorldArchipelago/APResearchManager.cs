@@ -115,11 +115,13 @@ namespace RimworldArchipelago
             if (upgradesRequired == 0)
             {
                 archipelagoResearch.defName = $"Basic Research Location {labelIndex}";
+                archipelagoResearch.techLevel = TechLevel.Neolithic;
             }
             else if (upgradesRequired == 1)
             {
                 archipelagoResearch.defName = $"Hi-Tech Research Location {labelIndex}";
                 archipelagoResearch.requiredResearchBuilding = HiTechResearchBench;
+                archipelagoResearch.techLevel = TechLevel.Industrial;
             }
             else if (upgradesRequired == 2)
             {
@@ -129,6 +131,7 @@ namespace RimworldArchipelago
                 {
                     MultiAnalyzer
                 };
+                archipelagoResearch.techLevel = TechLevel.Spacer;
             }
             else
             {
@@ -158,7 +161,6 @@ namespace RimworldArchipelago
             archipelagoResearch.tab = archipelagoTab;
             archipelagoResearch.researchViewX = xIndex * 1.0f;
             archipelagoResearch.researchViewY = yIndex * 0.7f;
-            archipelagoResearch.techLevel = TechLevel.Neolithic;
             archipelagoResearch.generated = true;
             return archipelagoResearch;
         }
