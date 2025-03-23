@@ -2,7 +2,7 @@
 using Archipelago.MultiClient.Net.Enums;
 using Archipelago.MultiClient.Net.Helpers;
 using Archipelago.MultiClient.Net.Models;
-using RimWorld;
+using Newtonsoft.Json;
 using RimWorldArchipelago;
 using System;
 using System.Collections.Generic;
@@ -11,6 +11,20 @@ using Verse;
 
 namespace RimworldArchipelago
 {
+    public class SlotData
+    {
+        [JsonProperty("options")]
+        public SlotOptions SlotOptions { get; set; }
+    }
+
+    public class SlotOptions
+    {
+        public int BasicResearchLocationCount { get; set; }
+        public int HiTechResearchLocationCount { get; set; }
+        public int MultiAnalyzerResearchLocationCount { get; set; }
+        public int ResearchBaseCost { get; set; }
+    }
+
     internal class ArchipelagoClient
     {
         private static ArchipelagoSession session = null;
@@ -56,7 +70,7 @@ namespace RimworldArchipelago
                         Find.ResearchManager.FinishProject(research, doCompletionDialog: true);
                     }
                 }
-                catch (Exception ex) { }
+                catch (Exception _) { }
             }
             else
             {
@@ -107,58 +121,7 @@ namespace RimworldArchipelago
             // TODO: Pare this back, but for now, it demonstrates the system using correctly.
             Dictionary<long, ScoutedItemInfo> scoutedItemInfo = await session.Locations.ScoutLocationsAsync(session.Locations.AllLocations.ToArray());
 
-            GenerateArchipelagoResearch(scoutedItemInfo);
-        }
-
-        private static void GenerateArchipelagoResearch(Dictionary<long, ScoutedItemInfo> scoutedItemInfo)
-        {
-            int x = 0;
-            int y = 0;
-            SlotData slotData = session.DataStorage.GetSlotData<SlotData>();
-            ResearchTabDef archipelagoTab = DefDatabase<ResearchTabDef>.GetNamed("Archipelago");
-            for (int i = 0; i < slotData.SlotOptions.ResearchLocationCount; i++)
-            {
-                ScoutedItemInfo scoutedItem = null;
-                if (scoutedItemInfo != null && scoutedItemInfo.ContainsKey(i + 5197648000))
-                {
-                    scoutedItem = scoutedItemInfo[i + 5197648000];
-                    // Log.Message($"ITEM: {scoutedItem.LocationName}, {scoutedItem.LocationDisplayName}, {scoutedItem.ItemName}");
-                }
-                ResearchProjectDef archipelagoResearch = new ResearchProjectDef();
-                archipelagoResearch.defName = $"AP Research Location {i}";
-                archipelagoResearch.label = scoutedItem == null ? $"AP Research Location {i}" : $"{scoutedItem.Player.Name}'s {scoutedItem.ItemName}";
-                if (scoutedItem == null)
-                {
-                    archipelagoResearch.description = "This research will unlock somebody's something!";
-                }
-                else if (scoutedItem.Flags.HasFlag(ItemFlags.Advancement))
-                {
-                    archipelagoResearch.description = $"This research has {scoutedItem.Player.Name}'s required item, {scoutedItem.ItemName}.";
-                }
-                else if (scoutedItem.Flags.HasFlag(ItemFlags.NeverExclude))
-                {
-                    archipelagoResearch.description = $"This research has {scoutedItem.Player.Name}'s important item, {scoutedItem.ItemName}.";
-                }
-                else
-                {
-                    archipelagoResearch.description = $"This research has {scoutedItem.Player.Name}'s garbage filler item, {scoutedItem.ItemName}.";
-                }
-                archipelagoResearch.baseCost = slotData.SlotOptions.ResearchBaseCost;
-                archipelagoResearch.tab = archipelagoTab;
-                archipelagoResearch.researchViewX = x * 1.0f;
-                archipelagoResearch.researchViewY = y * 0.7f;
-                y += 1;
-                if (y > 8)
-                {
-                    y = 0;
-                    x += 1;
-                }
-                archipelagoResearch.techLevel = TechLevel.Neolithic;
-                archipelagoResearch.generated = true;
-                DefDatabase<ResearchProjectDef>.Add(archipelagoResearch);
-            }
-
-            ResearchProjectDef.GenerateNonOverlappingCoordinates();
+            APResearchManager.GenerateArchipelagoResearch(scoutedItemInfo);
         }
 
         public static bool Connected
@@ -166,6 +129,14 @@ namespace RimworldArchipelago
             get
             {
                 return session != null;
+            }
+        }
+
+        public static SlotData SlotData
+        {
+            get
+            {
+                return session?.DataStorage?.GetSlotData<SlotData>();
             }
         }
 
@@ -180,8 +151,9 @@ namespace RimworldArchipelago
             return ret;
         }
 
-        public static void SendLocation(long id)
+        public static void SendResearchLocation(string projectName)
         {
+            long id = APResearchManager.GetLocationId(projectName);
             session.Locations.CompleteLocationChecks(id);
         }
     }

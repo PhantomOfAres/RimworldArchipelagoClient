@@ -9,18 +9,6 @@ using Verse;
 
 namespace RimworldArchipelago
 {
-    public class SlotData
-    {
-        [JsonProperty("options")]
-        public SlotOptions SlotOptions { get; set; }
-    }
-
-    public class SlotOptions
-    {
-        public int ResearchLocationCount { get; set; }
-        public int ResearchBaseCost { get; set; }
-    }
-
     public class ArchipelagoSettings : ModSettings
     {
         /// <summary>

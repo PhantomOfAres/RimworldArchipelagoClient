@@ -40,12 +40,9 @@ namespace RimWorldArchipelago
     {
         public static bool Prefix(ResearchManager __instance, ResearchProjectDef proj, bool doCompletionDialog = false, Pawn researcher = null, bool doCompletionLetter = true)
         {
-            // Temp check - Eventually, a proper "Is this research an AP location?" function needs to exist.
-            if (proj.defName.Contains("Location"))
+            if (APResearchManager.IsApResearch(proj.defName))
             {
-                string[] splitNames = proj.defName.Split(' ');
-                long locationId = long.Parse(splitNames[splitNames.Length - 1]) + 5197648000;
-                ArchipelagoClient.SendLocation(locationId);
+                ArchipelagoClient.SendResearchLocation(proj.defName);
             }
 
             return true;
@@ -58,8 +55,26 @@ namespace RimWorldArchipelago
     {
         public static bool Prefix(ResearchProjectDef __instance, ref bool __result)
         {
-            // Temp check - Eventually, a proper "Is this research an AP location?" function needs to exist.
-            if (!__instance.defName.Contains("Location"))
+            if (!APResearchManager.IsApResearch(__instance.defName))
+            {
+                __result = false;
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+    }
+
+    // I don't like this one, but there's no more generic way to provide a failure reason (without overwriting the whole DrawButton button.)
+    [HarmonyPatch(typeof(ResearchProjectDef))]
+    [HarmonyPatch(nameof(ResearchProjectDef.PrerequisitesCompleted), MethodType.Getter)]
+    static class ResearchProgressDef_get_PrerequisitesCompleted_Patch
+    {
+        public static bool Prefix(ResearchProjectDef __instance, ref bool __result)
+        {
+            if (!APResearchManager.IsApResearch(__instance.defName))
             {
                 __result = false;
                 return false;
