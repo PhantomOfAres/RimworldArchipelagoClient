@@ -13,6 +13,8 @@ namespace RimworldArchipelago
 {
     public class SlotData
     {
+        [JsonProperty("seed")]
+        public string Seed { get; set; }
         [JsonProperty("options")]
         public SlotOptions SlotOptions { get; set; }
     }
@@ -23,6 +25,7 @@ namespace RimworldArchipelago
         public int HiTechResearchLocationCount { get; set; }
         public int MultiAnalyzerResearchLocationCount { get; set; }
         public int ResearchBaseCost { get; set; }
+        public int ResearchMaxPrerequisites { get; set; }
     }
 
     internal class ArchipelagoClient

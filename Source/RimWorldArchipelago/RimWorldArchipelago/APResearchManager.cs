@@ -1,7 +1,9 @@
 ﻿using Archipelago.MultiClient.Net.Enums;
 using Archipelago.MultiClient.Net.Models;
 using RimWorld;
+using System;
 using System.Collections.Generic;
+using UnityEngine;
 using Verse;
 
 namespace RimworldArchipelago
@@ -27,17 +29,23 @@ namespace RimworldArchipelago
 
         public static void GenerateArchipelagoResearch(Dictionary<long, ScoutedItemInfo> scoutedItemInfo)
         {
+            System.Random rand = new System.Random(ArchipelagoClient.SlotData.Seed.GetHashCode());
             SlotData slotData = ArchipelagoClient.SlotData;
             ResearchTabDef archipelagoTab = DefDatabase<ResearchTabDef>.GetNamed("Archipelago");
+            List<ResearchProjectDef> previousLevel = null;
+            List<ResearchProjectDef> currentLevel = new List<ResearchProjectDef>();
             long baseLocationId = BASE_LOCATION_ID;
             int x = 0;
             int y = 0;
             for (int i = 0; i < slotData.SlotOptions.BasicResearchLocationCount; i++)
             {
-                ResearchProjectDef research = GenerateResearchDef(scoutedItemInfo, i + baseLocationId, x, y, slotData, archipelagoTab);
+                ResearchProjectDef research = GenerateResearchDef(scoutedItemInfo, i + baseLocationId, x, y, slotData, archipelagoTab, previousLevel, rand);
+                currentLevel.Add(research);
                 y += 1;
                 if (y > 8)
                 {
+                    previousLevel = currentLevel;
+                    currentLevel = new List<ResearchProjectDef>();
                     y = 0;
                     x += 1;
                 }
@@ -47,10 +55,13 @@ namespace RimworldArchipelago
             baseLocationId += LOCATION_ID_GAP;
             for (int i = 0; i < slotData.SlotOptions.HiTechResearchLocationCount; i++)
             {
-                ResearchProjectDef research = GenerateResearchDef(scoutedItemInfo, i + baseLocationId, x, y, slotData, archipelagoTab);
+                ResearchProjectDef research = GenerateResearchDef(scoutedItemInfo, i + baseLocationId, x, y, slotData, archipelagoTab, previousLevel, rand);
+                currentLevel.Add(research);
                 y += 1;
                 if (y > 8)
                 {
+                    previousLevel = currentLevel;
+                    currentLevel = new List<ResearchProjectDef>();
                     y = 0;
                     x += 1;
                 }
@@ -60,10 +71,13 @@ namespace RimworldArchipelago
             baseLocationId += LOCATION_ID_GAP;
             for (int i = 0; i < slotData.SlotOptions.MultiAnalyzerResearchLocationCount; i++)
             {
-                ResearchProjectDef research = GenerateResearchDef(scoutedItemInfo, i + baseLocationId, x, y, slotData, archipelagoTab);
+                ResearchProjectDef research = GenerateResearchDef(scoutedItemInfo, i + baseLocationId, x, y, slotData, archipelagoTab, previousLevel, rand);
+                currentLevel.Add(research);
                 y += 1;
                 if (y > 8)
                 {
+                    previousLevel = currentLevel;
+                    currentLevel = new List<ResearchProjectDef>();
                     y = 0;
                     x += 1;
                 }
@@ -101,7 +115,7 @@ namespace RimworldArchipelago
             }
         }
 
-        private static ResearchProjectDef GenerateResearchDef(Dictionary<long, ScoutedItemInfo> scoutedItemInfo, long archipelagoId, int xIndex, int yIndex, SlotData slotData, ResearchTabDef archipelagoTab)
+        private static ResearchProjectDef GenerateResearchDef(Dictionary<long, ScoutedItemInfo> scoutedItemInfo, long archipelagoId, int xIndex, int yIndex, SlotData slotData, ResearchTabDef archipelagoTab, List<ResearchProjectDef> previousLevel, System.Random rand)
         {
             ScoutedItemInfo scoutedItem = null;
             if (scoutedItemInfo != null && scoutedItemInfo.ContainsKey(archipelagoId))
@@ -162,6 +176,26 @@ namespace RimworldArchipelago
             archipelagoResearch.researchViewX = xIndex * 1.0f;
             archipelagoResearch.researchViewY = yIndex * 0.7f;
             archipelagoResearch.generated = true;
+            if (previousLevel != null)
+            {
+                int maxPrereqs = 3;
+                if (yIndex == 0 || yIndex == 8)
+                {
+                    maxPrereqs = 2;
+                }
+                int prereqsLeft = rand.Next(ArchipelagoClient.SlotData.SlotOptions.ResearchMaxPrerequisites + 1);
+
+                archipelagoResearch.prerequisites = new List<ResearchProjectDef>();
+                for (int i = Mathf.Max(0, yIndex - 1); i <= Mathf.Min(yIndex + 1, 8); i++)
+                {
+                    if (rand.Next(maxPrereqs) < prereqsLeft)
+                    {
+                        archipelagoResearch.prerequisites.Add(previousLevel[i]);
+                        prereqsLeft -= 1;
+                    }
+                    maxPrereqs -= 1;
+                }
+            }
             return archipelagoResearch;
         }
 
