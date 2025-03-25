@@ -71,6 +71,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="APCraftManager.cs" />
     <Compile Include="ArchipelagoClient.cs" />
     <Compile Include="DataExportUtil.cs" />
     <Compile Include="HarmonyPatches.cs" />

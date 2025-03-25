@@ -10,7 +10,7 @@ namespace RimWorldArchipelago
     {
         public long Id;
         public string DefType;
-        public List<long> Prerequisites = new List<long>();
+        public List<string> Prerequisites = new List<string>();
     }
 
     [StaticConstructorOnStartup]

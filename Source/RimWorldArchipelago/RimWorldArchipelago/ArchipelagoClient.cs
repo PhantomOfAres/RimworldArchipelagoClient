@@ -3,10 +3,12 @@ using Archipelago.MultiClient.Net.Enums;
 using Archipelago.MultiClient.Net.Helpers;
 using Archipelago.MultiClient.Net.Models;
 using Newtonsoft.Json;
+using RimWorld;
 using RimWorldArchipelago;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using Verse;
 
 namespace RimworldArchipelago
@@ -17,6 +19,8 @@ namespace RimworldArchipelago
         public string Seed { get; set; }
         [JsonProperty("options")]
         public SlotOptions SlotOptions { get; set; }
+        [JsonProperty("craft_recipes")]
+        public Dictionary<long, List<string>> CraftRecipes { get; set; }
     }
 
     public class SlotOptions
@@ -125,6 +129,7 @@ namespace RimworldArchipelago
             Dictionary<long, ScoutedItemInfo> scoutedItemInfo = await session.Locations.ScoutLocationsAsync(session.Locations.AllLocations.ToArray());
 
             APResearchManager.GenerateArchipelagoResearch(scoutedItemInfo);
+            APCraftManager.GenerateArchipelagoCrafts();
         }
 
         public static bool Connected
@@ -157,6 +162,12 @@ namespace RimworldArchipelago
         public static void SendResearchLocation(string projectName)
         {
             long id = APResearchManager.GetLocationId(projectName);
+            session.Locations.CompleteLocationChecks(id);
+        }
+
+        public static void SendCraftLocation(string craftRecipeName)
+        {
+            long id = APCraftManager.GetLocationId(craftRecipeName);
             session.Locations.CompleteLocationChecks(id);
         }
     }

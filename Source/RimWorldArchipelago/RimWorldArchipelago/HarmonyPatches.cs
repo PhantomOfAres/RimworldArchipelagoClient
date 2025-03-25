@@ -85,4 +85,19 @@ namespace RimWorldArchipelago
             }
         }
     }
+
+    [HarmonyPatch(typeof(RecipeWorker))]
+    [HarmonyPatch(nameof(RecipeWorker.Notify_IterationCompleted))]
+    static class RecipeWorker_Patch
+    {
+        public static bool Prefix(RecipeWorker __instance)
+        {
+            if (APCraftManager.IsApCraft(__instance.recipe.defName))
+            {
+                ArchipelagoClient.SendCraftLocation(__instance.recipe.defName);
+            }
+
+            return true;
+        }
+    }
 }
