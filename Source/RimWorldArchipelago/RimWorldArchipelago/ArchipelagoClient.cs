@@ -1,14 +1,11 @@
 ﻿using Archipelago.MultiClient.Net;
 using Archipelago.MultiClient.Net.Enums;
-using Archipelago.MultiClient.Net.Helpers;
 using Archipelago.MultiClient.Net.Models;
 using Newtonsoft.Json;
-using RimWorld;
 using RimWorldArchipelago;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Verse;
 
 namespace RimworldArchipelago
@@ -32,6 +29,28 @@ namespace RimworldArchipelago
         public int ResearchMaxPrerequisites { get; set; }
     }
 
+    public class ArchipelagoGameComponent: GameComponent
+    {
+        private int handledIndexCount = 0;
+
+        public ArchipelagoGameComponent(Game game) { }
+
+        public override void ExposeData()
+        {
+            Scribe_Values.Look(ref handledIndexCount, "handledIndexCount");
+            base.ExposeData();
+        }
+
+        public override void GameComponentUpdate()
+        {
+            // We may not want to do this every frame, but for now it works fine.
+            if (ArchipelagoClient.Connected && Current.ProgramState == ProgramState.Playing)
+            {
+                ArchipelagoClient.HandleNextReceivedItemIfNeeded(ref handledIndexCount);
+            }
+        }
+    }
+
     internal class ArchipelagoClient
     {
         private static ArchipelagoSession session = null;
@@ -48,42 +67,49 @@ namespace RimworldArchipelago
                 Log.Message($"    No stacktrace provided");
         }
 
-        public static void ItemReceived(ReceivedItemsHelper helper)
+        public static void ItemReceived(ItemInfo itemInfo)
         {
-            ItemInfo itemInfo = helper.DequeueItem();
             Log.Message($"Item received: {itemInfo.ItemName}");
-
             if (Current.ProgramState == ProgramState.Playing)
             {
-                // Haha don't do this
-                try
+                ArchipelagoItemDef archipelagoItem = null;
+                foreach (ArchipelagoItemDef itemDef in DefDatabase<ArchipelagoItemDef>.AllDefs)
                 {
-                    ArchipelagoItemDef archipelagoItem = null;
-                    foreach (ArchipelagoItemDef itemDef in DefDatabase<ArchipelagoItemDef>.AllDefs)
+                    if (itemDef.Id == itemInfo.ItemId)
                     {
-                        if (itemDef.Id == itemInfo.ItemId)
-                        {
-                            archipelagoItem = itemDef;
-                        }
+                        archipelagoItem = itemDef;
                     }
-                    if (archipelagoItem == null)
+                }
+                if (archipelagoItem == null)
+                {
+                    Log.Error($"Could not find item with ID {itemInfo.ItemId} and name {itemInfo.ItemName}");
+                }
+                if (archipelagoItem.DefType == "ResearchProjectDef")
+                {
+                    string researchDefName = archipelagoItem.defName.Replace("Research", "");
+                    ResearchProjectDef research = DefDatabase<ResearchProjectDef>.GetNamed(researchDefName);
+                    if (research != null)
                     {
-                        Log.Error($"Could not find item with ID {itemInfo.ItemId} and name {itemInfo.ItemName}");
-                    }
-                    if (archipelagoItem.DefType == "ResearchProjectDef")
-                    {
-                        string researchDefName = archipelagoItem.defName.Replace("Research", "");
-                        ResearchProjectDef research = DefDatabase<ResearchProjectDef>.GetNamed(researchDefName);
                         Find.ResearchManager.FinishProject(research, doCompletionDialog: true);
                     }
                 }
-                catch (Exception _) { }
             }
             else
             {
                 Log.Message("lol queue it or something nerd get wrecked.");
             }
         }
+
+        public static void HandleNextReceivedItemIfNeeded(ref int handledIndexCount)
+        {
+            if (handledIndexCount < session.Items.AllItemsReceived.Count)
+            {
+                ItemInfo item = session.Items.AllItemsReceived[handledIndexCount];
+                ItemReceived(item);
+                handledIndexCount += 1;
+            }
+        }
+
         public async static void Connect(string server, string user, string pass)
         {
             LoginResult result;
@@ -95,7 +121,6 @@ namespace RimworldArchipelago
 
             session = ArchipelagoSessionFactory.CreateSession(server);
             session.Socket.ErrorReceived += Socket_ErrorReceived;
-            session.Items.ItemReceived += ItemReceived;
             try
             {
                 // handle TryConnectAndLogin attempt here and save the returned object to `result`
@@ -136,7 +161,7 @@ namespace RimworldArchipelago
         {
             get
             {
-                return session != null;
+                return session != null && session.Socket.Connected;
             }
         }
 
@@ -157,6 +182,11 @@ namespace RimworldArchipelago
             }
 
             return ret;
+        }
+
+        public static bool IsLocationComplete(long locationId)
+        {
+            return session.Locations.AllLocationsChecked.Contains(locationId);
         }
 
         public static void SendResearchLocation(string projectName)

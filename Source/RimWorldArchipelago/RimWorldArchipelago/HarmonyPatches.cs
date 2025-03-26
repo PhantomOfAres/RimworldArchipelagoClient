@@ -100,4 +100,29 @@ namespace RimWorldArchipelago
             return true;
         }
     }
+
+    [HarmonyPatch(typeof(RecipeDef))]
+    [HarmonyPatch(nameof(RecipeDef.UIIconThing), MethodType.Getter)]
+    static class RecipeDef_UIIconThing_Patch
+    {
+        public static bool Prefix (RecipeDef __instance, ref ThingDef __result)
+        {
+            if (APCraftManager.IsApCraft(__instance.defName))
+            {
+                if (ArchipelagoClient.IsLocationComplete(APCraftManager.GetLocationId(__instance.defName)))
+                {
+                    __result = DefDatabase<ThingDef>.GetNamed("ArchipelagoChecked");
+                }
+                else
+                {
+                    __result = DefDatabase<ThingDef>.GetNamed("ArchipelagoUnchecked");
+                }
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+    }
 }

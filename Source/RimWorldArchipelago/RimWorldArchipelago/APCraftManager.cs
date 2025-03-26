@@ -11,10 +11,6 @@ namespace RimworldArchipelago
 {
     internal class APCraftManager
     {
-        private const long BASE_LOCATION_ID = 5197648000;
-        private const int LOCATION_ID_GAP = 1000;
-
-        private static HashSet<string> apResearchNames = new HashSet<string>();
         private static Dictionary<string, long> craftRecipesToArchipelagoIds = new Dictionary<string, long>();
 
         public static void GenerateArchipelagoCrafts()
@@ -56,7 +52,10 @@ namespace RimworldArchipelago
 
                 craftRecipesToArchipelagoIds[recipeDef.defName] = locationId;
                 archipelagoBench.recipes.Add(recipeDef);
+                DefDatabase<RecipeDef>.Add(recipeDef);
             }
+
+            archipelagoBench.ClearCachedData();
         }
 
         public static bool IsApCraft(string craftRecipeName)

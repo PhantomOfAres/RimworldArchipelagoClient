@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ThingDef ParentName="ResourceBase">
+    <defName>ArchipelagoChecked</defName>
+    <label>Archipelago Checked</label>
+    <description>You shouldn't have this.</description>
+    <graphicData>
+      <texPath>ArchipelagoIcons/CheckedIcon</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <resourceReadoutPriority>First</resourceReadoutPriority>
+    <useHitPoints>false</useHitPoints>
+    <healthAffectsPrice>false</healthAffectsPrice>
+    <resourceReadoutAlwaysShow>true</resourceReadoutAlwaysShow>
+    <statBases>
+      <MarketValue>0</MarketValue>
+      <Mass>0.008</Mass>
+      <StuffPower_Armor_Sharp>0</StuffPower_Armor_Sharp>
+      <StuffPower_Armor_Blunt>0</StuffPower_Armor_Blunt>
+      <StuffPower_Armor_Heat>0</StuffPower_Armor_Heat>
+      <StuffPower_Insulation_Cold>0</StuffPower_Insulation_Cold>
+      <StuffPower_Insulation_Heat>0</StuffPower_Insulation_Heat>
+      <SharpDamageMultiplier>0</SharpDamageMultiplier>
+      <BluntDamageMultiplier>0</BluntDamageMultiplier>
+    </statBases>
+    <stackLimit>500</stackLimit>
+    <smallVolume>true</smallVolume>
+    <burnableByRecipe>false</burnableByRecipe>
+    <smeltable>false</smeltable>
+  </ThingDef>
+  <ThingDef ParentName="ResourceBase">
+    <defName>ArchipelagoUnchecked</defName>
+    <label>Archipelago Unchecked</label>
+    <description>You shouldn't have this.</description>
+    <graphicData>
+      <texPath>ArchipelagoIcons/ColorIcon</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <resourceReadoutPriority>First</resourceReadoutPriority>
+    <useHitPoints>false</useHitPoints>
+    <healthAffectsPrice>false</healthAffectsPrice>
+    <resourceReadoutAlwaysShow>true</resourceReadoutAlwaysShow>
+    <statBases>
+      <MarketValue>0</MarketValue>
+      <Mass>0.008</Mass>
+      <StuffPower_Armor_Sharp>0</StuffPower_Armor_Sharp>
+      <StuffPower_Armor_Blunt>0</StuffPower_Armor_Blunt>
+      <StuffPower_Armor_Heat>0</StuffPower_Armor_Heat>
+      <StuffPower_Insulation_Cold>0</StuffPower_Insulation_Cold>
+      <StuffPower_Insulation_Heat>0</StuffPower_Insulation_Heat>
+      <SharpDamageMultiplier>0</SharpDamageMultiplier>
+      <BluntDamageMultiplier>0</BluntDamageMultiplier>
+    </statBases>
+    <stackLimit>500</stackLimit>
+    <smallVolume>true</smallVolume>
+    <burnableByRecipe>false</burnableByRecipe>
+    <smeltable>false</smeltable>
+  </ThingDef>
+</Defs>
