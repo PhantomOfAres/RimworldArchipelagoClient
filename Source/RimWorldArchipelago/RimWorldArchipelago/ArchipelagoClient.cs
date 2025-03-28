@@ -1,6 +1,7 @@
 ﻿using Archipelago.MultiClient.Net;
 using Archipelago.MultiClient.Net.Enums;
 using Archipelago.MultiClient.Net.Models;
+using Archipelago.MultiClient.Net.Packets;
 using Newtonsoft.Json;
 using RimWorldArchipelago;
 using System;
@@ -10,6 +11,15 @@ using Verse;
 
 namespace RimworldArchipelago
 {
+    public enum VictoryType
+    {
+        Any = 0,
+        ShipLaunch = 1,
+        Royalty = 2,
+        Archonexus = 3,
+        Anomaly = 4
+    }
+
     public class SlotData
     {
         [JsonProperty("seed")]
@@ -27,6 +37,7 @@ namespace RimworldArchipelago
         public int MultiAnalyzerResearchLocationCount { get; set; }
         public int ResearchBaseCost { get; set; }
         public int ResearchMaxPrerequisites { get; set; }
+        public VictoryType VictoryCondition { get; set; }
     }
 
     public class ArchipelagoGameComponent: GameComponent
@@ -199,6 +210,17 @@ namespace RimworldArchipelago
         {
             long id = APCraftManager.GetLocationId(craftRecipeName);
             session.Locations.CompleteLocationChecks(id);
+        }
+
+        public static void VictoryAchieved(VictoryType type)
+        {
+            VictoryType winCondition = SlotData.SlotOptions.VictoryCondition;
+            if (type == winCondition || winCondition == VictoryType.Any)
+            {
+                var statusUpdatePacket = new StatusUpdatePacket();
+                statusUpdatePacket.Status = ArchipelagoClientState.ClientGoal;
+                session.Socket.SendPacket(statusUpdatePacket);
+            }
         }
     }
 }

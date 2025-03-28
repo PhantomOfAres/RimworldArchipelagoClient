@@ -125,4 +125,39 @@ namespace RimWorldArchipelago
             }
         }
     }
+
+    [HarmonyPatch(typeof(GameVictoryUtility))]
+    [HarmonyPatch(nameof(GameVictoryUtility.ShowCredits))]
+    static class GameVictory_ShowCredits_Patch
+    {
+        public static bool Prefix(string victoryText, SongDef endCreditsSong, bool exitToMainMenu = false, float songStartDelay = 5f)
+        {
+            if (endCreditsSong == SongDefOf.EndCreditsSong)
+            {
+                if (victoryText.Contains("GameOverShipLaunchedIntro".Translate()))
+                {
+                    ArchipelagoClient.VictoryAchieved(VictoryType.ShipLaunch);
+                }
+                else
+                {
+                    ArchipelagoClient.VictoryAchieved(VictoryType.Royalty);
+                }
+            }
+            else if (endCreditsSong == SongDefOf.ArchonexusVictorySong)
+            {
+                ArchipelagoClient.VictoryAchieved(VictoryType.Archonexus);
+            }
+            else if (endCreditsSong == SongDefOf.AnomalyCreditsSong || endCreditsSong == null)
+            {
+                ArchipelagoClient.VictoryAchieved(VictoryType.Anomaly);
+            }
+            else
+            {
+                Log.Warning("Detected victory, but not sure which type! Sending an 'Any' victory!");
+                ArchipelagoClient.VictoryAchieved(VictoryType.Any);
+            }
+
+            return true;
+        }
+    }
 }
