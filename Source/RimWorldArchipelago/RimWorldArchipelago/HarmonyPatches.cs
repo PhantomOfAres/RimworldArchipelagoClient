@@ -165,12 +165,31 @@ namespace RimWorldArchipelago
     [HarmonyPatch(nameof(ResearchUtility.ApplyPlayerStartingResearch))]
     static class ResearchUtility_ApplyPlayerStartingResearch_Patch
     {
+        public const string TribalResearchTag = "TribalStart";
+        public const string CrashlandedResearchTag = "ClassicStart";
+
         public static bool Prefix()
         {
             FactionDef playerFactionDef = Faction.OfPlayer.def;
             if (playerFactionDef.startingResearchTags != null)
             {
                 playerFactionDef.startingResearchTags.Clear();
+                if (ArchipelagoClient.Connected)
+                {
+                    switch (ArchipelagoClient.SlotData.SlotOptions.StartingResearchLevel)
+                    {
+                        case StartingResearchLevel.Tribal:
+                            ResearchProjectTagDef tribalTag = DefDatabase<ResearchProjectTagDef>.GetNamed(TribalResearchTag);
+                            playerFactionDef.startingResearchTags.Add(tribalTag);
+                            break;
+                        case StartingResearchLevel.Crashlanded:
+                            ResearchProjectTagDef crashlandedTag = DefDatabase<ResearchProjectTagDef>.GetNamed(CrashlandedResearchTag);
+                            playerFactionDef.startingResearchTags.Add(crashlandedTag);
+                            break;
+                        case StartingResearchLevel.None:
+                            break;
+                    }
+                }
             }
 
             Ideo ideo;

@@ -27,6 +27,13 @@ namespace RimworldArchipelago
                 {
                     item.RequiredExpansion = research.modContentPack.PackageIdPlayerFacing;
                 }
+                if (research.tags != null)
+                {
+                    foreach (ResearchProjectTagDef researchTag in research.tags)
+                    {
+                        item.ResearchTags.Add(researchTag.defName);
+                    }
+                }
                 item.label = textInfo.ToTitleCase(research.label);
                 allDefs[item.defName] = item;
             }
@@ -152,6 +159,20 @@ namespace RimworldArchipelago
                 writer.WriteStartElement("RequiredExpansion");
                 writer.WriteString(def.RequiredExpansion);
                 writer.WriteEndElement();
+
+                if (def.ResearchTags.Count > 0)
+                {
+                    writer.WriteStartElement("ResearchTags");
+
+                    foreach (string name in def.ResearchTags)
+                    {
+                        writer.WriteStartElement("li");
+                        writer.WriteString(name);
+                        writer.WriteEndElement();
+                    }
+
+                    writer.WriteEndElement();
+                }
 
                 if (def.Prerequisites.Count > 0)
                 {

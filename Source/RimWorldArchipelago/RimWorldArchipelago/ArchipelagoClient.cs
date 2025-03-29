@@ -20,6 +20,13 @@ namespace RimworldArchipelago
         Anomaly = 4
     }
 
+    public enum StartingResearchLevel
+    {
+        None = 0,
+        Tribal = 1,
+        Crashlanded = 2
+    }
+
     public class SlotData
     {
         [JsonProperty("seed")]
@@ -38,10 +45,11 @@ namespace RimworldArchipelago
         public int ResearchBaseCost { get; set; }
         public int ResearchMaxPrerequisites { get; set; }
         public VictoryType VictoryCondition { get; set; }
-        public bool RoyaltyEnabled {  get; set; }
-        public bool IdeologyEnabled {  get; set; }
-        public bool BiotechEnabled {  get; set; }
-        public bool AnomalyEnabled {  get; set; }
+        public bool RoyaltyEnabled { get; set; }
+        public bool IdeologyEnabled { get; set; }
+        public bool BiotechEnabled { get; set; }
+        public bool AnomalyEnabled { get; set; }
+        public StartingResearchLevel StartingResearchLevel { get; set; }
 
     }
 

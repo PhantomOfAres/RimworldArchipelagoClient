@@ -11,6 +11,7 @@ namespace RimWorldArchipelago
         public long Id;
         public string DefType;
         public string RequiredExpansion;
+        public List<string> ResearchTags = new List<string>();
         public List<string> Prerequisites = new List<string>();
     }
 
