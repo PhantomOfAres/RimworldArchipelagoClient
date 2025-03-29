@@ -97,6 +97,12 @@ namespace RimworldArchipelago
             if (Current.ProgramState == ProgramState.Playing)
             {
                 ArchipelagoItemDef archipelagoItem = null;
+                if (itemInfo.ItemName == "Temp Filler")
+                {
+                    // As it says - this filler is temp. Once we have real filler items, we can remove this logic.
+                    return;
+                }
+
                 foreach (ArchipelagoItemDef itemDef in DefDatabase<ArchipelagoItemDef>.AllDefs)
                 {
                     if (itemDef.Id == itemInfo.ItemId)
