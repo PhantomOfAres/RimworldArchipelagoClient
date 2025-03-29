@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Xml;
+using UnityEngine;
 using Verse;
 
 namespace RimworldArchipelago
@@ -26,6 +27,36 @@ namespace RimworldArchipelago
                 if (research.modContentPack != null)
                 {
                     item.RequiredExpansion = research.modContentPack.PackageIdPlayerFacing;
+                }
+                switch (research.techLevel)
+                {
+                    case TechLevel.Animal:
+                    case TechLevel.Neolithic:
+                        item.TechLevel = AdjustedTechLevel.Neolithic;
+                        break;
+                    case TechLevel.Medieval:
+                        item.TechLevel = AdjustedTechLevel.Medieval;
+                        break;
+                    case TechLevel.Industrial:
+                        item.TechLevel = AdjustedTechLevel.Industrial;
+                        break;
+                    case TechLevel.Spacer:
+                        item.TechLevel = AdjustedTechLevel.Spacer;
+                        break;
+                    case TechLevel.Ultra:
+                    case TechLevel.Archotech:
+                        item.TechLevel = AdjustedTechLevel.HardToMake;
+                        break;
+                    case TechLevel.Undefined:
+                        if (item.RequiredExpansion == ModContentPack.AnomalyModPackageId)
+                        {
+                            item.TechLevel = AdjustedTechLevel.Anomaly;
+                        }
+                        else
+                        {
+                            item.TechLevel = AdjustedTechLevel.Neolithic;
+                        }
+                        break;
                 }
                 if (research.tags != null)
                 {
@@ -73,6 +104,37 @@ namespace RimworldArchipelago
                             if (requiredResearchExpansion != "")
                             {
                                 item.RequiredExpansion = requiredResearchExpansion;
+                            }
+                            TechLevel maxTechLevel = (TechLevel)Mathf.Max((int)item.TechLevel, (int)(recipeDef.researchPrerequisite == null ? 0 : recipeDef.researchPrerequisite.techLevel));
+                            switch (maxTechLevel)
+                            {
+                                case TechLevel.Animal:
+                                case TechLevel.Neolithic:
+                                    item.TechLevel = AdjustedTechLevel.Neolithic;
+                                    break;
+                                case TechLevel.Medieval:
+                                    item.TechLevel = AdjustedTechLevel.Medieval;
+                                    break;
+                                case TechLevel.Industrial:
+                                    item.TechLevel = AdjustedTechLevel.Industrial;
+                                    break;
+                                case TechLevel.Spacer:
+                                    item.TechLevel = AdjustedTechLevel.Spacer;
+                                    break;
+                                case TechLevel.Ultra:
+                                case TechLevel.Archotech:
+                                    item.TechLevel = AdjustedTechLevel.HardToMake;
+                                    break;
+                                case TechLevel.Undefined:
+                                    if (item.RequiredExpansion == "Ludeon.RimWorld.Anomaly")
+                                    {
+                                        item.TechLevel = AdjustedTechLevel.Anomaly;
+                                    }
+                                    else
+                                    {
+                                        item.TechLevel = AdjustedTechLevel.Neolithic;
+                                    }
+                                    break;
                             }
                             item.label = textInfo.ToTitleCase(product.thingDef.label);
                             // If the recipe requires a specific research, mark it as an (Archipelago) prerequisite
@@ -150,6 +212,10 @@ namespace RimworldArchipelago
 
                 writer.WriteStartElement("defName");
                 writer.WriteString(def.defName);
+                writer.WriteEndElement();
+
+                writer.WriteStartElement("TechLevel");
+                writer.WriteString(def.TechLevel.ToString());
                 writer.WriteEndElement();
 
                 writer.WriteStartElement("label");

@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using RimWorld;
 using RimworldArchipelago;
 using System.Collections.Generic;
 using Verse;
@@ -6,11 +7,22 @@ using Verse;
 
 namespace RimWorldArchipelago
 {
+    public enum AdjustedTechLevel
+    {
+        Neolithic,
+        Medieval,
+        Industrial,
+        Spacer,
+        HardToMake,
+        Anomaly
+    }
+
     public class ArchipelagoItemDef : Def
     {
         public long Id;
         public string DefType;
         public string RequiredExpansion;
+        public AdjustedTechLevel TechLevel;
         public List<string> ResearchTags = new List<string>();
         public List<string> Prerequisites = new List<string>();
     }
