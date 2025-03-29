@@ -40,6 +40,12 @@ namespace RimworldArchipelago
                     recipeDef.products != null &&
                     recipeDef.products.Count > 0)
                 {
+                    string requiredResearchExpansion = "";
+                    if (recipeDef.researchPrerequisite != null && recipeDef.researchPrerequisite.modContentPack != null && recipeDef.researchPrerequisite.modContentPack.PackageId != ModContentPack.CoreModPackageId)
+                    {
+                        requiredResearchExpansion = recipeDef.researchPrerequisite.modContentPack.PackageIdPlayerFacing;
+                    }
+
                     foreach (ThingDefCountClass product in recipeDef.products)
                     {
                         // Ensure we haven't already included this item type, and ensure we're only targeting items, not buildings or mechs or whatever.
@@ -55,6 +61,11 @@ namespace RimworldArchipelago
                             if (product.thingDef.modContentPack != null)
                             {
                                 item.RequiredExpansion = product.thingDef.modContentPack.PackageIdPlayerFacing;
+                            }
+                            // Some items can be found in the base game, but crafted in expansions. Treat those items is in-logic only if they can be crafted.
+                            if (requiredResearchExpansion != "")
+                            {
+                                item.RequiredExpansion = requiredResearchExpansion;
                             }
                             item.label = textInfo.ToTitleCase(product.thingDef.label);
                             // If the recipe requires a specific research, mark it as an (Archipelago) prerequisite
@@ -86,7 +97,6 @@ namespace RimworldArchipelago
                                     }
                                 }
                             }
-
                             allDefs[item.defName] = item;
                         }
                     }
@@ -96,12 +106,14 @@ namespace RimworldArchipelago
             // Now that we have items for everything, add prereq archipelago names.
             foreach (ResearchProjectDef research in DefDatabase<ResearchProjectDef>.AllDefs)
             {
-                ArchipelagoItemDef item = allDefs[$"{research.defName}Research"];
+                string researchId = $"{research.defName}Research";
+                ArchipelagoItemDef item = allDefs[researchId];
                 if (research.prerequisites != null)
                 {
                     foreach (ResearchProjectDef prereq in research.prerequisites)
                     {
-                        ArchipelagoItemDef prereqArchipelagoItem = allDefs[prereq.defName];
+                        string prereqId = $"{prereq.defName}Research";
+                        ArchipelagoItemDef prereqArchipelagoItem = allDefs[prereqId];
                         item.Prerequisites.Add(prereqArchipelagoItem.label);
                     }
                 }

@@ -62,6 +62,9 @@
     <defName>CocoaResearch</defName>
     <label>Cocoa</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Tree Sowing</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769110</Id>
@@ -104,6 +107,9 @@
     <defName>PsychiteRefiningResearch</defName>
     <label>Psychite Refining</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Drug Production</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769116</Id>
@@ -111,6 +117,9 @@
     <defName>WakeUpProductionResearch</defName>
     <label>Wake-Up Production</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Drug Production</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769117</Id>
@@ -118,6 +127,9 @@
     <defName>GoJuiceProductionResearch</defName>
     <label>Go-Juice Production</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Drug Production</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769118</Id>
@@ -125,6 +137,9 @@
     <defName>PenoxycylineProductionResearch</defName>
     <label>Penoxycyline Production</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Drug Production</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769119</Id>
@@ -132,6 +147,9 @@
     <defName>LongBladesResearch</defName>
     <label>Long Blades</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Smithing</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769120</Id>
@@ -139,6 +157,10 @@
     <defName>PlateArmorResearch</defName>
     <label>Plate Armor</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Smithing</li>
+      <li>Complex Clothing</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769121</Id>
@@ -146,6 +168,9 @@
     <defName>GreatbowResearch</defName>
     <label>Greatbow</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Recurve Bow</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769122</Id>
@@ -160,6 +185,9 @@
     <defName>BatteriesResearch</defName>
     <label>Battery</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Electricity</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769124</Id>
@@ -167,6 +195,9 @@
     <defName>BiofuelRefiningResearch</defName>
     <label>Biofuel Refining</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Electricity</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769125</Id>
@@ -174,6 +205,9 @@
     <defName>WatermillGeneratorResearch</defName>
     <label>Watermill Generator</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Electricity</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769126</Id>
@@ -181,6 +215,9 @@
     <defName>NutrientPasteResearch</defName>
     <label>Nutrient Paste</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Electricity</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769127</Id>
@@ -188,6 +225,9 @@
     <defName>SolarPanelsResearch</defName>
     <label>Solar Panel</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Electricity</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769128</Id>
@@ -195,6 +235,9 @@
     <defName>AirConditioningResearch</defName>
     <label>Air Conditioning</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Electricity</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769129</Id>
@@ -202,6 +245,9 @@
     <defName>AutodoorsResearch</defName>
     <label>Autodoor</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Electricity</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769130</Id>
@@ -209,6 +255,9 @@
     <defName>HydroponicsResearch</defName>
     <label>Hydroponics</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Electricity</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769131</Id>
@@ -216,6 +265,9 @@
     <defName>TubeTelevisionResearch</defName>
     <label>Tube Television</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Electricity</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769132</Id>
@@ -223,6 +275,9 @@
     <defName>PackagedSurvivalMealResearch</defName>
     <label>Packaged Survival Meal</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Nutrient Paste</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769133</Id>
@@ -230,6 +285,9 @@
     <defName>FirefoamResearch</defName>
     <label>Firefoam</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Electricity</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769134</Id>
@@ -237,6 +295,9 @@
     <defName>IEDsResearch</defName>
     <label>Ieds</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Electricity</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769135</Id>
@@ -244,6 +305,9 @@
     <defName>GeothermalPowerResearch</defName>
     <label>Geothermal Power</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Electricity</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769136</Id>
@@ -251,6 +315,9 @@
     <defName>SterileMaterialsResearch</defName>
     <label>Sterile Materials</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Electricity</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769137</Id>
@@ -258,6 +325,9 @@
     <defName>ColoredLightsResearch</defName>
     <label>Advanced Lights</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Electricity</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769138</Id>
@@ -265,6 +335,10 @@
     <defName>MachiningResearch</defName>
     <label>Machining</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Electricity</li>
+      <li>Smithing</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769139</Id>
@@ -272,6 +346,9 @@
     <defName>SmokepopBeltResearch</defName>
     <label>Smokepop Packs</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Machining</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769140</Id>
@@ -279,6 +356,9 @@
     <defName>ProstheticsResearch</defName>
     <label>Prosthetics</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Machining</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769141</Id>
@@ -286,6 +366,9 @@
     <defName>GunsmithingResearch</defName>
     <label>Gunsmithing</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Machining</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769142</Id>
@@ -293,6 +376,9 @@
     <defName>FlakArmorResearch</defName>
     <label>Flak Armor</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Machining</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769143</Id>
@@ -300,6 +386,9 @@
     <defName>MortarsResearch</defName>
     <label>Mortars</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Gunsmithing</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769144</Id>
@@ -307,6 +396,9 @@
     <defName>BlowbackOperationResearch</defName>
     <label>Blowback Operation</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Gunsmithing</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769145</Id>
@@ -314,6 +406,9 @@
     <defName>GasOperationResearch</defName>
     <label>Gas Operation</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Blowback Operation</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769146</Id>
@@ -321,6 +416,9 @@
     <defName>GunTurretsResearch</defName>
     <label>Gun Turrets</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Blowback Operation</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769147</Id>
@@ -328,6 +426,9 @@
     <defName>FoamTurretResearch</defName>
     <label>Foam Turret</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Gun Turrets</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769148</Id>
@@ -335,6 +436,9 @@
     <defName>MicroelectronicsBasicsResearch</defName>
     <label>Microelectronics</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Electricity</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769149</Id>
@@ -342,6 +446,10 @@
     <defName>FlatscreenTelevisionResearch</defName>
     <label>Flatscreen Television</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Tube Television</li>
+      <li>Microelectronics</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769150</Id>
@@ -349,6 +457,9 @@
     <defName>MoisturePumpResearch</defName>
     <label>Moisture Pump</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Microelectronics</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769151</Id>
@@ -356,6 +467,9 @@
     <defName>HospitalBedResearch</defName>
     <label>Hospital Bed</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Microelectronics</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769152</Id>
@@ -363,6 +477,9 @@
     <defName>DeepDrillingResearch</defName>
     <label>Deep Drilling</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Microelectronics</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769153</Id>
@@ -370,6 +487,9 @@
     <defName>GroundPenetratingScannerResearch</defName>
     <label>Ground-Penetrating Scanner</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Deep Drilling</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769154</Id>
@@ -377,6 +497,9 @@
     <defName>TransportPodResearch</defName>
     <label>Transport Pod</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Microelectronics</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769155</Id>
@@ -384,6 +507,10 @@
     <defName>MedicineProductionResearch</defName>
     <label>Medicine Production</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Drug Production</li>
+      <li>Microelectronics</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769156</Id>
@@ -391,6 +518,9 @@
     <defName>LongRangeMineralScannerResearch</defName>
     <label>Long-Range Mineral Scanner</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Microelectronics</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769157</Id>
@@ -398,6 +528,9 @@
     <defName>ShieldBeltResearch</defName>
     <label>Shields</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Microelectronics</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769158</Id>
@@ -405,6 +538,10 @@
     <defName>PrecisionRiflingResearch</defName>
     <label>Precision Rifling</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Gas Operation</li>
+      <li>Microelectronics</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769159</Id>
@@ -412,6 +549,11 @@
     <defName>HeavyTurretsResearch</defName>
     <label>Autocannon Turret</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Gun Turrets</li>
+      <li>Gas Operation</li>
+      <li>Microelectronics</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769160</Id>
@@ -419,6 +561,10 @@
     <defName>MultibarrelWeaponsResearch</defName>
     <label>Multibarrel Weapons</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Gas Operation</li>
+      <li>Microelectronics</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769161</Id>
@@ -426,6 +572,9 @@
     <defName>MultiAnalyzerResearch</defName>
     <label>Multi-Analyzer</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Microelectronics</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769162</Id>
@@ -433,6 +582,10 @@
     <defName>VitalsMonitorResearch</defName>
     <label>Vitals Monitor</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Multi-Analyzer</li>
+      <li>Hospital Bed</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769163</Id>
@@ -440,6 +593,9 @@
     <defName>FabricationResearch</defName>
     <label>Fabrication</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Multi-Analyzer</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769164</Id>
@@ -447,6 +603,9 @@
     <defName>AdvancedFabricationResearch</defName>
     <label>Advanced Fabrication</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Fabrication</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769165</Id>
@@ -454,6 +613,9 @@
     <defName>CryptosleepResearch</defName>
     <label>Cryptosleep Casket</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Multi-Analyzer</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769166</Id>
@@ -461,6 +623,9 @@
     <defName>ReconArmorResearch</defName>
     <label>Recon Armor</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Fabrication</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769167</Id>
@@ -468,6 +633,9 @@
     <defName>PoweredArmorResearch</defName>
     <label>Marine Armor</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Recon Armor</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769168</Id>
@@ -475,6 +643,9 @@
     <defName>ChargedShotResearch</defName>
     <label>Pulse-Charged Munitions</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Fabrication</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769169</Id>
@@ -482,6 +653,9 @@
     <defName>BionicsResearch</defName>
     <label>Bionic Replacements</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Fabrication</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769170</Id>
@@ -489,6 +663,9 @@
     <defName>SniperTurretResearch</defName>
     <label>Uranium Slug Turret</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Multi-Analyzer</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769171</Id>
@@ -496,6 +673,9 @@
     <defName>RocketswarmLauncherResearch</defName>
     <label>Rocketswarm Launcher</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Multi-Analyzer</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769172</Id>
@@ -503,6 +683,9 @@
     <defName>ShipBasicsResearch</defName>
     <label>Starflight Basics</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Advanced Fabrication</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769173</Id>
@@ -510,6 +693,10 @@
     <defName>ShipCryptosleepResearch</defName>
     <label>Vacuum Cryptosleep Casket</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Starflight Basics</li>
+      <li>Cryptosleep Casket</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769174</Id>
@@ -517,6 +704,9 @@
     <defName>ShipReactorResearch</defName>
     <label>Starship Reactor</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Starflight Basics</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769175</Id>
@@ -524,6 +714,9 @@
     <defName>ShipEngineResearch</defName>
     <label>Johnson-Tanaka Drive</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Starflight Basics</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769176</Id>
@@ -531,6 +724,9 @@
     <defName>ShipComputerCoreResearch</defName>
     <label>Machine Persuasion</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Starflight Basics</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769177</Id>
@@ -538,6 +734,9 @@
     <defName>ShipSensorClusterResearch</defName>
     <label>Starflight Sensors</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <Prerequisites>
+      <li>Starflight Basics</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769178</Id>
@@ -545,6 +744,9 @@
     <defName>NobleApparelResearch</defName>
     <label>Noble Apparel</label>
     <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
+    <Prerequisites>
+      <li>Complex Clothing</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769179</Id>
@@ -552,6 +754,9 @@
     <defName>RoyalApparelResearch</defName>
     <label>Royal Apparel</label>
     <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
+    <Prerequisites>
+      <li>Noble Apparel</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769180</Id>
@@ -559,6 +764,9 @@
     <defName>CataphractArmorResearch</defName>
     <label>Cataphract Armor</label>
     <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
+    <Prerequisites>
+      <li>Marine Armor</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769181</Id>
@@ -566,6 +774,9 @@
     <defName>JumpPackResearch</defName>
     <label>Jump Packs</label>
     <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
+    <Prerequisites>
+      <li>Microelectronics</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769182</Id>
@@ -573,6 +784,9 @@
     <defName>GunlinkResearch</defName>
     <label>Gunlink</label>
     <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
+    <Prerequisites>
+      <li>Fabrication</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769183</Id>
@@ -580,6 +794,9 @@
     <defName>BrainWiringResearch</defName>
     <label>Brain Wiring</label>
     <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
+    <Prerequisites>
+      <li>Microelectronics</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769184</Id>
@@ -587,6 +804,9 @@
     <defName>SpecializedLimbsResearch</defName>
     <label>Specialized Limbs</label>
     <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
+    <Prerequisites>
+      <li>Microelectronics</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769185</Id>
@@ -594,6 +814,9 @@
     <defName>CompactWeaponryResearch</defName>
     <label>Compact Weaponry</label>
     <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
+    <Prerequisites>
+      <li>Microelectronics</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769186</Id>
@@ -601,6 +824,9 @@
     <defName>VenomSynthesisResearch</defName>
     <label>Poison Synthesis</label>
     <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
+    <Prerequisites>
+      <li>Compact Weaponry</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769187</Id>
@@ -608,6 +834,9 @@
     <defName>ArtificialMetabolismResearch</defName>
     <label>Artificial Metabolism</label>
     <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
+    <Prerequisites>
+      <li>Fabrication</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769188</Id>
@@ -615,6 +844,9 @@
     <defName>NeuralComputationResearch</defName>
     <label>Neural Computation</label>
     <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
+    <Prerequisites>
+      <li>Fabrication</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769189</Id>
@@ -622,6 +854,9 @@
     <defName>SkinHardeningResearch</defName>
     <label>Skin Hardening</label>
     <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
+    <Prerequisites>
+      <li>Fabrication</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769190</Id>
@@ -629,6 +864,9 @@
     <defName>HealingFactorsResearch</defName>
     <label>Healing Factors</label>
     <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
+    <Prerequisites>
+      <li>Fabrication</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769191</Id>
@@ -636,6 +874,9 @@
     <defName>FleshShapingResearch</defName>
     <label>Flesh Shaping</label>
     <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
+    <Prerequisites>
+      <li>Fabrication</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769192</Id>
@@ -643,6 +884,9 @@
     <defName>MolecularAnalysisResearch</defName>
     <label>Molecular Analysis</label>
     <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
+    <Prerequisites>
+      <li>Fabrication</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769193</Id>
@@ -650,6 +894,9 @@
     <defName>CircadianInfluenceResearch</defName>
     <label>Circadian Influence</label>
     <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
+    <Prerequisites>
+      <li>Fabrication</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769194</Id>
@@ -657,6 +904,9 @@
     <defName>HarpResearch</defName>
     <label>Harp</label>
     <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
+    <Prerequisites>
+      <li>Complex Furniture</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769195</Id>
@@ -664,6 +914,10 @@
     <defName>HarpsichordResearch</defName>
     <label>Harpsichord</label>
     <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
+    <Prerequisites>
+      <li>Harp</li>
+      <li>Smithing</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769196</Id>
@@ -671,6 +925,9 @@
     <defName>PianoResearch</defName>
     <label>Piano</label>
     <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
+    <Prerequisites>
+      <li>Harpsichord</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769197</Id>
@@ -678,6 +935,9 @@
     <defName>BiosculptingResearch</defName>
     <label>Biosculpting</label>
     <RequiredExpansion>Ludeon.RimWorld.Ideology</RequiredExpansion>
+    <Prerequisites>
+      <li>Microelectronics</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769198</Id>
@@ -685,6 +945,10 @@
     <defName>BioregenerationResearch</defName>
     <label>Bioregeneration</label>
     <RequiredExpansion>Ludeon.RimWorld.Ideology</RequiredExpansion>
+    <Prerequisites>
+      <li>Biosculpting</li>
+      <li>Multi-Analyzer</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769199</Id>
@@ -692,6 +956,9 @@
     <defName>NeuralSuperchargerResearch</defName>
     <label>Neural Supercharger</label>
     <RequiredExpansion>Ludeon.RimWorld.Ideology</RequiredExpansion>
+    <Prerequisites>
+      <li>Microelectronics</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769200</Id>
@@ -699,6 +966,9 @@
     <defName>BasicMechtechResearch</defName>
     <label>Basic Mechtech</label>
     <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
+    <Prerequisites>
+      <li>Electricity</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769201</Id>
@@ -706,6 +976,9 @@
     <defName>StandardMechtechResearch</defName>
     <label>Standard Mechtech</label>
     <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
+    <Prerequisites>
+      <li>Basic Mechtech</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769202</Id>
@@ -713,6 +986,10 @@
     <defName>HighMechtechResearch</defName>
     <label>High Mechtech</label>
     <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
+    <Prerequisites>
+      <li>Standard Mechtech</li>
+      <li>Multi-Analyzer</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769203</Id>
@@ -720,6 +997,10 @@
     <defName>UltraMechtechResearch</defName>
     <label>Ultra Mechtech</label>
     <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
+    <Prerequisites>
+      <li>Fabrication</li>
+      <li>High Mechtech</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769204</Id>
@@ -727,6 +1008,9 @@
     <defName>WastepackAtomizerResearch</defName>
     <label>Wastepack Atomizer</label>
     <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
+    <Prerequisites>
+      <li>Advanced Fabrication</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769205</Id>
@@ -734,6 +1018,9 @@
     <defName>ToxifierGeneratorResearch</defName>
     <label>Toxifier Generator</label>
     <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
+    <Prerequisites>
+      <li>Electricity</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769206</Id>
@@ -741,6 +1028,9 @@
     <defName>XenogerminationResearch</defName>
     <label>Xenogenetics</label>
     <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
+    <Prerequisites>
+      <li>Electricity</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769207</Id>
@@ -748,6 +1038,10 @@
     <defName>GeneProcessorResearch</defName>
     <label>Gene Processor</label>
     <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
+    <Prerequisites>
+      <li>Xenogenetics</li>
+      <li>Microelectronics</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769208</Id>
@@ -755,6 +1049,10 @@
     <defName>ArchogeneticsResearch</defName>
     <label>Archogenetics</label>
     <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
+    <Prerequisites>
+      <li>Fabrication</li>
+      <li>Gene Processor</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769209</Id>
@@ -762,6 +1060,9 @@
     <defName>DeathrestResearch</defName>
     <label>Deathrest</label>
     <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
+    <Prerequisites>
+      <li>Electricity</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769210</Id>
@@ -769,6 +1070,9 @@
     <defName>FertilityProceduresResearch</defName>
     <label>Fertility Procedures</label>
     <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
+    <Prerequisites>
+      <li>Electricity</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769211</Id>
@@ -776,6 +1080,9 @@
     <defName>ToxGasResearch</defName>
     <label>Tox Gas</label>
     <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
+    <Prerequisites>
+      <li>Machining</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769212</Id>
@@ -783,6 +1090,9 @@
     <defName>ToxFiltrationResearch</defName>
     <label>Toxin Filtration</label>
     <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
+    <Prerequisites>
+      <li>Fabrication</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769213</Id>
@@ -790,6 +1100,9 @@
     <defName>GrowthVatsResearch</defName>
     <label>Growth Vats</label>
     <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
+    <Prerequisites>
+      <li>Microelectronics</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769214</Id>
@@ -804,6 +1117,10 @@
     <defName>BioferriteHarvestingResearch</defName>
     <label>Bioferrite Harvester</label>
     <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
+    <Prerequisites>
+      <li>Entity Containment</li>
+      <li>Bioferrite Extraction</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769216</Id>
@@ -811,6 +1128,10 @@
     <defName>BioferriteShapingResearch</defName>
     <label>Bioferrite Shaping</label>
     <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
+    <Prerequisites>
+      <li>Bioferrite Extraction</li>
+      <li>Electricity</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769217</Id>
@@ -818,6 +1139,10 @@
     <defName>BioferriteIgnitionResearch</defName>
     <label>Bioferrite Weaponry</label>
     <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
+    <Prerequisites>
+      <li>Bioferrite Shaping</li>
+      <li>Precision Rifling</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769218</Id>
@@ -825,6 +1150,9 @@
     <defName>BioferriteGeneratorResearch</defName>
     <label>Bioferrite Generator</label>
     <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
+    <Prerequisites>
+      <li>Electroharvester</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769219</Id>
@@ -832,6 +1160,10 @@
     <defName>VoidSculpturesResearch</defName>
     <label>Void Sculptures</label>
     <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
+    <Prerequisites>
+      <li>Bioferrite Extraction</li>
+      <li>Void Provocation</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769220</Id>
@@ -839,6 +1171,9 @@
     <defName>InsanityWeaponryResearch</defName>
     <label>Insanity Weaponry</label>
     <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
+    <Prerequisites>
+      <li>Bioferrite Shaping</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769221</Id>
@@ -846,6 +1181,9 @@
     <defName>MutationWeaponryResearch</defName>
     <label>Mutation Weaponry</label>
     <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
+    <Prerequisites>
+      <li>Bioferrite Shaping</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769222</Id>
@@ -853,6 +1191,9 @@
     <defName>AtmosphericHeaterResearch</defName>
     <label>Atmospheric Heater</label>
     <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
+    <Prerequisites>
+      <li>Bioferrite Generator</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769223</Id>
@@ -860,6 +1201,9 @@
     <defName>FrenzyInducerResearch</defName>
     <label>Frenzy Inducer</label>
     <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
+    <Prerequisites>
+      <li>Sleep Suppressor</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769224</Id>
@@ -867,6 +1211,10 @@
     <defName>SleepSuppressorResearch</defName>
     <label>Sleep Suppressor</label>
     <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
+    <Prerequisites>
+      <li>Bioferrite Extraction</li>
+      <li>Entity Containment</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769225</Id>
@@ -874,6 +1222,9 @@
     <defName>EntityContainmentResearch</defName>
     <label>Entity Containment</label>
     <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
+    <Prerequisites>
+      <li>Electricity</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769226</Id>
@@ -881,6 +1232,9 @@
     <defName>ElectroharvesterResearch</defName>
     <label>Electroharvester</label>
     <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
+    <Prerequisites>
+      <li>Entity Containment</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769227</Id>
@@ -888,6 +1242,10 @@
     <defName>DisruptorFlaresResearch</defName>
     <label>Disruptor Flares</label>
     <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
+    <Prerequisites>
+      <li>Entity Containment</li>
+      <li>Bioferrite Shaping</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769228</Id>
@@ -895,6 +1253,9 @@
     <defName>ProximityDetectorResearch</defName>
     <label>Proximity Detector</label>
     <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
+    <Prerequisites>
+      <li>Entity Containment</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769229</Id>
@@ -909,6 +1270,9 @@
     <defName>SummonAnimalsResearch</defName>
     <label>Draw Animals</label>
     <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
+    <Prerequisites>
+      <li>Void Provocation</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769231</Id>
@@ -916,6 +1280,9 @@
     <defName>SummonShamblersResearch</defName>
     <label>Draw Shamblers</label>
     <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
+    <Prerequisites>
+      <li>Draw Animals</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769232</Id>
@@ -923,6 +1290,9 @@
     <defName>ChronophagyResearch</defName>
     <label>Chronophagy</label>
     <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
+    <Prerequisites>
+      <li>Psychophagy</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769233</Id>
@@ -930,6 +1300,9 @@
     <defName>PsychophagyResearch</defName>
     <label>Psychophagy</label>
     <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
+    <Prerequisites>
+      <li>Void Provocation</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769234</Id>
@@ -937,6 +1310,9 @@
     <defName>SkipAbductionPlayerResearch</defName>
     <label>Skip Abduction</label>
     <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
+    <Prerequisites>
+      <li>Void Provocation</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769235</Id>
@@ -944,6 +1320,9 @@
     <defName>SummonFleshbeastsPlayerResearch</defName>
     <label>Summon Fleshbeasts</label>
     <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
+    <Prerequisites>
+      <li>Draw Animals</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769236</Id>
@@ -951,6 +1330,9 @@
     <defName>AdvancedPsychicRitualsResearch</defName>
     <label>Advanced Psychic Rituals</label>
     <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
+    <Prerequisites>
+      <li>Void Provocation</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769237</Id>
@@ -958,6 +1340,9 @@
     <defName>SummonPitGateResearch</defName>
     <label>Provoke Pit Gate</label>
     <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
+    <Prerequisites>
+      <li>Advanced Psychic Rituals</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769238</Id>
@@ -965,6 +1350,9 @@
     <defName>DeathRefusalResearch</defName>
     <label>Death Refusal</label>
     <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
+    <Prerequisites>
+      <li>Advanced Psychic Rituals</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769239</Id>
@@ -972,6 +1360,10 @@
     <defName>PhilophagyResearch</defName>
     <label>Philophagy</label>
     <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
+    <Prerequisites>
+      <li>Chronophagy</li>
+      <li>Advanced Psychic Rituals</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769240</Id>
@@ -979,6 +1371,9 @@
     <defName>PleasurePulseResearch</defName>
     <label>Pleasure Pulse</label>
     <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
+    <Prerequisites>
+      <li>Advanced Psychic Rituals</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769241</Id>
@@ -986,6 +1381,9 @@
     <defName>NeurosisPulseResearch</defName>
     <label>Neurosis Pulse</label>
     <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
+    <Prerequisites>
+      <li>Advanced Psychic Rituals</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769242</Id>
@@ -993,6 +1391,9 @@
     <defName>BloodRainResearch</defName>
     <label>Blood Rain</label>
     <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
+    <Prerequisites>
+      <li>Advanced Psychic Rituals</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769243</Id>
@@ -1000,6 +1401,9 @@
     <defName>BrainwipeResearch</defName>
     <label>Brainwipe</label>
     <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
+    <Prerequisites>
+      <li>Philophagy</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769244</Id>
@@ -1007,6 +1411,9 @@
     <defName>SerumSynthesisResearch</defName>
     <label>Serum Synthesis</label>
     <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
+    <Prerequisites>
+      <li>Bioferrite Shaping</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769245</Id>
@@ -1014,6 +1421,9 @@
     <defName>MetalbloodSerumResearch</defName>
     <label>Metalblood Serum</label>
     <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
+    <Prerequisites>
+      <li>Serum Synthesis</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769246</Id>
@@ -1021,6 +1431,9 @@
     <defName>MindNumbSerumResearch</defName>
     <label>Mind-Numb Serum</label>
     <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
+    <Prerequisites>
+      <li>Serum Synthesis</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769247</Id>
@@ -1028,6 +1441,9 @@
     <defName>JuggernautSerumResearch</defName>
     <label>Juggernaut Serum</label>
     <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
+    <Prerequisites>
+      <li>Serum Synthesis</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769248</Id>
@@ -1035,6 +1451,9 @@
     <defName>BlissLobotomyResearch</defName>
     <label>Bliss Lobotomy</label>
     <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
+    <Prerequisites>
+      <li>Bioferrite Extraction</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769249</Id>
@@ -1042,6 +1461,9 @@
     <defName>GhoulInfusionResearch</defName>
     <label>Ghoul Infusion</label>
     <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
+    <Prerequisites>
+      <li>Bioferrite Extraction</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769250</Id>
@@ -1049,6 +1471,9 @@
     <defName>GhoulEnhancementsResearch</defName>
     <label>Ghoul Enhancements</label>
     <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
+    <Prerequisites>
+      <li>Ghoul Infusion</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769251</Id>
@@ -1056,6 +1481,10 @@
     <defName>GhoulResurrectionResearch</defName>
     <label>Ghoul Resurrection</label>
     <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
+    <Prerequisites>
+      <li>Serum Synthesis</li>
+      <li>Ghoul Enhancements</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769252</Id>
@@ -1063,6 +1492,9 @@
     <defName>DeadlifeDustResearch</defName>
     <label>Deadlife Dust</label>
     <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
+    <Prerequisites>
+      <li>Bioferrite Shaping</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769253</Id>
@@ -1070,6 +1502,9 @@
     <defName>RevenantInvisibilityResearch</defName>
     <label>Revenant Invisibility</label>
     <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
+    <Prerequisites>
+      <li>Disruptor Flares</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769254</Id>
@@ -1077,6 +1512,10 @@
     <defName>TurretPackResearch</defName>
     <label>Turret Pack</label>
     <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
+    <Prerequisites>
+      <li>Gun Turrets</li>
+      <li>Microelectronics</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769255</Id>
@@ -1084,6 +1523,9 @@
     <defName>SecurityDoorResearch</defName>
     <label>Security Door</label>
     <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
+    <Prerequisites>
+      <li>Autodoor</li>
+    </Prerequisites>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769256</Id>
@@ -1537,7 +1979,7 @@
     <DefType>ThingDef</DefType>
     <defName>PowerClawThing</defName>
     <label>Power Claw</label>
-    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
     <Prerequisites>
       <li>Specialized Limbs</li>
       <li>Machining</li>
@@ -1548,7 +1990,7 @@
     <DefType>ThingDef</DefType>
     <defName>JoywireThing</defName>
     <label>Joywire</label>
-    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
     <Prerequisites>
       <li>Brain Wiring</li>
       <li>Machining</li>
@@ -1559,7 +2001,7 @@
     <DefType>ThingDef</DefType>
     <defName>PainstopperThing</defName>
     <label>Painstopper</label>
-    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
     <Prerequisites>
       <li>Brain Wiring</li>
       <li>Machining</li>
