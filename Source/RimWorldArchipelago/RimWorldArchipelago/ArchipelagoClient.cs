@@ -38,6 +38,11 @@ namespace RimworldArchipelago
         public int ResearchBaseCost { get; set; }
         public int ResearchMaxPrerequisites { get; set; }
         public VictoryType VictoryCondition { get; set; }
+        public bool RoyaltyEnabled {  get; set; }
+        public bool IdeologyEnabled {  get; set; }
+        public bool BiotechEnabled {  get; set; }
+        public bool AnomalyEnabled {  get; set; }
+
     }
 
     public class ArchipelagoGameComponent: GameComponent
@@ -164,6 +169,7 @@ namespace RimworldArchipelago
             // TODO: Pare this back, but for now, it demonstrates the system using correctly.
             Dictionary<long, ScoutedItemInfo> scoutedItemInfo = await session.Locations.ScoutLocationsAsync(session.Locations.AllLocations.ToArray());
 
+            APResearchManager.DisableNormalResearch();
             APResearchManager.GenerateArchipelagoResearch(scoutedItemInfo);
             APCraftManager.GenerateArchipelagoCrafts();
         }

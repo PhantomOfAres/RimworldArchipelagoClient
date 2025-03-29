@@ -55,7 +55,7 @@ namespace RimWorldArchipelago
     {
         public static bool Prefix(ResearchProjectDef __instance, ref bool __result)
         {
-            if (!APResearchManager.IsApResearch(__instance.defName))
+            if (!APResearchManager.CanStartResearch(__instance.defName))
             {
                 __result = false;
                 return false;
@@ -74,7 +74,7 @@ namespace RimWorldArchipelago
     {
         public static bool Prefix(ResearchProjectDef __instance, ref bool __result)
         {
-            if (!APResearchManager.IsApResearch(__instance.defName))
+            if (!APResearchManager.CanStartResearch(__instance.defName))
             {
                 __result = false;
                 return false;

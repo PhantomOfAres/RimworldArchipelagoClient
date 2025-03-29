@@ -10,6 +10,7 @@ namespace RimWorldArchipelago
     {
         public long Id;
         public string DefType;
+        public string RequiredExpansion;
         public List<string> Prerequisites = new List<string>();
     }
 
@@ -20,8 +21,6 @@ namespace RimWorldArchipelago
         {
             Harmony harmony = new Harmony("com.phantomofares.rimworld");
             harmony.PatchAll();
-
-            APResearchManager.DisableNormalResearch();
         }
     }
 }

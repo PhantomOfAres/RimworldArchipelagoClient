@@ -14,11 +14,22 @@ namespace RimworldArchipelago
         private const int LOCATION_ID_GAP = 1000;
 
         private static HashSet<string> apResearchNames = new HashSet<string>();
+        private static HashSet<string> disabledExpansionResearchNames = new HashSet<string>();
 
         public static void DisableNormalResearch()
         {
+            SlotOptions slotOptions = ArchipelagoClient.SlotData.SlotOptions;
             foreach (ResearchProjectDef researchProject in DefDatabase<ResearchProjectDef>.AllDefs)
             {
+                if ((!slotOptions.RoyaltyEnabled && researchProject.modContentPack.PackageId == ModContentPack.RoyaltyModPackageId) ||
+                    (!slotOptions.IdeologyEnabled && researchProject.modContentPack.PackageId == ModContentPack.IdeologyModPackageId) ||
+                    (!slotOptions.BiotechEnabled && researchProject.modContentPack.PackageId == ModContentPack.BiotechModPackageId) ||
+                    (!slotOptions.AnomalyEnabled && researchProject.modContentPack.PackageId == ModContentPack.AnomalyModPackageId))
+                {
+                    disabledExpansionResearchNames.Add(researchProject.defName);
+                    continue;
+                }
+
                 if (researchProject != null)
                 {
                     researchProject.prerequisites = null;
@@ -202,6 +213,11 @@ namespace RimworldArchipelago
         public static bool IsApResearch(string researchName)
         {
             return apResearchNames.Contains(researchName);
+        }
+
+        public static bool CanStartResearch(string researchName)
+        {
+            return IsApResearch(researchName) || disabledExpansionResearchNames.Contains(researchName);
         }
 
         public static long GetLocationId(string researchName)

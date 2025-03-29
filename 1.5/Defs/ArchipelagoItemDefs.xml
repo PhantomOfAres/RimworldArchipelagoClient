@@ -5,936 +5,1092 @@
     <DefType>ResearchProjectDef</DefType>
     <defName>PsychoidBrewingResearch</defName>
     <label>Psychoid Brewing</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769102</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>TreeSowingResearch</defName>
     <label>Tree Sowing</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769103</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>BrewingResearch</defName>
     <label>Beer Brewing</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769104</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>ComplexFurnitureResearch</defName>
     <label>Complex Furniture</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769105</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>PassiveCoolerResearch</defName>
     <label>Passive Cooler</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769106</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>StonecuttingResearch</defName>
     <label>Stonecutting</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769107</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>ComplexClothingResearch</defName>
     <label>Complex Clothing</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769108</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>DrugProductionResearch</defName>
     <label>Drug Production</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769109</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>CocoaResearch</defName>
     <label>Cocoa</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769110</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>DevilstrandResearch</defName>
     <label>Devilstrand</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769111</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>CarpetMakingResearch</defName>
     <label>Carpet-Making</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769112</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>PemmicanResearch</defName>
     <label>Pemmican</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769113</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>SmithingResearch</defName>
     <label>Smithing</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769114</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>RecurveBowResearch</defName>
     <label>Recurve Bow</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769115</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>PsychiteRefiningResearch</defName>
     <label>Psychite Refining</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769116</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>WakeUpProductionResearch</defName>
     <label>Wake-Up Production</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769117</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>GoJuiceProductionResearch</defName>
     <label>Go-Juice Production</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769118</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>PenoxycylineProductionResearch</defName>
     <label>Penoxycyline Production</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769119</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>LongBladesResearch</defName>
     <label>Long Blades</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769120</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>PlateArmorResearch</defName>
     <label>Plate Armor</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769121</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>GreatbowResearch</defName>
     <label>Greatbow</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769122</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>ElectricityResearch</defName>
     <label>Electricity</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769123</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>BatteriesResearch</defName>
     <label>Battery</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769124</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>BiofuelRefiningResearch</defName>
     <label>Biofuel Refining</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769125</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>WatermillGeneratorResearch</defName>
     <label>Watermill Generator</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769126</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>NutrientPasteResearch</defName>
     <label>Nutrient Paste</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769127</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>SolarPanelsResearch</defName>
     <label>Solar Panel</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769128</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>AirConditioningResearch</defName>
     <label>Air Conditioning</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769129</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>AutodoorsResearch</defName>
     <label>Autodoor</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769130</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>HydroponicsResearch</defName>
     <label>Hydroponics</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769131</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>TubeTelevisionResearch</defName>
     <label>Tube Television</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769132</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>PackagedSurvivalMealResearch</defName>
     <label>Packaged Survival Meal</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769133</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>FirefoamResearch</defName>
     <label>Firefoam</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769134</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>IEDsResearch</defName>
     <label>Ieds</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769135</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>GeothermalPowerResearch</defName>
     <label>Geothermal Power</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769136</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>SterileMaterialsResearch</defName>
     <label>Sterile Materials</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769137</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>ColoredLightsResearch</defName>
     <label>Advanced Lights</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769138</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>MachiningResearch</defName>
     <label>Machining</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769139</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>SmokepopBeltResearch</defName>
     <label>Smokepop Packs</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769140</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>ProstheticsResearch</defName>
     <label>Prosthetics</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769141</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>GunsmithingResearch</defName>
     <label>Gunsmithing</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769142</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>FlakArmorResearch</defName>
     <label>Flak Armor</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769143</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>MortarsResearch</defName>
     <label>Mortars</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769144</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>BlowbackOperationResearch</defName>
     <label>Blowback Operation</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769145</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>GasOperationResearch</defName>
     <label>Gas Operation</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769146</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>GunTurretsResearch</defName>
     <label>Gun Turrets</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769147</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>FoamTurretResearch</defName>
     <label>Foam Turret</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769148</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>MicroelectronicsBasicsResearch</defName>
     <label>Microelectronics</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769149</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>FlatscreenTelevisionResearch</defName>
     <label>Flatscreen Television</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769150</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>MoisturePumpResearch</defName>
     <label>Moisture Pump</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769151</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>HospitalBedResearch</defName>
     <label>Hospital Bed</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769152</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>DeepDrillingResearch</defName>
     <label>Deep Drilling</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769153</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>GroundPenetratingScannerResearch</defName>
     <label>Ground-Penetrating Scanner</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769154</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>TransportPodResearch</defName>
     <label>Transport Pod</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769155</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>MedicineProductionResearch</defName>
     <label>Medicine Production</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769156</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>LongRangeMineralScannerResearch</defName>
     <label>Long-Range Mineral Scanner</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769157</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>ShieldBeltResearch</defName>
     <label>Shields</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769158</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>PrecisionRiflingResearch</defName>
     <label>Precision Rifling</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769159</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>HeavyTurretsResearch</defName>
     <label>Autocannon Turret</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769160</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>MultibarrelWeaponsResearch</defName>
     <label>Multibarrel Weapons</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769161</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>MultiAnalyzerResearch</defName>
     <label>Multi-Analyzer</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769162</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>VitalsMonitorResearch</defName>
     <label>Vitals Monitor</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769163</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>FabricationResearch</defName>
     <label>Fabrication</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769164</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>AdvancedFabricationResearch</defName>
     <label>Advanced Fabrication</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769165</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>CryptosleepResearch</defName>
     <label>Cryptosleep Casket</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769166</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>ReconArmorResearch</defName>
     <label>Recon Armor</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769167</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>PoweredArmorResearch</defName>
     <label>Marine Armor</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769168</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>ChargedShotResearch</defName>
     <label>Pulse-Charged Munitions</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769169</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>BionicsResearch</defName>
     <label>Bionic Replacements</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769170</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>SniperTurretResearch</defName>
     <label>Uranium Slug Turret</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769171</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>RocketswarmLauncherResearch</defName>
     <label>Rocketswarm Launcher</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769172</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>ShipBasicsResearch</defName>
     <label>Starflight Basics</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769173</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>ShipCryptosleepResearch</defName>
     <label>Vacuum Cryptosleep Casket</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769174</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>ShipReactorResearch</defName>
     <label>Starship Reactor</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769175</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>ShipEngineResearch</defName>
     <label>Johnson-Tanaka Drive</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769176</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>ShipComputerCoreResearch</defName>
     <label>Machine Persuasion</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769177</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>ShipSensorClusterResearch</defName>
     <label>Starflight Sensors</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769178</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>NobleApparelResearch</defName>
     <label>Noble Apparel</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769179</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>RoyalApparelResearch</defName>
     <label>Royal Apparel</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769180</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>CataphractArmorResearch</defName>
     <label>Cataphract Armor</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769181</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>JumpPackResearch</defName>
     <label>Jump Packs</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769182</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>GunlinkResearch</defName>
     <label>Gunlink</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769183</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>BrainWiringResearch</defName>
     <label>Brain Wiring</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769184</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>SpecializedLimbsResearch</defName>
     <label>Specialized Limbs</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769185</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>CompactWeaponryResearch</defName>
     <label>Compact Weaponry</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769186</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>VenomSynthesisResearch</defName>
     <label>Poison Synthesis</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769187</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>ArtificialMetabolismResearch</defName>
     <label>Artificial Metabolism</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769188</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>NeuralComputationResearch</defName>
     <label>Neural Computation</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769189</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>SkinHardeningResearch</defName>
     <label>Skin Hardening</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769190</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>HealingFactorsResearch</defName>
     <label>Healing Factors</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769191</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>FleshShapingResearch</defName>
     <label>Flesh Shaping</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769192</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>MolecularAnalysisResearch</defName>
     <label>Molecular Analysis</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769193</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>CircadianInfluenceResearch</defName>
     <label>Circadian Influence</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769194</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>HarpResearch</defName>
     <label>Harp</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769195</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>HarpsichordResearch</defName>
     <label>Harpsichord</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769196</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>PianoResearch</defName>
     <label>Piano</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769197</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>BiosculptingResearch</defName>
     <label>Biosculpting</label>
+    <RequiredExpansion>Ludeon.RimWorld.Ideology</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769198</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>BioregenerationResearch</defName>
     <label>Bioregeneration</label>
+    <RequiredExpansion>Ludeon.RimWorld.Ideology</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769199</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>NeuralSuperchargerResearch</defName>
     <label>Neural Supercharger</label>
+    <RequiredExpansion>Ludeon.RimWorld.Ideology</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769200</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>BasicMechtechResearch</defName>
     <label>Basic Mechtech</label>
+    <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769201</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>StandardMechtechResearch</defName>
     <label>Standard Mechtech</label>
+    <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769202</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>HighMechtechResearch</defName>
     <label>High Mechtech</label>
+    <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769203</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>UltraMechtechResearch</defName>
     <label>Ultra Mechtech</label>
+    <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769204</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>WastepackAtomizerResearch</defName>
     <label>Wastepack Atomizer</label>
+    <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769205</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>ToxifierGeneratorResearch</defName>
     <label>Toxifier Generator</label>
+    <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769206</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>XenogerminationResearch</defName>
     <label>Xenogenetics</label>
+    <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769207</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>GeneProcessorResearch</defName>
     <label>Gene Processor</label>
+    <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769208</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>ArchogeneticsResearch</defName>
     <label>Archogenetics</label>
+    <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769209</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>DeathrestResearch</defName>
     <label>Deathrest</label>
+    <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769210</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>FertilityProceduresResearch</defName>
     <label>Fertility Procedures</label>
+    <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769211</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>ToxGasResearch</defName>
     <label>Tox Gas</label>
+    <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769212</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>ToxFiltrationResearch</defName>
     <label>Toxin Filtration</label>
+    <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769213</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>GrowthVatsResearch</defName>
     <label>Growth Vats</label>
+    <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769214</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>BioferriteExtractionResearch</defName>
     <label>Bioferrite Extraction</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769215</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>BioferriteHarvestingResearch</defName>
     <label>Bioferrite Harvester</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769216</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>BioferriteShapingResearch</defName>
     <label>Bioferrite Shaping</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769217</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>BioferriteIgnitionResearch</defName>
     <label>Bioferrite Weaponry</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769218</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>BioferriteGeneratorResearch</defName>
     <label>Bioferrite Generator</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769219</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>VoidSculpturesResearch</defName>
     <label>Void Sculptures</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769220</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>InsanityWeaponryResearch</defName>
     <label>Insanity Weaponry</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769221</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>MutationWeaponryResearch</defName>
     <label>Mutation Weaponry</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769222</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>AtmosphericHeaterResearch</defName>
     <label>Atmospheric Heater</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769223</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>FrenzyInducerResearch</defName>
     <label>Frenzy Inducer</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769224</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>SleepSuppressorResearch</defName>
     <label>Sleep Suppressor</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769225</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>EntityContainmentResearch</defName>
     <label>Entity Containment</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769226</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>ElectroharvesterResearch</defName>
     <label>Electroharvester</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769227</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>DisruptorFlaresResearch</defName>
     <label>Disruptor Flares</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769228</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>ProximityDetectorResearch</defName>
     <label>Proximity Detector</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769229</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>BasicPsychicRitualsResearch</defName>
     <label>Void Provocation</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769230</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>SummonAnimalsResearch</defName>
     <label>Draw Animals</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769231</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>SummonShamblersResearch</defName>
     <label>Draw Shamblers</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769232</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>ChronophagyResearch</defName>
     <label>Chronophagy</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769233</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>PsychophagyResearch</defName>
     <label>Psychophagy</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769234</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>SkipAbductionPlayerResearch</defName>
     <label>Skip Abduction</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769235</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>SummonFleshbeastsPlayerResearch</defName>
     <label>Summon Fleshbeasts</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769236</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>AdvancedPsychicRitualsResearch</defName>
     <label>Advanced Psychic Rituals</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769237</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>SummonPitGateResearch</defName>
     <label>Provoke Pit Gate</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769238</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>DeathRefusalResearch</defName>
     <label>Death Refusal</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769239</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>PhilophagyResearch</defName>
     <label>Philophagy</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769240</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>PleasurePulseResearch</defName>
     <label>Pleasure Pulse</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769241</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>NeurosisPulseResearch</defName>
     <label>Neurosis Pulse</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769242</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>BloodRainResearch</defName>
     <label>Blood Rain</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769243</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>BrainwipeResearch</defName>
     <label>Brainwipe</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769244</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>SerumSynthesisResearch</defName>
     <label>Serum Synthesis</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769245</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>MetalbloodSerumResearch</defName>
     <label>Metalblood Serum</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769246</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>MindNumbSerumResearch</defName>
     <label>Mind-Numb Serum</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769247</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>JuggernautSerumResearch</defName>
     <label>Juggernaut Serum</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769248</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>BlissLobotomyResearch</defName>
     <label>Bliss Lobotomy</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769249</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>GhoulInfusionResearch</defName>
     <label>Ghoul Infusion</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769250</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>GhoulEnhancementsResearch</defName>
     <label>Ghoul Enhancements</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769251</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>GhoulResurrectionResearch</defName>
     <label>Ghoul Resurrection</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769252</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>DeadlifeDustResearch</defName>
     <label>Deadlife Dust</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769253</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>RevenantInvisibilityResearch</defName>
     <label>Revenant Invisibility</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769254</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>TurretPackResearch</defName>
     <label>Turret Pack</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769255</Id>
     <DefType>ResearchProjectDef</DefType>
     <defName>SecurityDoorResearch</defName>
     <label>Security Door</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769256</Id>
     <DefType>ThingDef</DefType>
     <defName>WortThing</defName>
     <label>Wort</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Beer Brewing</li>
     </Prerequisites>
@@ -944,12 +1100,14 @@
     <DefType>ThingDef</DefType>
     <defName>KibbleThing</defName>
     <label>Kibble</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769258</Id>
     <DefType>ThingDef</DefType>
     <defName>PemmicanThing</defName>
     <label>Pemmican</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Pemmican</li>
       <li>Electricity</li>
@@ -960,6 +1118,7 @@
     <DefType>ThingDef</DefType>
     <defName>MealSimpleThing</defName>
     <label>Simple Meal</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Electricity</li>
     </Prerequisites>
@@ -969,6 +1128,7 @@
     <DefType>ThingDef</DefType>
     <defName>MealFineThing</defName>
     <label>Fine Meal</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Electricity</li>
     </Prerequisites>
@@ -978,6 +1138,7 @@
     <DefType>ThingDef</DefType>
     <defName>MealFine_VegThing</defName>
     <label>Vegetarian Fine Meal</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Electricity</li>
     </Prerequisites>
@@ -987,6 +1148,7 @@
     <DefType>ThingDef</DefType>
     <defName>MealFine_MeatThing</defName>
     <label>Carnivore Fine Meal</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Electricity</li>
     </Prerequisites>
@@ -996,6 +1158,7 @@
     <DefType>ThingDef</DefType>
     <defName>MealLavishThing</defName>
     <label>Lavish Meal</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Electricity</li>
     </Prerequisites>
@@ -1005,6 +1168,7 @@
     <DefType>ThingDef</DefType>
     <defName>MealLavish_MeatThing</defName>
     <label>Carnivore Lavish Meal</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Electricity</li>
     </Prerequisites>
@@ -1014,6 +1178,7 @@
     <DefType>ThingDef</DefType>
     <defName>MealLavish_VegThing</defName>
     <label>Vegetarian Lavish Meal</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Electricity</li>
     </Prerequisites>
@@ -1023,6 +1188,7 @@
     <DefType>ThingDef</DefType>
     <defName>MealSurvivalPackThing</defName>
     <label>Packaged Survival Meal</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Packaged Survival Meal</li>
       <li>Electricity</li>
@@ -1033,6 +1199,7 @@
     <DefType>ThingDef</DefType>
     <defName>SteelThing</defName>
     <label>Steel</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Electricity</li>
     </Prerequisites>
@@ -1042,6 +1209,7 @@
     <DefType>ThingDef</DefType>
     <defName>ChemfuelThing</defName>
     <label>Chemfuel</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Biofuel Refining</li>
     </Prerequisites>
@@ -1051,6 +1219,7 @@
     <DefType>ThingDef</DefType>
     <defName>ComponentIndustrialThing</defName>
     <label>Component</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Fabrication</li>
     </Prerequisites>
@@ -1060,6 +1229,7 @@
     <DefType>ThingDef</DefType>
     <defName>ComponentSpacerThing</defName>
     <label>Advanced Component</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Advanced Fabrication</li>
       <li>Fabrication</li>
@@ -1070,6 +1240,7 @@
     <DefType>ThingDef</DefType>
     <defName>Leather_PatchThing</defName>
     <label>Patchleather</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Complex Clothing</li>
       <li>Electricity</li>
@@ -1080,6 +1251,7 @@
     <DefType>ThingDef</DefType>
     <defName>BlocksSandstoneThing</defName>
     <label>Sandstone Blocks</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Stonecutting</li>
     </Prerequisites>
@@ -1089,6 +1261,7 @@
     <DefType>ThingDef</DefType>
     <defName>BlocksGraniteThing</defName>
     <label>Granite Blocks</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Stonecutting</li>
     </Prerequisites>
@@ -1098,6 +1271,7 @@
     <DefType>ThingDef</DefType>
     <defName>BlocksLimestoneThing</defName>
     <label>Limestone Blocks</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Stonecutting</li>
     </Prerequisites>
@@ -1107,6 +1281,7 @@
     <DefType>ThingDef</DefType>
     <defName>BlocksSlateThing</defName>
     <label>Slate Blocks</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Stonecutting</li>
     </Prerequisites>
@@ -1116,6 +1291,7 @@
     <DefType>ThingDef</DefType>
     <defName>BlocksMarbleThing</defName>
     <label>Marble Blocks</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Stonecutting</li>
     </Prerequisites>
@@ -1125,6 +1301,7 @@
     <DefType>ThingDef</DefType>
     <defName>BabyFoodThing</defName>
     <label>Baby Food</label>
+    <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
     <Prerequisites>
       <li>Electricity</li>
     </Prerequisites>
@@ -1134,12 +1311,14 @@
     <DefType>ThingDef</DefType>
     <defName>BioferriteThing</defName>
     <label>Bioferrite</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769279</Id>
     <DefType>ThingDef</DefType>
     <defName>GoJuiceThing</defName>
     <label>Go-Juice</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Go-Juice Production</li>
       <li>Drug Production</li>
@@ -1150,6 +1329,7 @@
     <DefType>ThingDef</DefType>
     <defName>PenoxycylineThing</defName>
     <label>Penoxycyline</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Penoxycyline Production</li>
       <li>Drug Production</li>
@@ -1160,6 +1340,7 @@
     <DefType>ThingDef</DefType>
     <defName>FlakeThing</defName>
     <label>Flake</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Psychite Refining</li>
       <li>Drug Production</li>
@@ -1170,6 +1351,7 @@
     <DefType>ThingDef</DefType>
     <defName>PsychiteTeaThing</defName>
     <label>Psychite Tea</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Psychoid Brewing</li>
       <li>Electricity</li>
@@ -1180,6 +1362,7 @@
     <DefType>ThingDef</DefType>
     <defName>YayoThing</defName>
     <label>Yayo</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Psychite Refining</li>
       <li>Drug Production</li>
@@ -1190,6 +1373,7 @@
     <DefType>ThingDef</DefType>
     <defName>SmokeleafJointThing</defName>
     <label>Smokeleaf Joint</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Drug Production</li>
     </Prerequisites>
@@ -1199,6 +1383,7 @@
     <DefType>ThingDef</DefType>
     <defName>WakeUpThing</defName>
     <label>Wake-Up</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Wake-Up Production</li>
       <li>Drug Production</li>
@@ -1209,6 +1394,7 @@
     <DefType>ThingDef</DefType>
     <defName>BionicEyeThing</defName>
     <label>Bionic Eye</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Bionic Replacements</li>
       <li>Fabrication</li>
@@ -1219,6 +1405,7 @@
     <DefType>ThingDef</DefType>
     <defName>BionicArmThing</defName>
     <label>Bionic Arm</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Bionic Replacements</li>
       <li>Fabrication</li>
@@ -1229,6 +1416,7 @@
     <DefType>ThingDef</DefType>
     <defName>BionicLegThing</defName>
     <label>Bionic Leg</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Bionic Replacements</li>
       <li>Fabrication</li>
@@ -1239,6 +1427,7 @@
     <DefType>ThingDef</DefType>
     <defName>BionicSpineThing</defName>
     <label>Bionic Spine</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Bionic Replacements</li>
       <li>Fabrication</li>
@@ -1249,6 +1438,7 @@
     <DefType>ThingDef</DefType>
     <defName>BionicHeartThing</defName>
     <label>Bionic Heart</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Bionic Replacements</li>
       <li>Fabrication</li>
@@ -1259,6 +1449,7 @@
     <DefType>ThingDef</DefType>
     <defName>BionicStomachThing</defName>
     <label>Bionic Stomach</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Bionic Replacements</li>
       <li>Fabrication</li>
@@ -1269,6 +1460,7 @@
     <DefType>ThingDef</DefType>
     <defName>BionicEarThing</defName>
     <label>Bionic Ear</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Bionic Replacements</li>
       <li>Fabrication</li>
@@ -1279,6 +1471,7 @@
     <DefType>ThingDef</DefType>
     <defName>BionicTongueThing</defName>
     <label>Bionic Tongue</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Bionic Replacements</li>
       <li>Fabrication</li>
@@ -1289,6 +1482,7 @@
     <DefType>ThingDef</DefType>
     <defName>BionicJawThing</defName>
     <label>Bionic Jaw</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Bionic Replacements</li>
       <li>Fabrication</li>
@@ -1299,6 +1493,7 @@
     <DefType>ThingDef</DefType>
     <defName>SimpleProstheticLegThing</defName>
     <label>Prosthetic Leg</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Prosthetics</li>
       <li>Machining</li>
@@ -1309,6 +1504,7 @@
     <DefType>ThingDef</DefType>
     <defName>SimpleProstheticArmThing</defName>
     <label>Prosthetic Arm</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Prosthetics</li>
       <li>Machining</li>
@@ -1319,6 +1515,7 @@
     <DefType>ThingDef</DefType>
     <defName>SimpleProstheticHeartThing</defName>
     <label>Prosthetic Heart</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Prosthetics</li>
       <li>Machining</li>
@@ -1329,6 +1526,7 @@
     <DefType>ThingDef</DefType>
     <defName>CochlearImplantThing</defName>
     <label>Cochlear Implant</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Prosthetics</li>
       <li>Machining</li>
@@ -1339,6 +1537,7 @@
     <DefType>ThingDef</DefType>
     <defName>PowerClawThing</defName>
     <label>Power Claw</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Specialized Limbs</li>
       <li>Machining</li>
@@ -1349,6 +1548,7 @@
     <DefType>ThingDef</DefType>
     <defName>JoywireThing</defName>
     <label>Joywire</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Brain Wiring</li>
       <li>Machining</li>
@@ -1359,6 +1559,7 @@
     <DefType>ThingDef</DefType>
     <defName>PainstopperThing</defName>
     <label>Painstopper</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Brain Wiring</li>
       <li>Machining</li>
@@ -1369,6 +1570,7 @@
     <DefType>ThingDef</DefType>
     <defName>MedicineIndustrialThing</defName>
     <label>Medicine</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Medicine Production</li>
       <li>Drug Production</li>
@@ -1379,6 +1581,7 @@
     <DefType>ThingDef</DefType>
     <defName>Shell_HighExplosiveThing</defName>
     <label>High-Explosive Shell</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Mortars</li>
       <li>Machining</li>
@@ -1389,6 +1592,7 @@
     <DefType>ThingDef</DefType>
     <defName>Shell_IncendiaryThing</defName>
     <label>Incendiary Shell</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Mortars</li>
       <li>Machining</li>
@@ -1399,6 +1603,7 @@
     <DefType>ThingDef</DefType>
     <defName>Shell_EMPThing</defName>
     <label>EMP Shell</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Microelectronics</li>
       <li>Machining</li>
@@ -1409,6 +1614,7 @@
     <DefType>ThingDef</DefType>
     <defName>Shell_SmokeThing</defName>
     <label>Smoke Shell</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Mortars</li>
       <li>Machining</li>
@@ -1419,6 +1625,7 @@
     <DefType>ThingDef</DefType>
     <defName>Shell_FirefoamThing</defName>
     <label>Firefoam Shell</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Firefoam</li>
       <li>Machining</li>
@@ -1429,6 +1636,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_ShieldBeltThing</defName>
     <label>Shield Belt</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Shields</li>
       <li>Machining</li>
@@ -1439,6 +1647,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_CowboyHatThing</defName>
     <label>Cowboy Hat</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Complex Clothing</li>
       <li>Electricity</li>
@@ -1449,6 +1658,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_BowlerHatThing</defName>
     <label>Bowler Hat</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Complex Clothing</li>
       <li>Electricity</li>
@@ -1459,6 +1669,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_TribalHeaddressThing</defName>
     <label>Tribal Headdress</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Complex Clothing</li>
       <li>Electricity</li>
@@ -1469,6 +1680,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_TuqueThing</defName>
     <label>Tuque</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Complex Clothing</li>
       <li>Electricity</li>
@@ -1479,6 +1691,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_WarMaskThing</defName>
     <label>War Mask</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Complex Clothing</li>
       <li>Electricity</li>
@@ -1489,6 +1702,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_WarVeilThing</defName>
     <label>Veil</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Complex Clothing</li>
       <li>Electricity</li>
@@ -1499,6 +1713,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_SimpleHelmetThing</defName>
     <label>Simple Helmet</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Smithing</li>
       <li>Machining</li>
@@ -1510,6 +1725,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_AdvancedHelmetThing</defName>
     <label>Flak Helmet</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Flak Armor</li>
       <li>Machining</li>
@@ -1520,6 +1736,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_PowerArmorHelmetThing</defName>
     <label>Marine Helmet</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Marine Armor</li>
       <li>Fabrication</li>
@@ -1530,6 +1747,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_ArmorHelmetReconThing</defName>
     <label>Recon Helmet</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Recon Armor</li>
       <li>Fabrication</li>
@@ -1540,6 +1758,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_HatHoodThing</defName>
     <label>Hood</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Complex Clothing</li>
       <li>Electricity</li>
@@ -1550,6 +1769,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_SmokepopBeltThing</defName>
     <label>Smokepop Pack</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Smokepop Packs</li>
       <li>Machining</li>
@@ -1560,6 +1780,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_FirefoampopPackThing</defName>
     <label>Firefoam Pop Pack</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Firefoam</li>
       <li>Machining</li>
@@ -1570,6 +1791,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_TribalAThing</defName>
     <label>Tribalwear</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Complex Clothing</li>
       <li>Electricity</li>
@@ -1580,6 +1802,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_ParkaThing</defName>
     <label>Parka</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Complex Clothing</li>
       <li>Electricity</li>
@@ -1590,6 +1813,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_PantsThing</defName>
     <label>Pants</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Complex Clothing</li>
       <li>Electricity</li>
@@ -1600,6 +1824,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_BasicShirtThing</defName>
     <label>T-Shirt</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Complex Clothing</li>
       <li>Electricity</li>
@@ -1610,6 +1835,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_CollarShirtThing</defName>
     <label>Button-Down Shirt</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Complex Clothing</li>
       <li>Electricity</li>
@@ -1620,6 +1846,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_DusterThing</defName>
     <label>Duster</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Complex Clothing</li>
       <li>Electricity</li>
@@ -1630,6 +1857,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_JacketThing</defName>
     <label>Jacket</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Complex Clothing</li>
       <li>Electricity</li>
@@ -1640,6 +1868,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_PlateArmorThing</defName>
     <label>Plate Armor</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Plate Armor</li>
       <li>Smithing</li>
@@ -1651,6 +1880,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_FlakVestThing</defName>
     <label>Flak Vest</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Flak Armor</li>
       <li>Machining</li>
@@ -1661,6 +1891,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_FlakPantsThing</defName>
     <label>Flak Pants</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Flak Armor</li>
       <li>Machining</li>
@@ -1671,6 +1902,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_FlakJacketThing</defName>
     <label>Flak Jacket</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Flak Armor</li>
       <li>Machining</li>
@@ -1681,6 +1913,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_PowerArmorThing</defName>
     <label>Marine Armor</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Marine Armor</li>
       <li>Fabrication</li>
@@ -1691,6 +1924,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_ArmorReconThing</defName>
     <label>Recon Armor</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Recon Armor</li>
       <li>Fabrication</li>
@@ -1701,6 +1935,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_CapeThing</defName>
     <label>Cape</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Complex Clothing</li>
       <li>Electricity</li>
@@ -1711,6 +1946,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_RobeThing</defName>
     <label>Robe</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Complex Clothing</li>
       <li>Electricity</li>
@@ -1721,6 +1957,7 @@
     <DefType>ThingDef</DefType>
     <defName>MeleeWeapon_BreachAxeThing</defName>
     <label>Breach Axe</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Smithing</li>
       <li>Electricity</li>
@@ -1731,6 +1968,7 @@
     <DefType>ThingDef</DefType>
     <defName>MeleeWeapon_MaceThing</defName>
     <label>Mace</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Smithing</li>
       <li>Electricity</li>
@@ -1741,6 +1979,7 @@
     <DefType>ThingDef</DefType>
     <defName>MeleeWeapon_GladiusThing</defName>
     <label>Gladius</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Smithing</li>
       <li>Electricity</li>
@@ -1751,6 +1990,7 @@
     <DefType>ThingDef</DefType>
     <defName>MeleeWeapon_LongSwordThing</defName>
     <label>Longsword</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Long Blades</li>
       <li>Smithing</li>
@@ -1762,6 +2002,7 @@
     <DefType>ThingDef</DefType>
     <defName>MeleeWeapon_ClubThing</defName>
     <label>Club</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Smithing</li>
       <li>Electricity</li>
@@ -1772,6 +2013,7 @@
     <DefType>ThingDef</DefType>
     <defName>MeleeWeapon_KnifeThing</defName>
     <label>Knife</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Smithing</li>
       <li>Electricity</li>
@@ -1782,6 +2024,7 @@
     <DefType>ThingDef</DefType>
     <defName>MeleeWeapon_IkwaThing</defName>
     <label>Ikwa</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Smithing</li>
       <li>Electricity</li>
@@ -1792,6 +2035,7 @@
     <DefType>ThingDef</DefType>
     <defName>MeleeWeapon_SpearThing</defName>
     <label>Spear</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Long Blades</li>
       <li>Smithing</li>
@@ -1803,6 +2047,7 @@
     <DefType>ThingDef</DefType>
     <defName>Gun_RevolverThing</defName>
     <label>Revolver</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Gunsmithing</li>
       <li>Machining</li>
@@ -1813,6 +2058,7 @@
     <DefType>ThingDef</DefType>
     <defName>Gun_AutopistolThing</defName>
     <label>Autopistol</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Blowback Operation</li>
       <li>Machining</li>
@@ -1823,6 +2069,7 @@
     <DefType>ThingDef</DefType>
     <defName>Gun_MachinePistolThing</defName>
     <label>Machine Pistol</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Blowback Operation</li>
       <li>Machining</li>
@@ -1833,6 +2080,7 @@
     <DefType>ThingDef</DefType>
     <defName>Gun_IncendiaryLauncherThing</defName>
     <label>Incendiary Launcher</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Gunsmithing</li>
       <li>Machining</li>
@@ -1843,6 +2091,7 @@
     <DefType>ThingDef</DefType>
     <defName>Gun_SmokeLauncherThing</defName>
     <label>Smoke Launcher</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Gunsmithing</li>
       <li>Machining</li>
@@ -1853,6 +2102,7 @@
     <DefType>ThingDef</DefType>
     <defName>Gun_EmpLauncherThing</defName>
     <label>EMP Launcher</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Microelectronics</li>
       <li>Machining</li>
@@ -1863,6 +2113,7 @@
     <DefType>ThingDef</DefType>
     <defName>Gun_BoltActionRifleThing</defName>
     <label>Bolt-Action Rifle</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Gunsmithing</li>
       <li>Machining</li>
@@ -1873,6 +2124,7 @@
     <DefType>ThingDef</DefType>
     <defName>Gun_PumpShotgunThing</defName>
     <label>Pump Shotgun</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Gunsmithing</li>
       <li>Machining</li>
@@ -1883,6 +2135,7 @@
     <DefType>ThingDef</DefType>
     <defName>Gun_ChainShotgunThing</defName>
     <label>Chain Shotgun</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Gas Operation</li>
       <li>Machining</li>
@@ -1893,6 +2146,7 @@
     <DefType>ThingDef</DefType>
     <defName>Gun_HeavySMGThing</defName>
     <label>Heavy SMG</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Gas Operation</li>
       <li>Machining</li>
@@ -1903,6 +2157,7 @@
     <DefType>ThingDef</DefType>
     <defName>Gun_LMGThing</defName>
     <label>LMG</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Gas Operation</li>
       <li>Machining</li>
@@ -1913,6 +2168,7 @@
     <DefType>ThingDef</DefType>
     <defName>Gun_AssaultRifleThing</defName>
     <label>Assault Rifle</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Precision Rifling</li>
       <li>Machining</li>
@@ -1923,6 +2179,7 @@
     <DefType>ThingDef</DefType>
     <defName>Gun_SniperRifleThing</defName>
     <label>Sniper Rifle</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Precision Rifling</li>
       <li>Machining</li>
@@ -1933,6 +2190,7 @@
     <DefType>ThingDef</DefType>
     <defName>Gun_MinigunThing</defName>
     <label>Minigun</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Multibarrel Weapons</li>
       <li>Machining</li>
@@ -1943,6 +2201,7 @@
     <DefType>ThingDef</DefType>
     <defName>Weapon_GrenadeFragThing</defName>
     <label>Frag Grenades</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Machining</li>
     </Prerequisites>
@@ -1952,6 +2211,7 @@
     <DefType>ThingDef</DefType>
     <defName>Weapon_GrenadeMolotovThing</defName>
     <label>Molotov Cocktails</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Machining</li>
     </Prerequisites>
@@ -1961,6 +2221,7 @@
     <DefType>ThingDef</DefType>
     <defName>Weapon_GrenadeEMPThing</defName>
     <label>EMP Grenades</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Microelectronics</li>
       <li>Machining</li>
@@ -1971,6 +2232,7 @@
     <DefType>ThingDef</DefType>
     <defName>Bow_ShortThing</defName>
     <label>Short Bow</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Smithing</li>
       <li>Electricity</li>
@@ -1981,6 +2243,7 @@
     <DefType>ThingDef</DefType>
     <defName>PilaThing</defName>
     <label>Pila</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Smithing</li>
       <li>Electricity</li>
@@ -1991,6 +2254,7 @@
     <DefType>ThingDef</DefType>
     <defName>Bow_RecurveThing</defName>
     <label>Recurve Bow</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Recurve Bow</li>
       <li>Smithing</li>
@@ -2002,6 +2266,7 @@
     <DefType>ThingDef</DefType>
     <defName>Bow_GreatThing</defName>
     <label>Greatbow</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Greatbow</li>
       <li>Smithing</li>
@@ -2013,6 +2278,7 @@
     <DefType>ThingDef</DefType>
     <defName>Gun_ChargeRifleThing</defName>
     <label>Charge Rifle</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Pulse-Charged Munitions</li>
       <li>Fabrication</li>
@@ -2023,6 +2289,7 @@
     <DefType>ThingDef</DefType>
     <defName>Gun_ChargeLanceThing</defName>
     <label>Charge Lance</label>
+    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
     <Prerequisites>
       <li>Pulse-Charged Munitions</li>
       <li>Fabrication</li>
@@ -2033,6 +2300,7 @@
     <DefType>ThingDef</DefType>
     <defName>NeurocalculatorThing</defName>
     <label>Neurocalculator</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
     <Prerequisites>
       <li>Neural Computation</li>
       <li>Fabrication</li>
@@ -2043,6 +2311,7 @@
     <DefType>ThingDef</DefType>
     <defName>LearningAssistantThing</defName>
     <label>Learning Assistant</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
     <Prerequisites>
       <li>Neural Computation</li>
       <li>Fabrication</li>
@@ -2053,6 +2322,7 @@
     <DefType>ThingDef</DefType>
     <defName>GastroAnalyzerThing</defName>
     <label>Gastro-Analyzer</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
     <Prerequisites>
       <li>Molecular Analysis</li>
       <li>Fabrication</li>
@@ -2063,6 +2333,7 @@
     <DefType>ThingDef</DefType>
     <defName>ImmunoenhancerThing</defName>
     <label>Immunoenhancer</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
     <Prerequisites>
       <li>Molecular Analysis</li>
       <li>Fabrication</li>
@@ -2073,6 +2344,7 @@
     <DefType>ThingDef</DefType>
     <defName>CoagulatorThing</defName>
     <label>Coagulator</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
     <Prerequisites>
       <li>Healing Factors</li>
       <li>Fabrication</li>
@@ -2083,6 +2355,7 @@
     <DefType>ThingDef</DefType>
     <defName>HealingEnhancerThing</defName>
     <label>Healing Enhancer</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
     <Prerequisites>
       <li>Healing Factors</li>
       <li>Fabrication</li>
@@ -2093,6 +2366,7 @@
     <DefType>ThingDef</DefType>
     <defName>ToughskinGlandThing</defName>
     <label>Toughskin Gland</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
     <Prerequisites>
       <li>Skin Hardening</li>
       <li>Fabrication</li>
@@ -2103,6 +2377,7 @@
     <DefType>ThingDef</DefType>
     <defName>ArmorskinGlandThing</defName>
     <label>Armorskin Gland</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
     <Prerequisites>
       <li>Skin Hardening</li>
       <li>Fabrication</li>
@@ -2113,6 +2388,7 @@
     <DefType>ThingDef</DefType>
     <defName>StoneskinGlandThing</defName>
     <label>Stoneskin Gland</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
     <Prerequisites>
       <li>Skin Hardening</li>
       <li>Fabrication</li>
@@ -2123,6 +2399,7 @@
     <DefType>ThingDef</DefType>
     <defName>AestheticShaperThing</defName>
     <label>Aesthetic Shaper</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
     <Prerequisites>
       <li>Flesh Shaping</li>
       <li>Fabrication</li>
@@ -2133,6 +2410,7 @@
     <DefType>ThingDef</DefType>
     <defName>AestheticNoseThing</defName>
     <label>Aesthetic Nose</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
     <Prerequisites>
       <li>Flesh Shaping</li>
       <li>Fabrication</li>
@@ -2143,6 +2421,7 @@
     <DefType>ThingDef</DefType>
     <defName>LoveEnhancerThing</defName>
     <label>Love Enhancer</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
     <Prerequisites>
       <li>Flesh Shaping</li>
       <li>Fabrication</li>
@@ -2153,6 +2432,7 @@
     <DefType>ThingDef</DefType>
     <defName>DetoxifierStomachThing</defName>
     <label>Sterilizing Stomach</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
     <Prerequisites>
       <li>Artificial Metabolism</li>
       <li>Fabrication</li>
@@ -2163,6 +2443,7 @@
     <DefType>ThingDef</DefType>
     <defName>ReprocessorStomachThing</defName>
     <label>Reprocessor Stomach</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
     <Prerequisites>
       <li>Artificial Metabolism</li>
       <li>Fabrication</li>
@@ -2173,6 +2454,7 @@
     <DefType>ThingDef</DefType>
     <defName>NuclearStomachThing</defName>
     <label>Nuclear Stomach</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
     <Prerequisites>
       <li>Artificial Metabolism</li>
       <li>Fabrication</li>
@@ -2183,6 +2465,7 @@
     <DefType>ThingDef</DefType>
     <defName>CircadianAssistantThing</defName>
     <label>Circadian Assistant</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
     <Prerequisites>
       <li>Circadian Influence</li>
       <li>Fabrication</li>
@@ -2193,6 +2476,7 @@
     <DefType>ThingDef</DefType>
     <defName>CircadianHalfCyclerThing</defName>
     <label>Circadian Half-Cycler</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
     <Prerequisites>
       <li>Circadian Influence</li>
       <li>Fabrication</li>
@@ -2203,6 +2487,7 @@
     <DefType>ThingDef</DefType>
     <defName>MindscrewThing</defName>
     <label>Mindscrew</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
     <Prerequisites>
       <li>Brain Wiring</li>
       <li>Machining</li>
@@ -2213,6 +2498,7 @@
     <DefType>ThingDef</DefType>
     <defName>DrillArmThing</defName>
     <label>Drill Arm</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
     <Prerequisites>
       <li>Specialized Limbs</li>
       <li>Machining</li>
@@ -2223,6 +2509,7 @@
     <DefType>ThingDef</DefType>
     <defName>FieldHandThing</defName>
     <label>Field Hand</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
     <Prerequisites>
       <li>Specialized Limbs</li>
       <li>Machining</li>
@@ -2233,6 +2520,7 @@
     <DefType>ThingDef</DefType>
     <defName>HandTalonThing</defName>
     <label>Hand Talon</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
     <Prerequisites>
       <li>Compact Weaponry</li>
       <li>Machining</li>
@@ -2243,6 +2531,7 @@
     <DefType>ThingDef</DefType>
     <defName>ElbowBladeThing</defName>
     <label>Elbow Blade</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
     <Prerequisites>
       <li>Compact Weaponry</li>
       <li>Machining</li>
@@ -2253,6 +2542,7 @@
     <DefType>ThingDef</DefType>
     <defName>KneeSpikeThing</defName>
     <label>Knee Spike</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
     <Prerequisites>
       <li>Compact Weaponry</li>
       <li>Machining</li>
@@ -2263,6 +2553,7 @@
     <DefType>ThingDef</DefType>
     <defName>VenomFangsThing</defName>
     <label>Venom Fangs</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
     <Prerequisites>
       <li>Poison Synthesis</li>
       <li>Machining</li>
@@ -2273,6 +2564,7 @@
     <DefType>ThingDef</DefType>
     <defName>VenomTalonThing</defName>
     <label>Venom Talon</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
     <Prerequisites>
       <li>Poison Synthesis</li>
       <li>Machining</li>
@@ -2283,6 +2575,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_PackJumpThing</defName>
     <label>Jump Pack</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
     <Prerequisites>
       <li>Jump Packs</li>
       <li>Machining</li>
@@ -2293,6 +2586,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_PackBroadshieldThing</defName>
     <label>Low-Shield Pack</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
     <Prerequisites>
       <li>Shields</li>
       <li>Machining</li>
@@ -2303,6 +2597,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_ShirtRuffleThing</defName>
     <label>Formal Shirt</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
     <Prerequisites>
       <li>Noble Apparel</li>
       <li>Complex Clothing</li>
@@ -2314,6 +2609,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_CorsetThing</defName>
     <label>Corset</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
     <Prerequisites>
       <li>Noble Apparel</li>
       <li>Complex Clothing</li>
@@ -2325,6 +2621,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_VestRoyalThing</defName>
     <label>Formal Vest</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
     <Prerequisites>
       <li>Noble Apparel</li>
       <li>Complex Clothing</li>
@@ -2336,6 +2633,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_RobeRoyalThing</defName>
     <label>Prestige Robe</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
     <Prerequisites>
       <li>Royal Apparel</li>
       <li>Complex Clothing</li>
@@ -2347,6 +2645,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_HatLadiesThing</defName>
     <label>Ladies Hat</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
     <Prerequisites>
       <li>Noble Apparel</li>
       <li>Complex Clothing</li>
@@ -2358,6 +2657,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_HatTopThing</defName>
     <label>Top Hat</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
     <Prerequisites>
       <li>Noble Apparel</li>
       <li>Complex Clothing</li>
@@ -2369,6 +2669,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_CoronetThing</defName>
     <label>Coronet</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
     <Prerequisites>
       <li>Royal Apparel</li>
       <li>Smithing</li>
@@ -2380,6 +2681,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_CrownThing</defName>
     <label>Crown</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
     <Prerequisites>
       <li>Royal Apparel</li>
       <li>Smithing</li>
@@ -2391,6 +2693,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_BeretThing</defName>
     <label>Beret</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
     <Prerequisites>
       <li>Noble Apparel</li>
       <li>Complex Clothing</li>
@@ -2402,6 +2705,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_ArmorReconPrestigeThing</defName>
     <label>Prestige Recon Armor</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
     <Prerequisites>
       <li>Recon Armor</li>
       <li>Fabrication</li>
@@ -2412,6 +2716,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_ArmorHelmetReconPrestigeThing</defName>
     <label>Prestige Recon Helmet</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
     <Prerequisites>
       <li>Recon Armor</li>
       <li>Fabrication</li>
@@ -2422,6 +2727,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_ArmorMarinePrestigeThing</defName>
     <label>Prestige Marine Armor</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
     <Prerequisites>
       <li>Marine Armor</li>
       <li>Fabrication</li>
@@ -2432,6 +2738,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_ArmorMarineHelmetPrestigeThing</defName>
     <label>Prestige Marine Helmet</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
     <Prerequisites>
       <li>Marine Armor</li>
       <li>Fabrication</li>
@@ -2442,6 +2749,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_ArmorCataphractThing</defName>
     <label>Cataphract Armor</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
     <Prerequisites>
       <li>Cataphract Armor</li>
       <li>Fabrication</li>
@@ -2452,6 +2760,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_ArmorHelmetCataphractThing</defName>
     <label>Cataphract Helmet</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
     <Prerequisites>
       <li>Cataphract Armor</li>
       <li>Fabrication</li>
@@ -2462,6 +2771,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_ArmorCataphractPrestigeThing</defName>
     <label>Prestige Cataphract Armor</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
     <Prerequisites>
       <li>Cataphract Armor</li>
       <li>Fabrication</li>
@@ -2472,6 +2782,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_ArmorHelmetCataphractPrestigeThing</defName>
     <label>Prestige Cataphract Helmet</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
     <Prerequisites>
       <li>Cataphract Armor</li>
       <li>Fabrication</li>
@@ -2482,6 +2793,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_ArmorLocustThing</defName>
     <label>Locust Armor</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
     <Prerequisites>
       <li>Recon Armor</li>
       <li>Fabrication</li>
@@ -2492,6 +2804,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_ArmorMarineGrenadierThing</defName>
     <label>Grenadier Armor</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
     <Prerequisites>
       <li>Marine Armor</li>
       <li>Fabrication</li>
@@ -2502,6 +2815,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_ArmorCataphractPhoenixThing</defName>
     <label>Phoenix Armor</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
     <Prerequisites>
       <li>Cataphract Armor</li>
       <li>Fabrication</li>
@@ -2512,6 +2826,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_GunlinkThing</defName>
     <label>Gunlink</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
     <Prerequisites>
       <li>Gunlink</li>
       <li>Fabrication</li>
@@ -2522,6 +2837,7 @@
     <DefType>ThingDef</DefType>
     <defName>MeleeWeapon_AxeThing</defName>
     <label>Axe</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
     <Prerequisites>
       <li>Smithing</li>
       <li>Electricity</li>
@@ -2532,6 +2848,7 @@
     <DefType>ThingDef</DefType>
     <defName>MeleeWeapon_WarhammerThing</defName>
     <label>Warhammer</label>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
     <Prerequisites>
       <li>Long Blades</li>
       <li>Smithing</li>
@@ -2543,6 +2860,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_HeadwrapThing</defName>
     <label>Headwrap</label>
+    <RequiredExpansion>Ludeon.RimWorld.Ideology</RequiredExpansion>
     <Prerequisites>
       <li>Complex Clothing</li>
       <li>Electricity</li>
@@ -2553,6 +2871,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_BroadwrapThing</defName>
     <label>Broadwrap</label>
+    <RequiredExpansion>Ludeon.RimWorld.Ideology</RequiredExpansion>
     <Prerequisites>
       <li>Complex Clothing</li>
       <li>Electricity</li>
@@ -2563,6 +2882,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_VisageMaskThing</defName>
     <label>Visage Mask</label>
+    <RequiredExpansion>Ludeon.RimWorld.Ideology</RequiredExpansion>
     <Prerequisites>
       <li>Complex Clothing</li>
       <li>Electricity</li>
@@ -2573,6 +2893,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_SlicecapThing</defName>
     <label>Slicecap</label>
+    <RequiredExpansion>Ludeon.RimWorld.Ideology</RequiredExpansion>
     <Prerequisites>
       <li>Complex Clothing</li>
       <li>Electricity</li>
@@ -2583,6 +2904,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_CollarThing</defName>
     <label>Slave Collar</label>
+    <RequiredExpansion>Ludeon.RimWorld.Ideology</RequiredExpansion>
     <Prerequisites>
       <li>Complex Clothing</li>
       <li>Electricity</li>
@@ -2593,6 +2915,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_AuthorityCapThing</defName>
     <label>Authority Cap</label>
+    <RequiredExpansion>Ludeon.RimWorld.Ideology</RequiredExpansion>
     <Prerequisites>
       <li>Complex Clothing</li>
       <li>Electricity</li>
@@ -2603,6 +2926,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_TailcapThing</defName>
     <label>Tailcap</label>
+    <RequiredExpansion>Ludeon.RimWorld.Ideology</RequiredExpansion>
     <Prerequisites>
       <li>Complex Clothing</li>
       <li>Electricity</li>
@@ -2613,6 +2937,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_ShadeconeThing</defName>
     <label>Shadecone</label>
+    <RequiredExpansion>Ludeon.RimWorld.Ideology</RequiredExpansion>
     <Prerequisites>
       <li>Complex Clothing</li>
       <li>Electricity</li>
@@ -2623,6 +2948,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_FlophatThing</defName>
     <label>Flophat</label>
+    <RequiredExpansion>Ludeon.RimWorld.Ideology</RequiredExpansion>
     <Prerequisites>
       <li>Complex Clothing</li>
       <li>Electricity</li>
@@ -2633,6 +2959,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_BodyStrapThing</defName>
     <label>Slave Body Strap</label>
+    <RequiredExpansion>Ludeon.RimWorld.Ideology</RequiredExpansion>
     <Prerequisites>
       <li>Complex Clothing</li>
       <li>Electricity</li>
@@ -2643,6 +2970,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_BurkaThing</defName>
     <label>Burka</label>
+    <RequiredExpansion>Ludeon.RimWorld.Ideology</RequiredExpansion>
     <Prerequisites>
       <li>Complex Clothing</li>
       <li>Electricity</li>
@@ -2653,6 +2981,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_TortureCrownThing</defName>
     <label>Torture Crown</label>
+    <RequiredExpansion>Ludeon.RimWorld.Ideology</RequiredExpansion>
     <Prerequisites>
       <li>Smithing</li>
       <li>Electricity</li>
@@ -2663,6 +2992,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_BlindfoldThing</defName>
     <label>Blindfold</label>
+    <RequiredExpansion>Ludeon.RimWorld.Ideology</RequiredExpansion>
     <Prerequisites>
       <li>Complex Clothing</li>
       <li>Electricity</li>
@@ -2673,6 +3003,7 @@
     <DefType>ThingDef</DefType>
     <defName>DetoxifierLungThing</defName>
     <label>Detoxifier Lung</label>
+    <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
     <Prerequisites>
       <li>Toxin Filtration</li>
       <li>Fabrication</li>
@@ -2683,6 +3014,7 @@
     <DefType>ThingDef</DefType>
     <defName>DetoxifierKidneyThing</defName>
     <label>Detoxifier Kidney</label>
+    <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
     <Prerequisites>
       <li>Toxin Filtration</li>
       <li>Fabrication</li>
@@ -2693,6 +3025,7 @@
     <DefType>ThingDef</DefType>
     <defName>ControlSublinkThing</defName>
     <label>Control Sublink (Standard)</label>
+    <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
     <Prerequisites>
       <li>Standard Mechtech</li>
       <li>Machining</li>
@@ -2703,6 +3036,7 @@
     <DefType>ThingDef</DefType>
     <defName>ControlSublinkHighThing</defName>
     <label>Control Sublink (High)</label>
+    <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
     <Prerequisites>
       <li>High Mechtech</li>
       <li>Machining</li>
@@ -2713,6 +3047,7 @@
     <DefType>ThingDef</DefType>
     <defName>RemoteRepairerThing</defName>
     <label>Remote Repairer</label>
+    <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
     <Prerequisites>
       <li>High Mechtech</li>
       <li>Machining</li>
@@ -2723,6 +3058,7 @@
     <DefType>ThingDef</DefType>
     <defName>MechFormfeederThing</defName>
     <label>Mech Gestation Processor</label>
+    <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
     <Prerequisites>
       <li>Standard Mechtech</li>
       <li>Machining</li>
@@ -2733,6 +3069,7 @@
     <DefType>ThingDef</DefType>
     <defName>RemoteShielderThing</defName>
     <label>Remote Shielder</label>
+    <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
     <Prerequisites>
       <li>High Mechtech</li>
       <li>Machining</li>
@@ -2743,6 +3080,7 @@
     <DefType>ThingDef</DefType>
     <defName>RepairProbeThing</defName>
     <label>Repair Probe</label>
+    <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
     <Prerequisites>
       <li>Ultra Mechtech</li>
       <li>Machining</li>
@@ -2753,6 +3091,7 @@
     <DefType>ThingDef</DefType>
     <defName>SubcoreBasicThing</defName>
     <label>Basic Subcore</label>
+    <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
     <Prerequisites>
       <li>Basic Mechtech</li>
     </Prerequisites>
@@ -2762,6 +3101,7 @@
     <DefType>ThingDef</DefType>
     <defName>Shell_ToxicThing</defName>
     <label>Tox Shell</label>
+    <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
     <Prerequisites>
       <li>Tox Gas</li>
       <li>Machining</li>
@@ -2772,6 +3112,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_KidRomperThing</defName>
     <label>Kid Romper</label>
+    <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
     <Prerequisites>
       <li>Complex Clothing</li>
       <li>Electricity</li>
@@ -2782,6 +3123,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_KidShirtThing</defName>
     <label>Kid Shirt</label>
+    <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
     <Prerequisites>
       <li>Complex Clothing</li>
       <li>Electricity</li>
@@ -2792,6 +3134,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_KidPantsThing</defName>
     <label>Kid Pants</label>
+    <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
     <Prerequisites>
       <li>Complex Clothing</li>
       <li>Electricity</li>
@@ -2802,6 +3145,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_KidParkaThing</defName>
     <label>Kid Parka</label>
+    <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
     <Prerequisites>
       <li>Complex Clothing</li>
       <li>Electricity</li>
@@ -2812,6 +3156,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_KidTribalThing</defName>
     <label>Kid Tribalwear</label>
+    <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
     <Prerequisites>
       <li>Complex Clothing</li>
       <li>Electricity</li>
@@ -2822,6 +3167,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_KidHelmetThing</defName>
     <label>Kid Helmet</label>
+    <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
     <Prerequisites>
       <li>Smithing</li>
       <li>Machining</li>
@@ -2833,6 +3179,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_AirwireHeadsetThing</defName>
     <label>Airwire Headset</label>
+    <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
     <Prerequisites>
       <li>Basic Mechtech</li>
       <li>Machining</li>
@@ -2843,6 +3190,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_ArrayHeadsetThing</defName>
     <label>Array Headset</label>
+    <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
     <Prerequisites>
       <li>Standard Mechtech</li>
       <li>Machining</li>
@@ -2853,6 +3201,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_IntegratorHeadsetThing</defName>
     <label>Integrator Headset</label>
+    <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
     <Prerequisites>
       <li>High Mechtech</li>
       <li>Fabrication</li>
@@ -2863,6 +3212,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_ArmorHelmetMechCommanderThing</defName>
     <label>Mechcommander Helmet</label>
+    <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
     <Prerequisites>
       <li>Standard Mechtech</li>
       <li>Machining</li>
@@ -2873,6 +3223,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_ArmorHelmetMechlordHelmetThing</defName>
     <label>Mechlord Helmet</label>
+    <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
     <Prerequisites>
       <li>Ultra Mechtech</li>
       <li>Fabrication</li>
@@ -2883,6 +3234,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_GasMaskThing</defName>
     <label>Gas Mask</label>
+    <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
     <Prerequisites>
       <li>Machining</li>
     </Prerequisites>
@@ -2892,6 +3244,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_ClothMaskThing</defName>
     <label>Face Mask</label>
+    <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
     <Prerequisites>
       <li>Complex Clothing</li>
       <li>Electricity</li>
@@ -2902,6 +3255,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_PackControlThing</defName>
     <label>Control Pack</label>
+    <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
     <Prerequisites>
       <li>Basic Mechtech</li>
       <li>Machining</li>
@@ -2912,6 +3266,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_PackBandwidthThing</defName>
     <label>Bandwidth Pack</label>
+    <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
     <Prerequisites>
       <li>Standard Mechtech</li>
       <li>Machining</li>
@@ -2922,6 +3277,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_PackToxThing</defName>
     <label>Tox Pack</label>
+    <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
     <Prerequisites>
       <li>Tox Gas</li>
       <li>Machining</li>
@@ -2932,6 +3288,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_MechlordSuitThing</defName>
     <label>Mechlord Suit</label>
+    <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
     <Prerequisites>
       <li>Ultra Mechtech</li>
       <li>Fabrication</li>
@@ -2942,6 +3299,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_BandolierThing</defName>
     <label>Heavy Bandolier</label>
+    <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
     <Prerequisites>
       <li>Complex Clothing</li>
       <li>Electricity</li>
@@ -2952,6 +3310,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_SashThing</defName>
     <label>Sash</label>
+    <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
     <Prerequisites>
       <li>Complex Clothing</li>
       <li>Electricity</li>
@@ -2962,6 +3321,7 @@
     <DefType>ThingDef</DefType>
     <defName>Gun_ToxbombLauncherThing</defName>
     <label>Toxbomb Launcher</label>
+    <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
     <Prerequisites>
       <li>Tox Gas</li>
       <li>Machining</li>
@@ -2972,6 +3332,7 @@
     <DefType>ThingDef</DefType>
     <defName>Weapon_GrenadeToxThing</defName>
     <label>Tox Grenades</label>
+    <RequiredExpansion>Ludeon.RimWorld.Biotech</RequiredExpansion>
     <Prerequisites>
       <li>Tox Gas</li>
       <li>Machining</li>
@@ -2982,6 +3343,7 @@
     <DefType>ThingDef</DefType>
     <defName>GhoulPlatingThing</defName>
     <label>Ghoul Plating</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
     <Prerequisites>
       <li>Ghoul Enhancements</li>
       <li>Bioferrite Shaping</li>
@@ -2992,6 +3354,7 @@
     <DefType>ThingDef</DefType>
     <defName>GhoulBarbsThing</defName>
     <label>Ghoul Barbs</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
     <Prerequisites>
       <li>Ghoul Enhancements</li>
       <li>Bioferrite Shaping</li>
@@ -3002,6 +3365,7 @@
     <DefType>ThingDef</DefType>
     <defName>AdrenalHeartThing</defName>
     <label>Adrenal Heart</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
     <Prerequisites>
       <li>Ghoul Enhancements</li>
       <li>Bioferrite Shaping</li>
@@ -3012,6 +3376,7 @@
     <DefType>ThingDef</DefType>
     <defName>CorrosiveHeartThing</defName>
     <label>Corrosive Heart</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
     <Prerequisites>
       <li>Ghoul Enhancements</li>
       <li>Bioferrite Shaping</li>
@@ -3022,6 +3387,7 @@
     <DefType>ThingDef</DefType>
     <defName>MetalbloodHeartThing</defName>
     <label>Metalblood Heart</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
     <Prerequisites>
       <li>Ghoul Enhancements</li>
       <li>Bioferrite Shaping</li>
@@ -3032,6 +3398,7 @@
     <DefType>ThingDef</DefType>
     <defName>RevenantVertebraeThing</defName>
     <label>Revenant Vertebrae</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
     <Prerequisites>
       <li>Revenant Invisibility</li>
       <li>Bioferrite Shaping</li>
@@ -3042,6 +3409,7 @@
     <DefType>ThingDef</DefType>
     <defName>ShardAnimalPulserThing</defName>
     <label>Shard Animal Pulser</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
     <Prerequisites>
       <li>Insanity Weaponry</li>
       <li>Bioferrite Shaping</li>
@@ -3052,6 +3420,7 @@
     <DefType>ThingDef</DefType>
     <defName>BiomutationPulserThing</defName>
     <label>Biomutation Pulser</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
     <Prerequisites>
       <li>Mutation Weaponry</li>
       <li>Bioferrite Shaping</li>
@@ -3062,6 +3431,7 @@
     <DefType>ThingDef</DefType>
     <defName>Shell_DeadlifeThing</defName>
     <label>Deadlife Shell</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
     <Prerequisites>
       <li>Deadlife Dust</li>
       <li>Bioferrite Shaping</li>
@@ -3072,6 +3442,7 @@
     <DefType>ThingDef</DefType>
     <defName>VoidsightSerumThing</defName>
     <label>Voidsight Serum</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
     <Prerequisites>
       <li>Serum Synthesis</li>
     </Prerequisites>
@@ -3081,6 +3452,7 @@
     <DefType>ThingDef</DefType>
     <defName>MetalbloodSerumThing</defName>
     <label>Metalblood Serum</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
     <Prerequisites>
       <li>Metalblood Serum</li>
       <li>Serum Synthesis</li>
@@ -3091,6 +3463,7 @@
     <DefType>ThingDef</DefType>
     <defName>JuggernautSerumThing</defName>
     <label>Juggernaut Serum</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
     <Prerequisites>
       <li>Juggernaut Serum</li>
       <li>Serum Synthesis</li>
@@ -3101,6 +3474,7 @@
     <DefType>ThingDef</DefType>
     <defName>MindNumbSerumThing</defName>
     <label>Mind-Numb Serum</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
     <Prerequisites>
       <li>Mind-Numb Serum</li>
       <li>Serum Synthesis</li>
@@ -3111,6 +3485,7 @@
     <DefType>ThingDef</DefType>
     <defName>GhoulResurrectionSerumThing</defName>
     <label>Ghoul Resurrection Serum</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
     <Prerequisites>
       <li>Ghoul Resurrection</li>
       <li>Serum Synthesis</li>
@@ -3121,6 +3496,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_CultistMaskThing</defName>
     <label>Ritual Mask</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
     <Prerequisites>
       <li>Bioferrite Extraction</li>
       <li>Bioferrite Shaping</li>
@@ -3131,6 +3507,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_CeremonialCultistMaskThing</defName>
     <label>Ceremonial Hood</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
     <Prerequisites>
       <li>Bioferrite Extraction</li>
       <li>Bioferrite Shaping</li>
@@ -3141,6 +3518,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_DisruptorFlarePackThing</defName>
     <label>Disruptor Flare Pack</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
     <Prerequisites>
       <li>Disruptor Flares</li>
       <li>Bioferrite Shaping</li>
@@ -3151,6 +3529,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_PackTurretThing</defName>
     <label>Turret Pack</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
     <Prerequisites>
       <li>Turret Pack</li>
       <li>Machining</li>
@@ -3161,6 +3540,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_DeadlifePackThing</defName>
     <label>Deadlife Pack</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
     <Prerequisites>
       <li>Deadlife Dust</li>
       <li>Bioferrite Shaping</li>
@@ -3171,6 +3551,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_ShardPsychicShockLanceThing</defName>
     <label>Shard Shock Lance</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
     <Prerequisites>
       <li>Insanity Weaponry</li>
       <li>Bioferrite Shaping</li>
@@ -3181,6 +3562,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_ShardPsychicInsanityLanceThing</defName>
     <label>Shard Insanity Lance</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
     <Prerequisites>
       <li>Insanity Weaponry</li>
       <li>Bioferrite Shaping</li>
@@ -3191,6 +3573,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_BiomutationLanceThing</defName>
     <label>Biomutation Lance</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
     <Prerequisites>
       <li>Mutation Weaponry</li>
       <li>Bioferrite Shaping</li>
@@ -3201,6 +3584,7 @@
     <DefType>ThingDef</DefType>
     <defName>Apparel_LabCoatThing</defName>
     <label>Lab Coat</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
     <Prerequisites>
       <li>Complex Clothing</li>
       <li>Electricity</li>
@@ -3211,6 +3595,7 @@
     <DefType>ThingDef</DefType>
     <defName>Gun_HellcatRifleThing</defName>
     <label>Hellcat Rifle</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
     <Prerequisites>
       <li>Bioferrite Weaponry</li>
       <li>Bioferrite Shaping</li>
@@ -3221,6 +3606,7 @@
     <DefType>ThingDef</DefType>
     <defName>Gun_IncineratorThing</defName>
     <label>Incinerator</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
     <Prerequisites>
       <li>Bioferrite Weaponry</li>
       <li>Bioferrite Shaping</li>
@@ -3231,6 +3617,7 @@
     <DefType>ThingDef</DefType>
     <defName>NerveSpikerThing</defName>
     <label>Nerve Spiker</label>
+    <RequiredExpansion>Ludeon.RimWorld.Anomaly</RequiredExpansion>
     <Prerequisites>
       <li>Bioferrite Extraction</li>
       <li>Bioferrite Shaping</li>

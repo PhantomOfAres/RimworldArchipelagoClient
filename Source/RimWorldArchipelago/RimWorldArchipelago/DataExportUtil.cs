@@ -13,6 +13,7 @@ namespace RimworldArchipelago
         public static void ExportArchipelagoDefs()
         {
             long nextId = 769100;
+
             Dictionary<string, ArchipelagoItemDef> allDefs = new Dictionary<string, ArchipelagoItemDef>();
             TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
             foreach (ResearchProjectDef research in DefDatabase<ResearchProjectDef>.AllDefs)
@@ -22,6 +23,10 @@ namespace RimworldArchipelago
                 item.Id = nextId;
                 item.DefType = "ResearchProjectDef";
                 item.defName = $"{research.defName}Research";
+                if (research.modContentPack != null)
+                {
+                    item.RequiredExpansion = research.modContentPack.PackageIdPlayerFacing;
+                }
                 item.label = textInfo.ToTitleCase(research.label);
                 allDefs[item.defName] = item;
             }
@@ -47,6 +52,10 @@ namespace RimworldArchipelago
                             item.Id = nextId;
                             item.DefType = "ThingDef";
                             item.defName = $"{product.thingDef.defName}Thing";
+                            if (product.thingDef.modContentPack != null)
+                            {
+                                item.RequiredExpansion = product.thingDef.modContentPack.PackageIdPlayerFacing;
+                            }
                             item.label = textInfo.ToTitleCase(product.thingDef.label);
                             // If the recipe requires a specific research, mark it as an (Archipelago) prerequisite
                             if (recipeDef.researchPrerequisite != null)
@@ -126,6 +135,10 @@ namespace RimworldArchipelago
 
                 writer.WriteStartElement("label");
                 writer.WriteString(def.label);
+                writer.WriteEndElement();
+
+                writer.WriteStartElement("RequiredExpansion");
+                writer.WriteString(def.RequiredExpansion);
                 writer.WriteEndElement();
 
                 if (def.Prerequisites.Count > 0)
