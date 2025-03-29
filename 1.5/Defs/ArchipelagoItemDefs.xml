@@ -6,6 +6,9 @@
     <defName>PsychoidBrewingResearch</defName>
     <label>Psychoid Brewing</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <ResearchTags>
+      <li>TribalStart</li>
+    </ResearchTags>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769102</Id>
@@ -13,6 +16,9 @@
     <defName>TreeSowingResearch</defName>
     <label>Tree Sowing</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <ResearchTags>
+      <li>TribalStart</li>
+    </ResearchTags>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769103</Id>
@@ -27,6 +33,9 @@
     <defName>ComplexFurnitureResearch</defName>
     <label>Complex Furniture</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <ResearchTags>
+      <li>ClassicStart</li>
+    </ResearchTags>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769105</Id>
@@ -34,6 +43,10 @@
     <defName>PassiveCoolerResearch</defName>
     <label>Passive Cooler</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <ResearchTags>
+      <li>ClassicStart</li>
+      <li>TribalStart</li>
+    </ResearchTags>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769106</Id>
@@ -41,6 +54,9 @@
     <defName>StonecuttingResearch</defName>
     <label>Stonecutting</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <ResearchTags>
+      <li>ClassicStart</li>
+    </ResearchTags>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769107</Id>
@@ -48,6 +64,9 @@
     <defName>ComplexClothingResearch</defName>
     <label>Complex Clothing</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <ResearchTags>
+      <li>ClassicStart</li>
+    </ResearchTags>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769108</Id>
@@ -86,6 +105,9 @@
     <defName>PemmicanResearch</defName>
     <label>Pemmican</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <ResearchTags>
+      <li>TribalStart</li>
+    </ResearchTags>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769113</Id>
@@ -100,6 +122,9 @@
     <defName>RecurveBowResearch</defName>
     <label>Recurve Bow</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <ResearchTags>
+      <li>TribalStart</li>
+    </ResearchTags>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769115</Id>
@@ -178,6 +203,9 @@
     <defName>ElectricityResearch</defName>
     <label>Electricity</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <ResearchTags>
+      <li>ClassicStart</li>
+    </ResearchTags>
   </RimWorldArchipelago.ArchipelagoItemDef>
   <RimWorldArchipelago.ArchipelagoItemDef>
     <Id>769123</Id>
@@ -215,6 +243,9 @@
     <defName>NutrientPasteResearch</defName>
     <label>Nutrient Paste</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <ResearchTags>
+      <li>ClassicStart</li>
+    </ResearchTags>
     <Prerequisites>
       <li>Electricity</li>
     </Prerequisites>
@@ -235,6 +266,9 @@
     <defName>AirConditioningResearch</defName>
     <label>Air Conditioning</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <ResearchTags>
+      <li>ClassicStart</li>
+    </ResearchTags>
     <Prerequisites>
       <li>Electricity</li>
     </Prerequisites>
@@ -683,6 +717,9 @@
     <defName>ShipBasicsResearch</defName>
     <label>Starflight Basics</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <ResearchTags>
+      <li>ShipRelated</li>
+    </ResearchTags>
     <Prerequisites>
       <li>Advanced Fabrication</li>
     </Prerequisites>
@@ -693,6 +730,9 @@
     <defName>ShipCryptosleepResearch</defName>
     <label>Vacuum Cryptosleep Casket</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <ResearchTags>
+      <li>ShipRelated</li>
+    </ResearchTags>
     <Prerequisites>
       <li>Starflight Basics</li>
       <li>Cryptosleep Casket</li>
@@ -704,6 +744,9 @@
     <defName>ShipReactorResearch</defName>
     <label>Starship Reactor</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <ResearchTags>
+      <li>ShipRelated</li>
+    </ResearchTags>
     <Prerequisites>
       <li>Starflight Basics</li>
     </Prerequisites>
@@ -714,6 +757,9 @@
     <defName>ShipEngineResearch</defName>
     <label>Johnson-Tanaka Drive</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <ResearchTags>
+      <li>ShipRelated</li>
+    </ResearchTags>
     <Prerequisites>
       <li>Starflight Basics</li>
     </Prerequisites>
@@ -724,6 +770,9 @@
     <defName>ShipComputerCoreResearch</defName>
     <label>Machine Persuasion</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <ResearchTags>
+      <li>ShipRelated</li>
+    </ResearchTags>
     <Prerequisites>
       <li>Starflight Basics</li>
     </Prerequisites>
@@ -734,6 +783,9 @@
     <defName>ShipSensorClusterResearch</defName>
     <label>Starflight Sensors</label>
     <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <ResearchTags>
+      <li>ShipRelated</li>
+    </ResearchTags>
     <Prerequisites>
       <li>Starflight Basics</li>
     </Prerequisites>
