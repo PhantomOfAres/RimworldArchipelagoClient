@@ -160,4 +160,29 @@ namespace RimWorldArchipelago
             return true;
         }
     }
+
+    [HarmonyPatch(typeof(ResearchUtility))]
+    [HarmonyPatch(nameof(ResearchUtility.ApplyPlayerStartingResearch))]
+    static class ResearchUtility_ApplyPlayerStartingResearch_Patch
+    {
+        public static bool Prefix()
+        {
+            FactionDef playerFactionDef = Faction.OfPlayer.def;
+            if (playerFactionDef.startingResearchTags != null)
+            {
+                playerFactionDef.startingResearchTags.Clear();
+            }
+
+            Ideo ideo;
+            if (ModLister.IdeologyInstalled && (ideo = Faction.OfPlayer.ideos?.PrimaryIdeo) != null)
+            {
+                foreach (MemeDef meme in ideo.memes)
+                {
+                    meme.startingResearchProjects.Clear();
+                }
+            }
+
+            return true;
+        }
+    }
 }
