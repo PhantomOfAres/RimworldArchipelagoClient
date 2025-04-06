@@ -62,7 +62,7 @@ namespace RimworldArchipelago
                 {
                     foreach (ResearchProjectTagDef researchTag in research.tags)
                     {
-                        item.ResearchTags.Add(researchTag.defName);
+                        item.Tags.Add(researchTag.defName);
                     }
                 }
                 item.label = textInfo.ToTitleCase(research.label);
@@ -76,7 +76,8 @@ namespace RimworldArchipelago
                 // Only include things that require research. That should give us a good variety but force the thing in question to be craftable
                 if (//recipeDef.researchPrerequisite != null &&
                     recipeDef.products != null &&
-                    recipeDef.products.Count > 0)
+                    recipeDef.products.Count > 0 &&
+                    (recipeDef.factionPrerequisiteTags == null || recipeDef.factionPrerequisiteTags.Count == 0))
                 {
                     string requiredResearchExpansion = "";
                     if (recipeDef.researchPrerequisite != null && recipeDef.researchPrerequisite.modContentPack != null && recipeDef.researchPrerequisite.modContentPack.PackageId != ModContentPack.CoreModPackageId)
@@ -172,6 +173,46 @@ namespace RimworldArchipelago
                 }
             }
 
+            IncidentCategoryDef bigThreatCategory = DefDatabase<IncidentCategoryDef>.GetNamed("ThreatSmall");
+            IncidentCategoryDef smallThreatCategory = DefDatabase<IncidentCategoryDef>.GetNamed("ThreatBig");
+            IncidentCategoryDef diseaseThreatCategory = DefDatabase<IncidentCategoryDef>.GetNamed("DiseaseHuman");
+            List<IncidentCategoryDef> badThreatIncidentCategories = new List<IncidentCategoryDef>
+                { bigThreatCategory, smallThreatCategory, diseaseThreatCategory };
+            IncidentCategoryDef factionArrivalThreatCategory = DefDatabase<IncidentCategoryDef>.GetNamed("FactionArrival");
+            IncidentCategoryDef orbitalVisitorThreatCategory = DefDatabase<IncidentCategoryDef>.GetNamed("OrbitalVisitor");
+            IncidentCategoryDef shipChunkDropThreatCategory = DefDatabase<IncidentCategoryDef>.GetNamed("ShipChunkDrop");
+            List<IncidentCategoryDef> goodIncidentCategories = new List<IncidentCategoryDef>
+                { factionArrivalThreatCategory, orbitalVisitorThreatCategory, shipChunkDropThreatCategory };
+            IncidentTargetTagDef playerHomeTag = DefDatabase<IncidentTargetTagDef>.GetNamed("Map_PlayerHome");
+            foreach (IncidentDef incidentDef in DefDatabase<IncidentDef>.AllDefs)
+            {
+                if ((badThreatIncidentCategories.Contains(incidentDef.category) ||
+                    goodIncidentCategories.Contains(incidentDef.category)) &&
+                    incidentDef.targetTags.Contains(playerHomeTag))
+                {
+                    nextId += 1;
+                    ArchipelagoItemDef item = new ArchipelagoItemDef();
+                    item.Id = nextId;
+                    item.DefType = "IncidentDef";
+                    item.defName = $"{incidentDef.defName}Incident";
+                    item.label = textInfo.ToTitleCase(incidentDef.label);
+                    if (incidentDef.modContentPack != null)
+                    {
+                        item.RequiredExpansion = incidentDef.modContentPack.PackageIdPlayerFacing;
+                    }
+                    if (badThreatIncidentCategories.Contains(incidentDef.category))
+                    {
+                        item.Tags.Add("Negative");
+                    }
+                    if (goodIncidentCategories.Contains(incidentDef.category))
+                    {
+                        item.Tags.Add("Positive");
+                    }
+                    item.Tags.Add(incidentDef.category.defName);
+                    allDefs[item.defName] = item;
+                }
+            }
+
             // Now that we have items for everything, add prereq archipelago names.
             foreach (ResearchProjectDef research in DefDatabase<ResearchProjectDef>.AllDefs)
             {
@@ -214,9 +255,12 @@ namespace RimworldArchipelago
                 writer.WriteString(def.defName);
                 writer.WriteEndElement();
 
-                writer.WriteStartElement("TechLevel");
-                writer.WriteString(def.TechLevel.ToString());
-                writer.WriteEndElement();
+                if (def.DefType == "ResearchProjectDef" || def.DefType == "ThingDef")
+                {
+                    writer.WriteStartElement("TechLevel");
+                    writer.WriteString(def.TechLevel.ToString());
+                    writer.WriteEndElement();
+                }
 
                 writer.WriteStartElement("label");
                 writer.WriteString(def.label);
@@ -226,11 +270,11 @@ namespace RimworldArchipelago
                 writer.WriteString(def.RequiredExpansion);
                 writer.WriteEndElement();
 
-                if (def.ResearchTags.Count > 0)
+                if (def.Tags.Count > 0)
                 {
-                    writer.WriteStartElement("ResearchTags");
+                    writer.WriteStartElement("Tags");
 
-                    foreach (string name in def.ResearchTags)
+                    foreach (string name in def.Tags)
                     {
                         writer.WriteStartElement("li");
                         writer.WriteString(name);

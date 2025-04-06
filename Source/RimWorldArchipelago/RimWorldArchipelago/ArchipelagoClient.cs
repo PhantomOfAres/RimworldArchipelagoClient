@@ -3,10 +3,12 @@ using Archipelago.MultiClient.Net.Enums;
 using Archipelago.MultiClient.Net.Models;
 using Archipelago.MultiClient.Net.Packets;
 using Newtonsoft.Json;
+using RimWorld;
 using RimWorldArchipelago;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using Verse;
 
 namespace RimworldArchipelago
@@ -55,13 +57,20 @@ namespace RimworldArchipelago
 
     public class ArchipelagoGameComponent: GameComponent
     {
+        private const int MIN_TICKS_IN_A_DAYISH = 45000;
+        private const int MAX_TICKS_IN_A_DAYISH = 75000;
+
         private int handledIndexCount = 0;
+        private int ticksLeftInTimer = 0;
+        private static List<string> IncidentsToRunOnTimer = new List<string>();
 
         public ArchipelagoGameComponent(Game game) { }
 
         public override void ExposeData()
         {
             Scribe_Values.Look(ref handledIndexCount, "handledIndexCount");
+            Scribe_Values.Look(ref ticksLeftInTimer, "ticksLeftInTimer");
+            Scribe_Collections.Look(ref IncidentsToRunOnTimer, "incidentsToRunOnTimer", LookMode.Value);
             base.ExposeData();
         }
 
@@ -71,6 +80,74 @@ namespace RimworldArchipelago
             if (ArchipelagoClient.Connected && Current.ProgramState == ProgramState.Playing)
             {
                 ArchipelagoClient.HandleNextReceivedItemIfNeeded(ref handledIndexCount);
+            }
+        }
+
+        public static void IncidentReceived(ArchipelagoItemDef itemDef)
+        {
+            string incidentDefName = itemDef.defName.Replace("Incident", "");
+            if (itemDef.Tags.Contains("Negative"))
+            {
+                IncidentsToRunOnTimer.Add(incidentDefName);
+            }
+            else
+            {
+                IncidentDef incidentDef = DefDatabase<IncidentDef>.GetNamed(incidentDefName);
+                IncidentParms incidentParams = StorytellerUtility.DefaultParmsNow(incidentDef.category, Find.CurrentMap);
+                incidentDef.Worker.TryExecute(incidentParams);
+            }
+        }
+
+        public override void GameComponentTick()
+        {
+            if (ticksLeftInTimer > 0)
+            {
+                ticksLeftInTimer -= 1;
+            }
+            // Only trigger (and reset) the timer if something's on the list.
+            if (ticksLeftInTimer <= 0 && IncidentsToRunOnTimer.Count > 0)
+            {
+                // Shuffle the list so one is picked randomly.
+                for (int i = IncidentsToRunOnTimer.Count - 1; i > 0; i--)
+                {
+                    int swapIndex = UnityEngine.Random.Range(0, i + 1);
+                    string iContents = IncidentsToRunOnTimer[i];
+                    IncidentsToRunOnTimer[i] = IncidentsToRunOnTimer[swapIndex];
+                    IncidentsToRunOnTimer[swapIndex] = iContents;
+                }
+
+                string incidentToRemove = "";
+                foreach (string incidentDefName in IncidentsToRunOnTimer)
+                {
+                    IncidentDef incidentDef = DefDatabase<IncidentDef>.GetNamed(incidentDefName);
+                    IncidentParms incidentParams = StorytellerUtility.DefaultParmsNow(incidentDef.category, Find.CurrentMap);
+
+                    // Removing this section for now. Basic raids work fine. I'll figure out how I want to sprinkle in variety later.
+                    /*
+                    // We do a mini CanStartNow check here. Don't spawn an incident with too-low threat points, because it will kill the player...
+                    if (incidentParams.points >= 0f && incidentParams.points < incidentDef.minThreatPoints)
+                    {
+                        continue;
+                    }
+
+                    // And don't spawn an anomaly incident before the player has advanced that far.
+                    if (ModsConfig.AnomalyActive && incidentDef.IsAnomalyIncident && Find.Anomaly.LevelDef.anomalyThreatTier < incidentDef.minAnomalyThreatLevel && Find.Anomaly.GenerateMonolith)
+                    {
+                        continue;
+                    }*/
+
+                    // Otherwise, ignore all other checks. Hope you don't die good luck!
+                    incidentDef.Worker.TryExecute(incidentParams);
+                    incidentToRemove = incidentDefName;
+                    break;
+                }
+
+                if (incidentToRemove != "")
+                {
+                    IncidentsToRunOnTimer.Remove(incidentToRemove);
+                }
+
+                ticksLeftInTimer = UnityEngine.Random.Range(MIN_TICKS_IN_A_DAYISH, MAX_TICKS_IN_A_DAYISH);
             }
         }
     }
@@ -97,12 +174,6 @@ namespace RimworldArchipelago
             if (Current.ProgramState == ProgramState.Playing)
             {
                 ArchipelagoItemDef archipelagoItem = null;
-                if (itemInfo.ItemName == "Temp Filler")
-                {
-                    // As it says - this filler is temp. Once we have real filler items, we can remove this logic.
-                    return;
-                }
-
                 foreach (ArchipelagoItemDef itemDef in DefDatabase<ArchipelagoItemDef>.AllDefs)
                 {
                     if (itemDef.Id == itemInfo.ItemId)
@@ -122,6 +193,10 @@ namespace RimworldArchipelago
                     {
                         Find.ResearchManager.FinishProject(research, doCompletionDialog: true);
                     }
+                }
+                else if (archipelagoItem.DefType == "IncidentDef")
+                {
+                    ArchipelagoGameComponent.IncidentReceived(archipelagoItem);
                 }
             }
             else

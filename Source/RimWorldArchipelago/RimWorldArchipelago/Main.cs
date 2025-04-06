@@ -23,7 +23,7 @@ namespace RimWorldArchipelago
         public string DefType;
         public string RequiredExpansion;
         public AdjustedTechLevel TechLevel;
-        public List<string> ResearchTags = new List<string>();
+        public List<string> Tags = new List<string>();
         public List<string> Prerequisites = new List<string>();
     }
 
