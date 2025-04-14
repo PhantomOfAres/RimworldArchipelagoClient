@@ -2640,7 +2640,7 @@
     <defName>Apparel_CapeThing</defName>
     <TechLevel>Neolithic</TechLevel>
     <label>Cape</label>
-    <RequiredExpansion>Ludeon.RimWorld</RequiredExpansion>
+    <RequiredExpansion>Ludeon.RimWorld.Royalty</RequiredExpansion>
     <Prerequisites>
       <li>Complex Clothing</li>
       <li>Electricity</li>

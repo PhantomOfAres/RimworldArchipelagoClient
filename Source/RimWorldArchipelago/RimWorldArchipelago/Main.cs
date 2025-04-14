@@ -1,7 +1,4 @@
-﻿using HarmonyLib;
-using RimWorld;
-using RimworldArchipelago;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Verse;
 
 
@@ -32,8 +29,6 @@ namespace RimWorldArchipelago
     {
         static Main()
         {
-            Harmony harmony = new Harmony("com.phantomofares.rimworld");
-            harmony.PatchAll();
         }
     }
 }

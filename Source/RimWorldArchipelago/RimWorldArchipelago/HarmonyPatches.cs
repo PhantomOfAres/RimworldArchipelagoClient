@@ -105,7 +105,7 @@ namespace RimWorldArchipelago
     [HarmonyPatch(nameof(RecipeDef.UIIconThing), MethodType.Getter)]
     static class RecipeDef_UIIconThing_Patch
     {
-        public static bool Prefix (RecipeDef __instance, ref ThingDef __result)
+        public static bool Prefix(RecipeDef __instance, ref ThingDef __result)
         {
             if (APCraftManager.IsApCraft(__instance.defName))
             {

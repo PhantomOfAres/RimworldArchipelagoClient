@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using HarmonyLib;
+using Newtonsoft.Json;
 using RimWorld.Planet;
 using System;
 using System.Collections.Generic;
@@ -62,6 +63,8 @@ namespace RimworldArchipelago
         {
             this.settings = GetSettings<ArchipelagoSettings>();
             _instance = this;
+            Harmony harmony = new Harmony("com.phantomofares.rimworld");
+            harmony.PatchAll();
         }
 
         /// <summary>

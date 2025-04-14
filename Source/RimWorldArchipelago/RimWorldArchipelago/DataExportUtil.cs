@@ -106,6 +106,12 @@ namespace RimworldArchipelago
                             {
                                 item.RequiredExpansion = requiredResearchExpansion;
                             }
+
+                            // Look. This isn't ideal, but it seems to be the only remaining exception in core, and figuring out whether MayRequire is excluding items is annoying.
+                            if (product.thingDef.defName.Contains("Apparel_Cape"))
+                            {
+                                item.RequiredExpansion = "Ludeon.RimWorld.Royalty";
+                            }
                             TechLevel maxTechLevel = (TechLevel)Mathf.Max((int)item.TechLevel, (int)(recipeDef.researchPrerequisite == null ? 0 : recipeDef.researchPrerequisite.techLevel));
                             switch (maxTechLevel)
                             {
