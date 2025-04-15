@@ -3,6 +3,7 @@ using RimWorldArchipelago;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using System.Xml;
 using UnityEngine;
 using Verse;
@@ -11,6 +12,12 @@ namespace RimworldArchipelago
 {
     internal class DataExportUtil
     {
+        public const string AnyElectricityRequirement = "AnyElectricity";
+        public const string FabricationRequirement = "Fabrication";
+        public const string AdvancedFabricationRequirement = "Advanced Fabrication";
+        public const string ComponentDefName = "ComponentIndustrial";
+        public const string AdvancedComponentDefName = "ComponentSpacer";
+
         public static void ExportArchipelagoDefs()
         {
             long nextId = 769100;
@@ -89,7 +96,9 @@ namespace RimworldArchipelago
                     {
                         // Ensure we haven't already included this item type, and ensure we're only targeting items, not buildings or mechs or whatever.
                         if (!alreadyPopulatedItem.Contains(product.thingDef.defName) &&
-                            product.thingDef.category == ThingCategory.Item)
+                            product.thingDef.category == ThingCategory.Item &&
+                            recipeDef.AllRecipeUsers != null &&
+                            recipeDef.AllRecipeUsers.Count() > 0)
                         {
                             nextId += 1;
                             alreadyPopulatedItem.Add(product.thingDef.defName);
@@ -151,26 +160,54 @@ namespace RimworldArchipelago
                                 item.Prerequisites.Add(prereqArchipelagoItem.label);
                             }
 
+                            // Assume a craft does require power - if any of its benches do NOT, set it to false.
+                            bool craftRequiresPower = true;
                             // If the bench(es) used to craft this item require research, mark it as an (Archipelago) prerequisite (If the player has flake production but no drug
                             //   lab, the player can't make flake.)
                             if (recipeDef.AllRecipeUsers != null)
                             {
+                                bool foundPrereqs = false;
+                                List<ResearchProjectDef> shortestPrereqList = null;
                                 foreach (ThingDef benchType in recipeDef.AllRecipeUsers)
                                 {
-                                    if (benchType.researchPrerequisites != null)
+                                    if (!benchType.ConnectToPower)
                                     {
-                                        // Note: This logic is slightly off - we require ALL benches be craftable, rather than ANY of them. So clothing will require
-                                        //   electricity and complex clothing to be considered in logic, since you can craft it at either a hand or electric tailoring
-                                        //   table. That's going to skew electricity early generally, which is somewhere between fine and ideal.
-                                        foreach (ResearchProjectDef benchResearch in benchType.researchPrerequisites)
+                                        craftRequiresPower = false;
+                                    }
+
+                                    if (!foundPrereqs || (benchType.researchPrerequisites != null && benchType.researchPrerequisites.Count < shortestPrereqList.Count))
+                                    {
+                                        shortestPrereqList = benchType.researchPrerequisites;
+                                    }
+                                }
+
+                                if (shortestPrereqList != null)
+                                {
+                                    foreach (ResearchProjectDef benchResearch in shortestPrereqList)
+                                    {
+                                        ArchipelagoItemDef prereqArchipelagoItem = allDefs[$"{benchResearch.defName}Research"];
+                                        if (!item.Prerequisites.Contains(prereqArchipelagoItem.label))
                                         {
-                                            ArchipelagoItemDef prereqArchipelagoItem = allDefs[$"{benchResearch.defName}Research"];
-                                            if (!item.Prerequisites.Contains(prereqArchipelagoItem.label))
-                                            {
-                                                item.Prerequisites.Add(prereqArchipelagoItem.label);
-                                            }
+                                            item.Prerequisites.Add(prereqArchipelagoItem.label);
                                         }
                                     }
+                                }
+
+                                if (craftRequiresPower && !item.Prerequisites.Contains(AnyElectricityRequirement))
+                                {
+                                    item.Prerequisites.Add(AnyElectricityRequirement);
+                                }
+                            }
+
+                            foreach (IngredientCount ingredientCount in recipeDef.ingredients)
+                            {
+                                if (ingredientCount.IsFixedIngredient && ingredientCount.FixedIngredient.defName == ComponentDefName && !item.Prerequisites.Contains(FabricationRequirement))
+                                {
+                                    item.Prerequisites.Add(FabricationRequirement);
+                                }
+                                if (ingredientCount.IsFixedIngredient && ingredientCount.FixedIngredient.defName == AdvancedComponentDefName && !item.Prerequisites.Contains(FabricationRequirement))
+                                {
+                                    item.Prerequisites.Add(AdvancedFabricationRequirement);
                                 }
                             }
                             allDefs[item.defName] = item;
