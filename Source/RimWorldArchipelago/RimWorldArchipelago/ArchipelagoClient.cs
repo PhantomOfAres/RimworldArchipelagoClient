@@ -64,7 +64,11 @@ namespace RimworldArchipelago
         private int ticksLeftInTimer = 0;
         private static List<string> IncidentsToRunOnTimer = new List<string>();
 
-        public ArchipelagoGameComponent(Game game) { }
+        public ArchipelagoGameComponent(Game game)
+        {
+            // Now that we've started a game, allow the player to load if they return to the menu.
+            MainMenuPatch.canLoadGame = true;
+        }
 
         public override void ExposeData()
         {
@@ -270,11 +274,17 @@ namespace RimworldArchipelago
             }
         }
 
+        private static SlotData _cachedSlotData = null;
         public static SlotData SlotData
         {
             get
             {
-                return session?.DataStorage?.GetSlotData<SlotData>();
+                if (_cachedSlotData == null)
+                {
+                    _cachedSlotData = session?.DataStorage?.GetSlotData<SlotData>();
+                }
+
+                return _cachedSlotData;
             }
         }
 
