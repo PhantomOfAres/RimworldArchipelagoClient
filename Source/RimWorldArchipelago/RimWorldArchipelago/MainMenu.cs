@@ -96,6 +96,12 @@ namespace RimworldArchipelago
                     ArchipelagoClient.Connect(settings.hostname, settings.slotName, settings.password);
                     settings.Write();
                 }
+                
+                if (ArchipelagoClient.ConnectionFailed)
+                {
+                    listingStandard.Label("Connection failed!");
+                    listingStandard.Label(ArchipelagoClient.ConnectionErrorReason);
+                }
             }
             // Only allow the export if the client is not connected - connecting will add a bunch of new data that we don't want to export.
             else

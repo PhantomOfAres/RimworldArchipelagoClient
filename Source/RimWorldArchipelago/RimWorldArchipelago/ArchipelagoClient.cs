@@ -155,6 +155,8 @@ namespace RimworldArchipelago
     internal class ArchipelagoClient
     {
         private static ArchipelagoSession session = null;
+        public static bool ConnectionFailed { get; private set; } = false;
+        public static string ConnectionErrorReason;
 
         static void Socket_ErrorReceived(Exception e, string message)
         {
@@ -219,11 +221,6 @@ namespace RimworldArchipelago
         {
             LoginResult result;
 
-            if (session?.Socket != null && session.Socket.Connected)
-            {
-                session.Socket.DisconnectAsync().Wait();
-            }
-
             session = ArchipelagoSessionFactory.CreateSession(server);
             session.Socket.ErrorReceived += Socket_ErrorReceived;
             try
@@ -239,20 +236,22 @@ namespace RimworldArchipelago
             if (!result.Successful)
             {
                 LoginFailure failure = (LoginFailure)result;
-                string errorMessage = $"Failed to Connect to {server} as {user}:";
+                ConnectionErrorReason = $"Failed to Connect to {server} as {user}:";
                 foreach (string error in failure.Errors)
                 {
-                    errorMessage += $"\n    {error}";
+                    ConnectionErrorReason += $"\n    {error}";
                 }
                 foreach (ConnectionRefusedError error in failure.ErrorCodes)
                 {
-                    errorMessage += $"\n    {error}";
+                    ConnectionErrorReason += $"\n    {error}";
                 }
-                Log.Message(errorMessage);
+                Log.Message(ConnectionErrorReason);
+                ConnectionFailed = true;
 
                 return; // Did not connect, show the user the contents of `errorMessage`
             }
 
+            ConnectionFailed = false;
             var loginSuccess = (LoginSuccessful)result;
 
             // TODO: Pare this back, but for now, it demonstrates the system using correctly.
@@ -267,7 +266,7 @@ namespace RimworldArchipelago
         {
             get
             {
-                return session != null && session.Socket.Connected;
+                return session != null && session.Socket.Connected && !ConnectionFailed;
             }
         }
 
