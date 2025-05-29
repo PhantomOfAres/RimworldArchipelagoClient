@@ -58,4 +58,59 @@
       <li>PlaceWorker_PreventInteractionSpotOverlap</li>
     </placeWorkers>
   </ThingDef>
+
+  <ThingDef ParentName="ArtBuildingBase">
+    <defName>SculptureArchipelago</defName>
+    <label>archipelago sculpture</label>
+    <description>A torso-sized piece of material sculpted into an artistic form, by artisans from another dimension</description>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <thingClass>Building_Art</thingClass>
+    <thingCategories>
+      <li>BuildingsArt</li>
+    </thingCategories>
+    <comps>
+      <li Class="CompProperties_Art">
+        <nameMaker>NamerArtSculpture</nameMaker>
+        <descriptionMaker>ArtDescription_Sculpture</descriptionMaker>
+        <canBeEnjoyedAsArt>true</canBeEnjoyedAsArt>
+      </li>
+    </comps>
+    <graphicData>
+      <texPath>Sculpture/ArchipelagoSculpture</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>(1.5,1.5)</drawSize>
+    </graphicData>
+    <fillPercent>0.35</fillPercent>
+    <recipeMaker>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Artistic</workSkill>
+      <unfinishedThingDef>UnfinishedSculpture</unfinishedThingDef>
+      <effectWorking>Sculpt</effectWorking>
+      <soundWorking>Recipe_Sculpt</soundWorking>
+      <defaultIngredientFilter>
+        <categories>
+          <li>Root</li>
+        </categories>
+      </defaultIngredientFilter>
+    </recipeMaker>
+    <rotatable>false</rotatable>
+    <statBases>
+      <MaxHitPoints>90</MaxHitPoints>
+      <Flammability>0</Flammability>
+      <Mass>3</Mass>
+      <Beauty>50</Beauty>
+      <WorkToMake>18000</WorkToMake>
+    </statBases>
+    <stuffCategories>
+      <li>Metallic</li>
+      <li>Woody</li>
+      <li>Stony</li>
+    </stuffCategories>
+    <useHitPoints>false</useHitPoints>
+    <costStuffCount>50</costStuffCount>
+    <building>
+      <paintable>true</paintable>
+    </building>
+  </ThingDef>
 </Defs>

@@ -10,7 +10,7 @@ namespace RimworldArchipelago
 {
     internal class APResearchManager
     {
-        private const long BASE_LOCATION_ID = 5197648000;
+        private const long BASE_LOCATION_ID = 1;
         private const int LOCATION_ID_GAP = 1000;
 
         private static HashSet<string> apResearchNames = new HashSet<string>();

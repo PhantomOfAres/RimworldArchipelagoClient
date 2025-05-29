@@ -9,7 +9,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
+using System.Text;
+using UnityEngine;
 using Verse;
+using static UnityEngine.GraphicsBuffer;
 
 namespace RimworldArchipelago
 {
@@ -19,7 +22,8 @@ namespace RimworldArchipelago
         ShipLaunch = 1,
         Royalty = 2,
         Archonexus = 3,
-        Anomaly = 4
+        Anomaly = 4,
+        Monument = 5
     }
 
     public enum StartingResearchLevel
@@ -37,6 +41,10 @@ namespace RimworldArchipelago
         public SlotOptions SlotOptions { get; set; }
         [JsonProperty("craft_recipes")]
         public Dictionary<long, List<string>> CraftRecipes { get; set; }
+        [JsonProperty("monument_buildings")]
+        public Dictionary<string, int> MonumentBuildings { get; set; }
+        [JsonProperty("monument_wealth")]
+        public int MonumentWealthRequirement { get; set; }
     }
 
     public class SlotOptions
@@ -64,6 +72,11 @@ namespace RimworldArchipelago
         private int ticksLeftInTimer = 0;
         private static List<string> IncidentsToRunOnTimer = new List<string>();
 
+        private float cachedMonumentScore = -1;
+        private float winningFadeOutTime = -1f;
+        public static bool HasAchievedMonumentVictory = false;
+        public static string CachedRequirementString { get; private set; } = "";
+
         public ArchipelagoGameComponent(Game game)
         {
             // Now that we've started a game, allow the player to load if they return to the menu.
@@ -85,9 +98,35 @@ namespace RimworldArchipelago
             {
                 ArchipelagoClient.HandleNextReceivedItemIfNeeded(ref handledIndexCount);
             }
+
+            if (winningFadeOutTime > 0f)
+            {
+                winningFadeOutTime -= Time.deltaTime;
+                if (winningFadeOutTime < 0f)
+                {
+                    winningFadeOutTime = -1f;
+                    HasAchievedMonumentVictory = true;
+                    ArchipelagoClient.VictoryAchieved(VictoryType.Monument);
+                    StringBuilder stringBuilder = new StringBuilder();
+                    List<Pawn> list = (from p in Find.AnyPlayerHomeMap.mapPawns.PawnsInFaction(Faction.OfPlayer)
+                                       where p.RaceProps.Humanlike
+                                       select p).ToList();
+                    foreach (Pawn item in list)
+                    {
+                        if (!item.Dead && !item.IsQuestLodger())
+                        {
+                            stringBuilder.AppendLine("   " + item.LabelCap);
+                            Find.StoryWatcher.statsRecord.colonistsLaunched++;
+                        }
+                    }
+                    string intro = "The colonists created their monument, filled with mysterious statues from another world. For what purpose? The colonists did not know. But they felt a sense of achievement after having done it.";
+                    string ending = "Congratulations!";
+                    GameVictoryUtility.ShowCredits(GameVictoryUtility.MakeEndCredits(intro, ending, stringBuilder.ToString(), "GameOverColonistsEscaped", list), SongDefOf.EndCreditsSong, exitToMainMenu: false, 2.5f);
+                }
+            }
         }
 
-        public static void IncidentReceived(ArchipelagoItemDef itemDef)
+        public static void IncidentReceived(ArchipelagoItemDef itemDef, string sender)
         {
             string incidentDefName = itemDef.defName.Replace("Incident", "");
             if (itemDef.Tags.Contains("Negative"))
@@ -97,7 +136,21 @@ namespace RimworldArchipelago
             else
             {
                 IncidentDef incidentDef = DefDatabase<IncidentDef>.GetNamed(incidentDefName);
-                IncidentParms incidentParams = StorytellerUtility.DefaultParmsNow(incidentDef.category, Find.CurrentMap);
+                ArchipelagoItemIncidentParams incidentParams = new ArchipelagoItemIncidentParams();
+                incidentParams.target = Find.AnyPlayerHomeMap;
+                if (incidentDef.category.needsParmsPoints)
+                {
+                    incidentParams.points = StorytellerUtility.DefaultThreatPointsNow(Find.AnyPlayerHomeMap);
+                }
+                incidentParams.sender = sender;
+                if (itemDef.defName == "ArchipelagoSculpturePodIncident")
+                {
+                    ThingDef sculptureDef = DefDatabase<ThingDef>.GetNamed(RoomRoleWorker_MultiworldMonument.ARCHIPELAGO_STRUCTURE_DEF_NAME);
+                    ThingDef sculptureStuff = GenStuff.RandomStuffFor(sculptureDef);
+                    Thing sculpture = ThingMaker.MakeThing(sculptureDef, sculptureStuff);
+                    sculpture = sculpture.MakeMinified();
+                    incidentParams.gifts = new List<Thing>() { sculpture };
+                }
                 incidentDef.Worker.TryExecute(incidentParams);
             }
         }
@@ -153,6 +206,54 @@ namespace RimworldArchipelago
 
                 ticksLeftInTimer = UnityEngine.Random.Range(MIN_TICKS_IN_A_DAYISH, MAX_TICKS_IN_A_DAYISH);
             }
+
+            if (!ArchipelagoClient.Connected)
+            {
+                return;
+            }
+
+            if (ArchipelagoClient.SlotData.SlotOptions.VictoryCondition == VictoryType.Monument && !HasAchievedMonumentVictory && winningFadeOutTime < 0f)
+            {
+                ThingDef sculptureDef = DefDatabase<ThingDef>.GetNamed(RoomRoleWorker_MultiworldMonument.ARCHIPELAGO_STRUCTURE_DEF_NAME);
+                List<Thing> sculptures = Find.AnyPlayerHomeMap.listerThings.ThingsOfDef(sculptureDef);
+                Room monumentRoom = null;
+                foreach (Thing thing in sculptures)
+                {
+                    if (monumentRoom != null && thing.GetRoom() != monumentRoom)
+                    {
+                        // Multiple monument rooms, show error to user.
+                        continue;
+                    }
+
+                    if (monumentRoom == null)
+                    {
+                        if (!thing.GetRoom().ProperRoom)
+                        {
+                            continue;
+                        }
+
+                        monumentRoom = thing.GetRoom();
+                        float monumentScore = RoomRoleWorker_MultiworldMonument.GetRoomScore(monumentRoom);
+                        if (monumentScore > cachedMonumentScore)
+                        {
+                            cachedMonumentScore = monumentScore;
+                            CachedRequirementString = RoomRoleWorker_MultiworldMonument.GetRequirementString(monumentRoom);
+                            if (RoomRoleWorker_MultiworldMonument.CanWin(monumentRoom))
+                            {
+                                winningFadeOutTime = 5f;
+                                Find.TickManager.Pause();
+                                ScreenFader.StartFade(UnityEngine.Color.white, 5f);
+                            }
+                        }
+                    }
+                }
+
+                if (monumentRoom == null && CachedRequirementString == "")
+                {
+                    // Passing null should give us the 0/X entries for all requirements.
+                    CachedRequirementString = RoomRoleWorker_MultiworldMonument.GetRequirementString(null);
+                }
+            }
         }
     }
 
@@ -202,7 +303,7 @@ namespace RimworldArchipelago
                 }
                 else if (archipelagoItem.DefType == "IncidentDef")
                 {
-                    ArchipelagoGameComponent.IncidentReceived(archipelagoItem);
+                    ArchipelagoGameComponent.IncidentReceived(archipelagoItem, itemInfo.Player.Alias);
                 }
             }
             else

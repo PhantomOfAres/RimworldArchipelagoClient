@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <RoomRoleDef>
+    <defName>MultiworldMonument</defName>
+    <label>multiworld monument</label>
+    <workerClass>RimworldArchipelago.RoomRoleWorker_MultiworldMonument</workerClass>
+    <relatedStats>
+      <li>Wealth</li>
+    </relatedStats>
+  </RoomRoleDef>
+</Defs>

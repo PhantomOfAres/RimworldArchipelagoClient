@@ -75,10 +75,13 @@
     <Compile Include="ArchipelagoClient.cs" />
     <Compile Include="DataExportUtil.cs" />
     <Compile Include="HarmonyPatches.cs" />
+    <Compile Include="IncidentWorker_ArchipelagoItemPod.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="MainMenu.cs" />
+    <Compile Include="Alert_MonumentAlert.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="APResearchManager.cs" />
+    <Compile Include="RoomWorker_MultiworldMonument.cs" />
     <Compile Include="Settings.cs" />
   </ItemGroup>
   <ItemGroup>

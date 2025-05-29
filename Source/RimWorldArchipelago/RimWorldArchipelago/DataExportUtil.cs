@@ -20,7 +20,7 @@ namespace RimworldArchipelago
 
         public static void ExportArchipelagoDefs()
         {
-            long nextId = 769100;
+            long nextId = 0;
 
             Dictionary<string, ArchipelagoItemDef> allDefs = new Dictionary<string, ArchipelagoItemDef>();
             TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
@@ -229,7 +229,8 @@ namespace RimworldArchipelago
             IncidentTargetTagDef playerHomeTag = DefDatabase<IncidentTargetTagDef>.GetNamed("Map_PlayerHome");
             foreach (IncidentDef incidentDef in DefDatabase<IncidentDef>.AllDefs)
             {
-                if ((badThreatIncidentCategories.Contains(incidentDef.category) ||
+                if ((incidentDef.defName == "ArchipelagoSculpturePod" ||
+                    badThreatIncidentCategories.Contains(incidentDef.category) ||
                     goodIncidentCategories.Contains(incidentDef.category)) &&
                     incidentDef.targetTags.Contains(playerHomeTag))
                 {
@@ -247,12 +248,96 @@ namespace RimworldArchipelago
                     {
                         item.Tags.Add("Negative");
                     }
-                    if (goodIncidentCategories.Contains(incidentDef.category))
+                    if (goodIncidentCategories.Contains(incidentDef.category) || incidentDef.defName == "ArchipelagoSculpturePod")
                     {
                         item.Tags.Add("Positive");
                     }
                     item.Tags.Add(incidentDef.category.defName);
                     allDefs[item.defName] = item;
+                }
+            }
+
+            List<string> basicResources = new List<string>() { "Bioferrite", "Shard", "HemogenPack", "Plasteel", "Gold", "WoodLog", "Uranium", "Cloth" };
+            foreach (ThingDef thingDef in DefDatabase<ThingDef>.AllDefs)
+            {
+                // Excluding a bunch of things that aren't properly counted by rooms, created by everyone, or are otherwise problematic
+                if ((thingDef.thingClass == typeof(Building) || thingDef.thingClass.IsSubclassOf(typeof(Building))) &&
+                    thingDef.IsEdifice() &&
+                    !thingDef.building.isAttachment &&
+                    !thingDef.defName.Contains("Bed") &&
+                    !thingDef.defName.Contains("Door") &&
+                    thingDef.canGenerateDefaultDesignator)
+                {
+                    string requiredResearchExpansion = "";
+                    if (thingDef.researchPrerequisites != null && thingDef.researchPrerequisites.Count > 0)
+                    {
+                        bool canCraftComponents = true;
+                        List<string> componentPrereqs = new List<string>();
+                        if (thingDef.costList != null)
+                        {
+                            foreach (ThingDefCount component in thingDef.costList)
+                            {
+                                if (!allDefs.ContainsKey($"{component.ThingDef.defName}Thing"))
+                                {
+                                    // If the resource is "basic" (can be obtained relatively easily, just skip it. Otherwise, disallow this building altogether.
+                                    if (basicResources.Contains(component.ThingDef.defName))
+                                    {
+                                        continue;
+                                    }
+                                    else
+                                    {
+                                        if (component.ThingDef.modContentPack.PackageId != ModContentPack.CoreModPackageId)
+                                        {
+                                            requiredResearchExpansion = component.ThingDef.modContentPack.PackageIdPlayerFacing;
+                                        }
+                                        canCraftComponents = false;
+                                        break;
+                                    }
+                                }
+
+                                ArchipelagoItemDef archipelagoItem = allDefs[$"{component.ThingDef.defName}Thing"];
+                                foreach (string prereq in archipelagoItem.Prerequisites)
+                                {
+                                    if (!componentPrereqs.Contains(prereq))
+                                    {
+                                        componentPrereqs.Add(prereq);
+                                    }
+                                }
+                            }
+                        }
+
+                        if (!canCraftComponents)
+                        {
+                            continue;
+                        }
+
+                        nextId += 1;
+                        ArchipelagoItemDef item = new ArchipelagoItemDef();
+                        item.Id = nextId;
+                        item.DefType = "BuildingThingDef";
+                        item.defName = $"{thingDef.defName}Building";
+                        item.label = textInfo.ToTitleCase(thingDef.label);
+                        ArchipelagoItemDef prereqArchipelagoItem = allDefs[$"{thingDef.researchPrerequisites[0].defName}Research"];
+                        HashSet<string> uniquePrereqs = new HashSet<string>();
+                        uniquePrereqs.Add(prereqArchipelagoItem.label);
+                        uniquePrereqs.AddRange(componentPrereqs);
+                        item.Prerequisites.AddRange(uniquePrereqs);
+                        foreach (string prereqLabel in item.Prerequisites)
+                        {
+                            string prereqId = $"{prereqLabel}Research";
+                            prereqId = prereqId.Replace(" ", "");
+                            if (allDefs.ContainsKey(prereqId))
+                            {
+                                ArchipelagoItemDef prereqItem = allDefs[prereqId];
+                                if (requiredResearchExpansion == "" || prereqItem.RequiredExpansion != "Ludeon.RimWorld")
+                                {
+                                    requiredResearchExpansion = prereqItem.RequiredExpansion;
+                                }
+                            }
+                        }
+                        item.RequiredExpansion = requiredResearchExpansion;
+                        allDefs[item.defName] = item;
+                    }
                 }
             }
 
