@@ -23,6 +23,7 @@ namespace RimworldArchipelago
             long nextId = 0;
 
             Dictionary<string, ArchipelagoItemDef> allDefs = new Dictionary<string, ArchipelagoItemDef>();
+            Dictionary<string, ArchipelagoItemDef> allDefsByLabel = new Dictionary<string, ArchipelagoItemDef>();
             TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
             foreach (ResearchProjectDef research in DefDatabase<ResearchProjectDef>.AllDefs)
             {
@@ -74,6 +75,7 @@ namespace RimworldArchipelago
                 }
                 item.label = textInfo.ToTitleCase(research.label);
                 allDefs[item.defName] = item;
+                allDefsByLabel[item.label] = item;
             }
 
             // Hold on to each item uniquely. If you can make 1 or 4 fine meals, count it once.
@@ -211,6 +213,7 @@ namespace RimworldArchipelago
                                 }
                             }
                             allDefs[item.defName] = item;
+                            allDefsByLabel[item.label] = item;
                         }
                     }
                 }
@@ -254,6 +257,7 @@ namespace RimworldArchipelago
                     }
                     item.Tags.Add(incidentDef.category.defName);
                     allDefs[item.defName] = item;
+                    allDefsByLabel[item.label] = item;
                 }
             }
 
@@ -324,11 +328,9 @@ namespace RimworldArchipelago
                         item.Prerequisites.AddRange(uniquePrereqs);
                         foreach (string prereqLabel in item.Prerequisites)
                         {
-                            string prereqId = $"{prereqLabel}Research";
-                            prereqId = prereqId.Replace(" ", "");
-                            if (allDefs.ContainsKey(prereqId))
+                            if (allDefsByLabel.ContainsKey(prereqLabel))
                             {
-                                ArchipelagoItemDef prereqItem = allDefs[prereqId];
+                                ArchipelagoItemDef prereqItem = allDefsByLabel[prereqLabel];
                                 if (requiredResearchExpansion == "" || prereqItem.RequiredExpansion != "Ludeon.RimWorld")
                                 {
                                     requiredResearchExpansion = prereqItem.RequiredExpansion;
@@ -337,6 +339,7 @@ namespace RimworldArchipelago
                         }
                         item.RequiredExpansion = requiredResearchExpansion;
                         allDefs[item.defName] = item;
+                        allDefsByLabel[item.label] = item;
                     }
                 }
             }
