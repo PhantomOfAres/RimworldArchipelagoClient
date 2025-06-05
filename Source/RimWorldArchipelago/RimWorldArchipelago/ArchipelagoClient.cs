@@ -1,5 +1,7 @@
 ﻿using Archipelago.MultiClient.Net;
 using Archipelago.MultiClient.Net.Enums;
+using Archipelago.MultiClient.Net.MessageLog.Messages;
+using Archipelago.MultiClient.Net.MessageLog.Parts;
 using Archipelago.MultiClient.Net.Models;
 using Archipelago.MultiClient.Net.Packets;
 using Newtonsoft.Json;
@@ -7,12 +9,11 @@ using RimWorld;
 using RimWorldArchipelago;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Text;
 using UnityEngine;
 using Verse;
-using static UnityEngine.GraphicsBuffer;
 
 namespace RimworldArchipelago
 {
@@ -68,6 +69,9 @@ namespace RimworldArchipelago
         private const int MIN_TICKS_IN_A_DAYISH = 45000;
         private const int MAX_TICKS_IN_A_DAYISH = 75000;
 
+        // Not saved - handle unhandled locations 
+        private bool handledLocationsThisSession = false;
+
         private int handledIndexCount = 0;
         private int ticksLeftInTimer = 0;
         private static List<string> IncidentsToRunOnTimer = new List<string>();
@@ -97,6 +101,12 @@ namespace RimworldArchipelago
             if (ArchipelagoClient.Connected && Current.ProgramState == ProgramState.Playing)
             {
                 ArchipelagoClient.HandleNextReceivedItemIfNeeded(ref handledIndexCount);
+
+                if (!handledLocationsThisSession)
+                {
+                    handledLocationsThisSession = true;
+                    APResearchManager.CompleteLocations(ArchipelagoClient.AllLocationsChecked);
+                }
             }
 
             if (winningFadeOutTime > 0f)
@@ -263,21 +273,8 @@ namespace RimworldArchipelago
         public static bool ConnectionFailed { get; private set; } = false;
         public static string ConnectionErrorReason;
 
-        static void Socket_ErrorReceived(Exception e, string message)
-        {
-            Log.Message($"Socket Error: {message}");
-            Log.Message($"Socket Exception: {e.Message}");
-
-            if (e.StackTrace != null)
-                foreach (var line in e.StackTrace.Split('\n'))
-                    Log.Message($"    {line}");
-            else
-                Log.Message($"    No stacktrace provided");
-        }
-
         public static void ItemReceived(ItemInfo itemInfo)
         {
-            Log.Message($"Item received: {itemInfo.ItemName}");
             if (Current.ProgramState == ProgramState.Playing)
             {
                 ArchipelagoItemDef archipelagoItem = null;
@@ -298,7 +295,7 @@ namespace RimworldArchipelago
                     ResearchProjectDef research = DefDatabase<ResearchProjectDef>.GetNamed(researchDefName);
                     if (research != null)
                     {
-                        Find.ResearchManager.FinishProject(research, doCompletionDialog: true);
+                        Find.ResearchManager.FinishProject(research, doCompletionDialog: false);
                     }
                 }
                 else if (archipelagoItem.DefType == "IncidentDef")
@@ -308,7 +305,7 @@ namespace RimworldArchipelago
             }
             else
             {
-                Log.Message("lol queue it or something nerd get wrecked.");
+                Log.Error("Cannot receive an item while not playing a game. This is an AP mod error.");
             }
         }
 
@@ -328,6 +325,8 @@ namespace RimworldArchipelago
 
             session = ArchipelagoSessionFactory.CreateSession(server);
             session.Socket.ErrorReceived += Socket_ErrorReceived;
+            session.Locations.CheckedLocationsUpdated += Locations_CheckedLocationsUpdated;
+            session.MessageLog.OnMessageReceived += MessageLog_OnMessageReceived;
             try
             {
                 // handle TryConnectAndLogin attempt here and save the returned object to `result`
@@ -367,6 +366,22 @@ namespace RimworldArchipelago
             APCraftManager.GenerateArchipelagoCrafts();
         }
 
+        private static void MessageLog_OnMessageReceived(Archipelago.MultiClient.Net.MessageLog.Messages.LogMessage message)
+        {
+            if (message is ItemSendLogMessage itemSendMessage &&
+                (itemSendMessage.IsReceiverTheActivePlayer ||
+                itemSendMessage.IsSenderTheActivePlayer))
+            {
+                StringBuilder builder = new StringBuilder();
+                foreach (MessagePart part in message.Parts)
+                {
+                    builder.Append($"<color=#{part.Color.R:X2}{part.Color.G:X2}{part.Color.B:X2}>{part.ToString()}</color>");
+                }
+                Log.Message(builder.ToString());
+                Messages.Message(builder.ToString(), MessageTypeDefOf.NeutralEvent);
+            }
+        }
+
         public static bool Connected
         {
             get
@@ -386,6 +401,31 @@ namespace RimworldArchipelago
                 }
 
                 return _cachedSlotData;
+            }
+        }
+
+        static void Socket_ErrorReceived(Exception e, string message)
+        {
+            Log.Message($"Socket Error: {message}");
+            Log.Message($"Socket Exception: {e.Message}");
+
+            if (e.StackTrace != null)
+                foreach (var line in e.StackTrace.Split('\n'))
+                    Log.Message($"    {line}");
+            else
+                Log.Message($"    No stacktrace provided");
+        }
+
+        private static void Locations_CheckedLocationsUpdated(ReadOnlyCollection<long> newCheckedLocations)
+        {
+            APResearchManager.CompleteLocations(newCheckedLocations);
+        }
+
+        public static ReadOnlyCollection<long> AllLocationsChecked
+        {
+            get
+            {
+                return session?.Locations?.AllLocationsChecked;
             }
         }
 

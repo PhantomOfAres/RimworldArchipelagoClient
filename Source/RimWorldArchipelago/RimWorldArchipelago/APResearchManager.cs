@@ -1,8 +1,8 @@
 ﻿using Archipelago.MultiClient.Net.Enums;
 using Archipelago.MultiClient.Net.Models;
 using RimWorld;
-using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using UnityEngine;
 using Verse;
 
@@ -96,6 +96,21 @@ namespace RimworldArchipelago
             }
 
             ResearchProjectDef.GenerateNonOverlappingCoordinates();
+        }
+
+        // This simply catches up research locations - it's mostly for users starting a new settlement to recover their data.
+        public static void CompleteLocations(ReadOnlyCollection<long> checkedLocations)
+        {
+            foreach (ResearchProjectDef researchProjectDef in DefDatabase<ResearchProjectDef>.AllDefs)
+            {
+                if (IsApResearch(researchProjectDef.defName) &&
+                    checkedLocations.Contains(GetLocationId(researchProjectDef.defName)) &&
+                    !researchProjectDef.IsFinished)
+                {
+                    Find.ResearchManager.FinishProject(researchProjectDef);
+                }
+            }
+
         }
 
         private static ThingDef _hiTechResearchBench = null;
