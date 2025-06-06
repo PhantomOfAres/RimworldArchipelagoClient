@@ -30,6 +30,11 @@ namespace RimworldArchipelago
                     continue;
                 }
 
+                if (IsApResearch(researchProject.defName))
+                {
+                    continue;
+                }
+
                 if (researchProject != null)
                 {
                     researchProject.prerequisites = null;
@@ -38,8 +43,16 @@ namespace RimworldArchipelago
             }
         }
 
-        public static void GenerateArchipelagoResearch(Dictionary<long, ScoutedItemInfo> scoutedItemInfo)
+        public static void GenerateArchipelagoResearch(Dictionary<long, ScoutedItemInfo> scoutedItemInfo, bool isNewSeed)
         {
+            if (apResearchNames.Count > 0)
+            {
+                if (isNewSeed)
+                {
+                    Messages.Message("Cannot start a new seed during the same session! Please restart the game!", MessageTypeDefOf.NegativeEvent);
+                }
+                return;
+            }
             System.Random rand = new System.Random(ArchipelagoClient.SlotData.Seed.GetHashCode());
             SlotData slotData = ArchipelagoClient.SlotData;
             ResearchTabDef archipelagoTab = DefDatabase<ResearchTabDef>.GetNamed("Archipelago");

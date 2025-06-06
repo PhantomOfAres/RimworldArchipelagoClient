@@ -14,6 +14,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 using Verse;
+using static System.Collections.Specialized.BitVector32;
 
 namespace RimworldArchipelago
 {
@@ -75,6 +76,7 @@ namespace RimworldArchipelago
         private int handledIndexCount = 0;
         private int ticksLeftInTimer = 0;
         private static List<string> IncidentsToRunOnTimer = new List<string>();
+        private static List<long> LocationsToSend = new List<long>();
 
         private float cachedMonumentScore = -1;
         private float winningFadeOutTime = -1f;
@@ -92,7 +94,20 @@ namespace RimworldArchipelago
             Scribe_Values.Look(ref handledIndexCount, "handledIndexCount");
             Scribe_Values.Look(ref ticksLeftInTimer, "ticksLeftInTimer");
             Scribe_Collections.Look(ref IncidentsToRunOnTimer, "incidentsToRunOnTimer", LookMode.Value);
+            Scribe_Collections.Look(ref LocationsToSend, "locationsToSend", LookMode.Value);
             base.ExposeData();
+        }
+
+        public static void SendResearchLocation(string projectName)
+        {
+            long id = APResearchManager.GetLocationId(projectName);
+            LocationsToSend.Add(id);
+        }
+
+        public static void SendCraftLocation(string craftRecipeName)
+        {
+            long id = APCraftManager.GetLocationId(craftRecipeName);
+            LocationsToSend.Add(id);
         }
 
         public override void GameComponentUpdate()
@@ -107,6 +122,9 @@ namespace RimworldArchipelago
                     handledLocationsThisSession = true;
                     APResearchManager.CompleteLocations(ArchipelagoClient.AllLocationsChecked);
                 }
+
+                ArchipelagoClient.SendLocations(ArchipelagoGameComponent.LocationsToSend);
+                LocationsToSend.Clear();
             }
 
             if (winningFadeOutTime > 0f)
@@ -319,12 +337,13 @@ namespace RimworldArchipelago
             }
         }
 
-        public async static void Connect(string server, string user, string pass)
+        public async static void Connect(string server, string user, string pass, string oldSeed)
         {
             LoginResult result;
 
             session = ArchipelagoSessionFactory.CreateSession(server);
             session.Socket.ErrorReceived += Socket_ErrorReceived;
+            session.Socket.SocketClosed += Socket_Closed;
             session.Locations.CheckedLocationsUpdated += Locations_CheckedLocationsUpdated;
             session.MessageLog.OnMessageReceived += MessageLog_OnMessageReceived;
             try
@@ -361,9 +380,22 @@ namespace RimworldArchipelago
             // TODO: Pare this back, but for now, it demonstrates the system using correctly.
             Dictionary<long, ScoutedItemInfo> scoutedItemInfo = await session.Locations.ScoutLocationsAsync(session.Locations.AllLocations.ToArray());
 
+            bool isNewSeed = oldSeed != SlotData.Seed;
             APResearchManager.DisableNormalResearch();
-            APResearchManager.GenerateArchipelagoResearch(scoutedItemInfo);
+            APResearchManager.GenerateArchipelagoResearch(scoutedItemInfo, isNewSeed);
             APCraftManager.GenerateArchipelagoCrafts();
+        }
+
+        public async static void Disconnect()
+        {
+            session.Socket.ErrorReceived -= Socket_ErrorReceived;
+            session.Socket.SocketClosed -= Socket_Closed;
+            session.Locations.CheckedLocationsUpdated -= Locations_CheckedLocationsUpdated;
+            session.MessageLog.OnMessageReceived -= MessageLog_OnMessageReceived;
+            Messages.Message("Archipelago Disconnected!", MessageTypeDefOf.NeutralEvent);
+            ArchipelagoSession detachedSession = session;
+            session = null;
+            await detachedSession.Socket.DisconnectAsync();
         }
 
         private static void MessageLog_OnMessageReceived(Archipelago.MultiClient.Net.MessageLog.Messages.LogMessage message)
@@ -414,6 +446,13 @@ namespace RimworldArchipelago
                     Log.Message($"    {line}");
             else
                 Log.Message($"    No stacktrace provided");
+
+            Disconnect();
+        }
+
+        static void Socket_Closed(string message)
+        {
+            Disconnect();
         }
 
         private static void Locations_CheckedLocationsUpdated(ReadOnlyCollection<long> newCheckedLocations)
@@ -445,16 +484,9 @@ namespace RimworldArchipelago
             return session.Locations.AllLocationsChecked.Contains(locationId);
         }
 
-        public static void SendResearchLocation(string projectName)
+        public static void SendLocations(List<long> locations)
         {
-            long id = APResearchManager.GetLocationId(projectName);
-            session.Locations.CompleteLocationChecks(id);
-        }
-
-        public static void SendCraftLocation(string craftRecipeName)
-        {
-            long id = APCraftManager.GetLocationId(craftRecipeName);
-            session.Locations.CompleteLocationChecks(id);
+            session.Locations.CompleteLocationChecks(locations.ToArray());
         }
 
         public static void VictoryAchieved(VictoryType type)

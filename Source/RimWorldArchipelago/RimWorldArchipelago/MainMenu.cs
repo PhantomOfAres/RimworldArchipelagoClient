@@ -93,8 +93,8 @@ namespace RimworldArchipelago
 
                 if (listingStandard.ButtonText("Connect"))
                 {
-                    ArchipelagoClient.Connect(settings.hostname, settings.slotName, settings.password);
                     settings.Write();
+                    ArchipelagoClient.Connect(settings.hostname, settings.slotName, settings.password, settings.seed);
                 }
                 
                 if (ArchipelagoClient.ConnectionFailed)

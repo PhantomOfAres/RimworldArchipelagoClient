@@ -42,7 +42,7 @@ namespace RimWorldArchipelago
         {
             if (APResearchManager.IsApResearch(proj.defName))
             {
-                ArchipelagoClient.SendResearchLocation(proj.defName);
+                ArchipelagoGameComponent.SendResearchLocation(proj.defName);
             }
 
             return true;
@@ -94,7 +94,7 @@ namespace RimWorldArchipelago
         {
             if (APCraftManager.IsApCraft(__instance.recipe.defName))
             {
-                ArchipelagoClient.SendCraftLocation(__instance.recipe.defName);
+                ArchipelagoGameComponent.SendCraftLocation(__instance.recipe.defName);
             }
 
             return true;
