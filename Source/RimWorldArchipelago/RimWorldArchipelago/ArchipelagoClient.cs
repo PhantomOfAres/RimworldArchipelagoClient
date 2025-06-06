@@ -14,7 +14,6 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 using Verse;
-using static System.Collections.Specialized.BitVector32;
 
 namespace RimworldArchipelago
 {
@@ -384,6 +383,38 @@ namespace RimworldArchipelago
             APResearchManager.DisableNormalResearch();
             APResearchManager.GenerateArchipelagoResearch(scoutedItemInfo, isNewSeed);
             APCraftManager.GenerateArchipelagoCrafts();
+            AddVictoryDescriptions();
+        }
+
+        private static void AddVictoryDescriptions()
+        {
+            string toAppend = "\n\n";
+            switch (ArchipelagoClient.SlotData.SlotOptions.VictoryCondition)
+            {
+                case VictoryType.ShipLaunch:
+                    toAppend += "Launch a ship and escape to space to win!";
+                    break;
+                case VictoryType.Royalty:
+                    toAppend += "Become a high-ranking royal and hitch a ride with the stellarch to win!";
+                    break;
+                case VictoryType.Archonexus:
+                    toAppend += "Complete the archonexus quest to win!";
+                    break;
+                case VictoryType.Anomaly:
+                    toAppend += "Investigate the mysterious eldritch monument to win!";
+                    break;
+                case VictoryType.Monument:
+                    toAppend += "Construct an Archipelago monument (requirements on the right side of the stream) to win!";
+                    break;
+                case VictoryType.Any:
+                    toAppend += "Dealer's Choice! Achieve any victory condition to win!";
+                    break;
+            }
+
+            foreach (ScenarioDef def in DefDatabase<ScenarioDef>.AllDefs)
+            {
+                def.scenario.description += toAppend;
+            }
         }
 
         public async static void Disconnect()
