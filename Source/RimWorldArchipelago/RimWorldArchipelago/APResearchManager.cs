@@ -64,9 +64,10 @@ namespace RimworldArchipelago
             long baseLocationId = BASE_LOCATION_ID;
             int x = 0;
             int y = 0;
+            int trapCount = 0;
             for (int i = 0; i < slotData.SlotOptions.BasicResearchLocationCount; i++)
             {
-                ResearchProjectDef research = GenerateResearchDef(i + baseLocationId, x, y, slotData, archipelagoTab, previousLevel, rand);
+                ResearchProjectDef research = GenerateResearchDef(i + baseLocationId, x, y, slotData, archipelagoTab, previousLevel, rand, ref trapCount);
                 currentLevel.Add(research);
                 y += 1;
                 if (y > 8)
@@ -82,7 +83,7 @@ namespace RimworldArchipelago
             baseLocationId += LOCATION_ID_GAP;
             for (int i = 0; i < slotData.SlotOptions.HiTechResearchLocationCount; i++)
             {
-                ResearchProjectDef research = GenerateResearchDef(i + baseLocationId, x, y, slotData, archipelagoTab, previousLevel, rand);
+                ResearchProjectDef research = GenerateResearchDef(i + baseLocationId, x, y, slotData, archipelagoTab, previousLevel, rand, ref trapCount);
                 currentLevel.Add(research);
                 y += 1;
                 if (y > 8)
@@ -98,7 +99,7 @@ namespace RimworldArchipelago
             baseLocationId += LOCATION_ID_GAP;
             for (int i = 0; i < slotData.SlotOptions.MultiAnalyzerResearchLocationCount; i++)
             {
-                ResearchProjectDef research = GenerateResearchDef(i + baseLocationId, x, y, slotData, archipelagoTab, previousLevel, rand);
+                ResearchProjectDef research = GenerateResearchDef(i + baseLocationId, x, y, slotData, archipelagoTab, previousLevel, rand, ref trapCount);
                 currentLevel.Add(research);
                 y += 1;
                 if (y > 8)
@@ -157,7 +158,7 @@ namespace RimworldArchipelago
             }
         }
 
-        private static ResearchProjectDef GenerateResearchDef(long archipelagoId, int xIndex, int yIndex, SlotData slotData, ResearchTabDef archipelagoTab, List<ResearchProjectDef> previousLevel, System.Random rand)
+        private static ResearchProjectDef GenerateResearchDef(long archipelagoId, int xIndex, int yIndex, SlotData slotData, ResearchTabDef archipelagoTab, List<ResearchProjectDef> previousLevel, System.Random rand, ref int trapCount)
         {
             ResearchProjectDef archipelagoResearch = new ResearchProjectDef();
             int labelIndex = (int) (archipelagoId - BASE_LOCATION_ID);
@@ -191,7 +192,7 @@ namespace RimworldArchipelago
             }
 
             apResearch[archipelagoId] = archipelagoResearch.defName;
-            UpdateResearchDescription(archipelagoResearch, archipelagoId, false);
+            UpdateResearchDescription(archipelagoResearch, archipelagoId, false, ref trapCount);
             archipelagoResearch.baseCost = slotData.SlotOptions.ResearchBaseCost;
             archipelagoResearch.tab = archipelagoTab;
             archipelagoResearch.researchViewX = xIndex * 1.0f;
@@ -222,14 +223,15 @@ namespace RimworldArchipelago
 
         public static void UpdateAllDescriptions(bool playingGame = true)
         {
+            int trapCount = 0;
             foreach ((long id, string name) in apResearch)
             {
                 ResearchProjectDef researchProjectDef = DefDatabase<ResearchProjectDef>.GetNamed(name);
-                UpdateResearchDescription(researchProjectDef, id, playingGame);
+                UpdateResearchDescription(researchProjectDef, id, playingGame, ref trapCount);
             }
         }
 
-        public static void UpdateResearchDescription(ResearchProjectDef archipelagoResearch, long archipelagoId, bool playingGame)
+        public static void UpdateResearchDescription(ResearchProjectDef archipelagoResearch, long archipelagoId, bool playingGame, ref int trapCount)
         {
             ScoutedItemInfo scoutedItem = null;
             if (cachedScoutedItems != null && cachedScoutedItems.ContainsKey(archipelagoId))
@@ -283,8 +285,16 @@ namespace RimworldArchipelago
                 }
                 else if (scoutedItem.Flags.HasFlag(ItemFlags.Trap))
                 {
-                    archipelagoResearch.label = $"{scoutedItem.Player.Name}'s Trap Item";
-                    archipelagoResearch.description = $"This research has {scoutedItem.Player.Name}'s trap item!";
+                    if (ArchipelagoClient.SlotData.SlotOptions.ResearchScoutSecretTraps == SecretTrapType.On)
+                    {
+                        archipelagoResearch.label = $"{scoutedItem.Player.Name}'s Required Item";
+                        archipelagoResearch.description = $"This research has {scoutedItem.Player.Name}'s required item!";
+                    }
+                    else
+                    {
+                        archipelagoResearch.label = $"{scoutedItem.Player.Name}'s Trap Item";
+                        archipelagoResearch.description = $"This research has {scoutedItem.Player.Name}'s trap item!";
+                    }
                 }
                 else
                 {
@@ -305,7 +315,16 @@ namespace RimworldArchipelago
                 }
                 else if (scoutedItem.Flags.HasFlag(ItemFlags.Trap))
                 {
-                    archipelagoResearch.description = $"This research has {scoutedItem.Player.Name}'s trap item, {scoutedItem.ItemName}!";
+                    if (ArchipelagoClient.SlotData.SlotOptions.ResearchScoutSecretTraps == SecretTrapType.On)
+                    {
+                        string lieString = ArchipelagoClient.SlotData.FakeTrapOptions[trapCount];
+                        string[] lieComponents = lieString.Split(',');
+                        archipelagoResearch.label = $"{lieComponents[0]}'s {lieComponents[1]}";
+                    }
+                    else
+                    {
+                        archipelagoResearch.description = $"This research has {scoutedItem.Player.Name}'s trap item, {scoutedItem.ItemName}!";
+                    }
                 }
                 else
                 {
@@ -313,6 +332,17 @@ namespace RimworldArchipelago
                 }
             }
 
+            if (scoutedItem.Flags.HasFlag(ItemFlags.Trap))
+            {
+                trapCount += 1;
+                // Note: I'm not tracking how many of these names we need, just getting "A list of them." Currently, that list is 50 long.
+                //   For this mostly silly feature, I'm not terribly worried about it, but this will cause some traps to be more obvious to
+                //   the eagle-eyed (though there's always the chance that it's real, as well, so it'll be rare that it even matters.)
+                if (trapCount >= ArchipelagoClient.SlotData.FakeTrapOptions.Count)
+                {
+                    trapCount = 0;
+                }
+            }
             archipelagoResearch.ClearCachedData();
         }
 

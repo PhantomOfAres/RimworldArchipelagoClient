@@ -56,6 +56,8 @@ namespace RimworldArchipelago
         public string Seed { get; set; }
         [JsonProperty("options")]
         public SlotOptions SlotOptions { get; set; }
+        [JsonProperty("fake_trap_options")]
+        public List<string> FakeTrapOptions { get; set; }
         [JsonProperty("craft_recipes")]
         public Dictionary<long, List<string>> CraftRecipes { get; set; }
         [JsonProperty("monument_buildings")]
