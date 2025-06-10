@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using UnityEngine;
 using Verse;
 
@@ -32,6 +33,21 @@ namespace RimworldArchipelago
         None = 0,
         Tribal = 1,
         Crashlanded = 2
+    }
+
+    public enum ScoutType
+    {
+        None = 0,
+        SummaryAvailable = 1,
+        FullItemAvailable = 2,
+        SummaryAll = 3,
+        FullItemAll = 4
+    }
+
+    public enum SecretTrapType
+    {
+        Off = 0,
+        On = 1
     }
 
     public class SlotData
@@ -55,6 +71,8 @@ namespace RimworldArchipelago
         public int MultiAnalyzerResearchLocationCount { get; set; }
         public int ResearchBaseCost { get; set; }
         public int ResearchMaxPrerequisites { get; set; }
+        public ScoutType ResearchScoutType { get; set; }
+        public SecretTrapType ResearchScoutSecretTraps { get; set; }
         public VictoryType VictoryCondition { get; set; }
         public bool RoyaltyEnabled { get; set; }
         public bool IdeologyEnabled { get; set; }
@@ -68,9 +86,6 @@ namespace RimworldArchipelago
     {
         private const int MIN_TICKS_IN_A_DAYISH = 45000;
         private const int MAX_TICKS_IN_A_DAYISH = 75000;
-
-        // Not saved - handle unhandled locations 
-        private bool handledLocationsThisSession = false;
 
         private int handledIndexCount = 0;
         private int ticksLeftInTimer = 0;
@@ -101,6 +116,7 @@ namespace RimworldArchipelago
         {
             long id = APResearchManager.GetLocationId(projectName);
             LocationsToSend.Add(id);
+            APResearchManager.UpdateAllDescriptions();
         }
 
         public static void SendCraftLocation(string craftRecipeName)
@@ -109,18 +125,18 @@ namespace RimworldArchipelago
             LocationsToSend.Add(id);
         }
 
+        public override void FinalizeInit()
+        {
+            APResearchManager.CompleteLocations(ArchipelagoClient.AllLocationsChecked);
+            APResearchManager.UpdateAllDescriptions();
+        }
+
         public override void GameComponentUpdate()
         {
             // We may not want to do this every frame, but for now it works fine.
             if (ArchipelagoClient.Connected && Current.ProgramState == ProgramState.Playing)
             {
                 ArchipelagoClient.HandleNextReceivedItemIfNeeded(ref handledIndexCount);
-
-                if (!handledLocationsThisSession)
-                {
-                    handledLocationsThisSession = true;
-                    APResearchManager.CompleteLocations(ArchipelagoClient.AllLocationsChecked);
-                }
 
                 ArchipelagoClient.SendLocations(ArchipelagoGameComponent.LocationsToSend);
                 LocationsToSend.Clear();
@@ -377,7 +393,7 @@ namespace RimworldArchipelago
             var loginSuccess = (LoginSuccessful)result;
 
             // TODO: Pare this back, but for now, it demonstrates the system using correctly.
-            Dictionary<long, ScoutedItemInfo> scoutedItemInfo = await session.Locations.ScoutLocationsAsync(session.Locations.AllLocations.ToArray());
+            Dictionary<long, ScoutedItemInfo> scoutedItemInfo = await session.Locations.ScoutLocationsAsync(false, session.Locations.AllLocations.ToArray());
 
             bool isNewSeed = oldSeed != SlotData.Seed;
             APResearchManager.DisableNormalResearch();
