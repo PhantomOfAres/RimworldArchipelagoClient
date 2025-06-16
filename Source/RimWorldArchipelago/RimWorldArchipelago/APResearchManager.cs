@@ -332,13 +332,13 @@ namespace RimworldArchipelago
                 }
             }
 
-            if (scoutedItem.Flags.HasFlag(ItemFlags.Trap))
+            if (scoutedItem != null && scoutedItem.Flags.HasFlag(ItemFlags.Trap))
             {
                 trapCount += 1;
                 // Note: I'm not tracking how many of these names we need, just getting "A list of them." Currently, that list is 50 long.
                 //   For this mostly silly feature, I'm not terribly worried about it, but this will cause some traps to be more obvious to
                 //   the eagle-eyed (though there's always the chance that it's real, as well, so it'll be rare that it even matters.)
-                if (trapCount >= ArchipelagoClient.SlotData.FakeTrapOptions.Count)
+                if (ArchipelagoClient.SlotData.FakeTrapOptions != null && trapCount >= ArchipelagoClient.SlotData.FakeTrapOptions.Count)
                 {
                     trapCount = 0;
                 }
