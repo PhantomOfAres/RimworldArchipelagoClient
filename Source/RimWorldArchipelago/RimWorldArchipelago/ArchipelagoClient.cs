@@ -366,7 +366,7 @@ namespace RimworldArchipelago
             try
             {
                 // handle TryConnectAndLogin attempt here and save the returned object to `result`
-                result = session.TryConnectAndLogin("Rimworld", user, ItemsHandlingFlags.AllItems);
+                result = session.TryConnectAndLogin("Rimworld", user, ItemsHandlingFlags.AllItems, password: pass);
             }
             catch (Exception e)
             {
