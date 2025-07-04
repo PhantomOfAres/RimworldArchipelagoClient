@@ -233,6 +233,7 @@ namespace RimworldArchipelago
             foreach (IncidentDef incidentDef in DefDatabase<IncidentDef>.AllDefs)
             {
                 if ((incidentDef.defName == "ArchipelagoSculpturePod" ||
+                    incidentDef.defName == "ArchipelagoColonistPod" ||
                     badThreatIncidentCategories.Contains(incidentDef.category) ||
                     goodIncidentCategories.Contains(incidentDef.category)) &&
                     incidentDef.targetTags.Contains(playerHomeTag))

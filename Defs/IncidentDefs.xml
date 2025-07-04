@@ -10,4 +10,14 @@
     <workerClass>IncidentWorker_ArchipelagoItemPod</workerClass>
     <baseChance>1.0</baseChance>
   </IncidentDef>
+  <IncidentDef>
+    <defName>ArchipelagoColonistPod</defName>
+    <label>colonist</label>
+    <category>Misc</category>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+    <workerClass>IncidentWorker_ArchipelagoItemPod</workerClass>
+    <baseChance>1.0</baseChance>
+  </IncidentDef>
 </Defs>

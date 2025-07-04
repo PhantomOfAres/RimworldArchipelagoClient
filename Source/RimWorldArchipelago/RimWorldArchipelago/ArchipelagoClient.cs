@@ -1,5 +1,6 @@
 ﻿using Archipelago.MultiClient.Net;
 using Archipelago.MultiClient.Net.Enums;
+using Archipelago.MultiClient.Net.Helpers;
 using Archipelago.MultiClient.Net.MessageLog.Messages;
 using Archipelago.MultiClient.Net.MessageLog.Parts;
 using Archipelago.MultiClient.Net.Models;
@@ -12,7 +13,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 using Verse;
 
@@ -73,6 +73,7 @@ namespace RimworldArchipelago
         public int MultiAnalyzerResearchLocationCount { get; set; }
         public int ResearchBaseCost { get; set; }
         public int ResearchMaxPrerequisites { get; set; }
+        public bool PlayerNamesAsColonistItems {  get; set; }
         public ScoutType ResearchScoutType { get; set; }
         public SecretTrapType ResearchScoutSecretTraps { get; set; }
         public VictoryType VictoryCondition { get; set; }
@@ -93,6 +94,7 @@ namespace RimworldArchipelago
         private int ticksLeftInTimer = 0;
         private static List<string> IncidentsToRunOnTimer = new List<string>();
         private static List<long> LocationsToSend = new List<long>();
+        private static List<string> ApNamesUsed = new List<string>();
 
         private float cachedMonumentScore = -1;
         private float winningFadeOutTime = -1f;
@@ -111,6 +113,7 @@ namespace RimworldArchipelago
             Scribe_Values.Look(ref ticksLeftInTimer, "ticksLeftInTimer");
             Scribe_Collections.Look(ref IncidentsToRunOnTimer, "incidentsToRunOnTimer", LookMode.Value);
             Scribe_Collections.Look(ref LocationsToSend, "locationsToSend", LookMode.Value);
+            Scribe_Collections.Look(ref ApNamesUsed, "locationsToSend", LookMode.Value);
             base.ExposeData();
         }
 
@@ -195,6 +198,29 @@ namespace RimworldArchipelago
                     Thing sculpture = ThingMaker.MakeThing(sculptureDef, sculptureStuff);
                     sculpture = sculpture.MakeMinified();
                     incidentParams.gifts = new List<Thing>() { sculpture };
+                    incidentParams.letterTitle = "Archipelago Sculpture";
+                    incidentParams.letterText = $"{sender} sent you an Archipelago Sculpture! Construct this in a room with the other monument requirements to win!";
+                }
+                else if (itemDef.defName == "ArchipelagoColonistPodIncident")
+                {
+                    PawnGenerationRequest pawnGenerationRequest = new PawnGenerationRequest(kind: PawnKindDefOf.Colonist, faction: Find.FactionManager.OfPlayer, tile: incidentParams.target.Tile, inhabitant: true, dontGiveWeapon: true);
+                    Pawn newPawn = PawnGenerator.GeneratePawn(pawnGenerationRequest);
+                    if (ArchipelagoClient.Connected && ArchipelagoClient.SlotData.SlotOptions.PlayerNamesAsColonistItems)
+                    {
+                        string overrideName = ArchipelagoClient.GetRandomPlayerName(ApNamesUsed);
+                        if (overrideName != "")
+                        {
+                            NameTriple pawnName = newPawn.Name as NameTriple;
+                            if (pawnName != null)
+                            {
+                                newPawn.Name = new NameTriple(pawnName.First, overrideName, pawnName.Last);
+                                ApNamesUsed.Add(overrideName);
+                            }
+                        }
+                    }
+                    incidentParams.gifts = new List<Thing>() { newPawn };
+                    incidentParams.letterTitle = "Archipelago Colonist";
+                    incidentParams.letterText = $"{sender} sent you a colonist!";
                 }
                 incidentDef.Worker.TryExecute(incidentParams);
             }
@@ -536,6 +562,32 @@ namespace RimworldArchipelago
         public static void SendLocations(List<long> locations)
         {
             session.Locations.CompleteLocationChecks(locations.ToArray());
+        }
+
+        private static bool namesPopulated = false;
+        private static List<string> cachedNameList = new List<string>();
+        public static string GetRandomPlayerName(List<string> usedPlayerNames)
+        {
+            if (!namesPopulated && Connected)
+            {
+                foreach (PlayerInfo playerInfo in session.Players.AllPlayers)
+                {
+                    cachedNameList.Add(playerInfo.Name);
+                }
+
+                cachedNameList.Remove("Server");
+
+                namesPopulated = true;
+            }
+
+            string ret = "";
+            if (cachedNameList.Count > 0)
+            {
+                int randomIndex = UnityEngine.Random.Range(0, cachedNameList.Count);
+                ret = cachedNameList[randomIndex];
+                cachedNameList.RemoveAt(randomIndex);
+            }
+            return ret;
         }
 
         public static void VictoryAchieved(VictoryType type)
