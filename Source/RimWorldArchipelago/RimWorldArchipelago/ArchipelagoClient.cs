@@ -81,6 +81,7 @@ namespace RimworldArchipelago
         public bool IdeologyEnabled { get; set; }
         public bool BiotechEnabled { get; set; }
         public bool AnomalyEnabled { get; set; }
+        public bool OdysseyEnabled { get; set; }
         public StartingResearchLevel StartingResearchLevel { get; set; }
 
     }

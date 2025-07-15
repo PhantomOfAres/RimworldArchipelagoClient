@@ -26,7 +26,8 @@ namespace RimworldArchipelago
                 if ((!slotOptions.RoyaltyEnabled && researchProject.modContentPack.PackageId == ModContentPack.RoyaltyModPackageId) ||
                     (!slotOptions.IdeologyEnabled && researchProject.modContentPack.PackageId == ModContentPack.IdeologyModPackageId) ||
                     (!slotOptions.BiotechEnabled && researchProject.modContentPack.PackageId == ModContentPack.BiotechModPackageId) ||
-                    (!slotOptions.AnomalyEnabled && researchProject.modContentPack.PackageId == ModContentPack.AnomalyModPackageId))
+                    (!slotOptions.AnomalyEnabled && researchProject.modContentPack.PackageId == ModContentPack.AnomalyModPackageId) ||
+                    (!slotOptions.OdysseyEnabled && researchProject.modContentPack.PackageId == ModContentPack.OdysseyModPackageId))
                 {
                     disabledExpansionResearchNames.Add(researchProject.defName);
                     continue;
