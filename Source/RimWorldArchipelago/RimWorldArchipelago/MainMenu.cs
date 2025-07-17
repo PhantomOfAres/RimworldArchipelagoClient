@@ -36,11 +36,14 @@ namespace RimworldArchipelago
                 int tutorialIndex = optList.FindIndex(opt => opt.label == "Tutorial".Translate());
                 int newColonyIndex = optList.FindIndex(opt => opt.label == "NewColony".Translate());
                 int loadColonyIndex = optList.FindIndex(opt => opt.label == "LoadGame".Translate());
-                if (newColonyIndex != -1 && loadColonyIndex != -1)
+                if (newColonyIndex != -1)
                 {
                     if (!ArchipelagoClient.Connected)
                     {
-                        optList.RemoveAt(loadColonyIndex);
+                        if (loadColonyIndex != -1)
+                        {
+                            optList.RemoveAt(loadColonyIndex);
+                        }
                         optList.Insert(newColonyIndex + 1, new ListableOption("Connect to Archipelago", () =>
                         {
                             Find.WindowStack.Add(new ArchipelagoOptionsMenu());
@@ -50,7 +53,7 @@ namespace RimworldArchipelago
                     }
                     else
                     {
-                        if (!canLoadGame)
+                        if (!canLoadGame && loadColonyIndex != -1)
                         {
                             optList.RemoveAt(loadColonyIndex);
                         }
@@ -60,6 +63,10 @@ namespace RimworldArchipelago
                                 MessageTypeDefOf.SilentInput, false);
                         }));
                     }
+                }
+                else
+                {
+                    Log.Error("Can't find the buttons that need to be displayed! Something horrifying has happened!");
                 }
             }
         }
