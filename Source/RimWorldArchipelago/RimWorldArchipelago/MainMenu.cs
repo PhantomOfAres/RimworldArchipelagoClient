@@ -64,10 +64,6 @@ namespace RimworldArchipelago
                         }));
                     }
                 }
-                else
-                {
-                    Log.Error("Can't find the buttons that need to be displayed! Something horrifying has happened!");
-                }
             }
         }
     }
