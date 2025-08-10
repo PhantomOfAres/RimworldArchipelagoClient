@@ -83,17 +83,30 @@ namespace RimworldArchipelago
                 roomWealth = Mathf.RoundToInt(room.GetStat(RoomStatDefOf.Wealth));
             }
 
+            bool foundError = false;
             stringBuilder.AppendLine("To win the game by building an Archipelago Monument, you must construct a single room with the following requirements:\n");
             foreach (string thingDefName in requirements.Keys)
             {
-                ThingDef thingDef = DefDatabase<ThingDef>.GetNamed(thingDefName);
-                stringBuilder.AppendLine($"{thingDef.LabelCap}: {fulfilled[thingDefName]}/{requirements[thingDefName]}");
+                ThingDef thingDef = DefDatabase<ThingDef>.GetNamedSilentFail(thingDefName);
+                if (thingDef == null)
+                {
+                    foundError = true;
+                }
+                else
+                {
+                    stringBuilder.AppendLine($"{thingDef.LabelCap}: {fulfilled[thingDefName]}/{requirements[thingDefName]}");
+                }
             }
 
             if (ArchipelagoClient.SlotData.MonumentWealthRequirement > 0)
             {
                 float cappedWealth = Mathf.Min(roomWealth, ArchipelagoClient.SlotData.MonumentWealthRequirement);
                 stringBuilder.AppendLine($"Room wealth: {cappedWealth}/{ArchipelagoClient.SlotData.MonumentWealthRequirement}");
+            }
+
+            if (foundError)
+            {
+                stringBuilder.AppendLine("Couldn't find one of the listed buildings - ignoring it for this game!");
             }
 
             return stringBuilder.ToString();
@@ -131,7 +144,8 @@ namespace RimworldArchipelago
 
             foreach (string thingDefName in requirements.Keys)
             {
-                if (requirements[thingDefName] > fulfilled[thingDefName])
+                ThingDef thingDef = DefDatabase<ThingDef>.GetNamedSilentFail(thingDefName);
+                if (thingDef != null && requirements[thingDefName] > fulfilled[thingDefName])
                 {
                     return false;
                 }
