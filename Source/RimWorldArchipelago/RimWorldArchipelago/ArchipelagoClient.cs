@@ -411,6 +411,11 @@ namespace RimworldArchipelago
                 }
             }
 
+            if (possibleThingRewards.Count == 0)
+            {
+                return;
+            }
+
             List<ThingDef> thingsToReward;
             if (itemCount == -1)
             {
@@ -431,7 +436,6 @@ namespace RimworldArchipelago
             string letterText = $"{sender} sent you the following items: ";
             List<Thing> stuff = new List<Thing>();
             bool firstThing = true;
-            //if (possibleThingRewards.Count > 0)
             foreach (ThingDef thingDef in thingsToReward)
             {
                 Thing thing;
