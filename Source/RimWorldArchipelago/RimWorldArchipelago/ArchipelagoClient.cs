@@ -15,6 +15,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 using Verse;
+using static RimWorld.ResearchPrerequisitesUtility;
 
 namespace RimworldArchipelago
 {
@@ -74,6 +75,7 @@ namespace RimworldArchipelago
         public int ResearchBaseCost { get; set; }
         public int ResearchMaxPrerequisites { get; set; }
         public bool PlayerNamesAsColonistItems {  get; set; }
+        public int BonusResearchItems { get; set; }
         public ScoutType ResearchScoutType { get; set; }
         public SecretTrapType ResearchScoutSecretTraps { get; set; }
         public VictoryType VictoryCondition { get; set; }
@@ -175,6 +177,21 @@ namespace RimworldArchipelago
             }
         }
 
+        public static void DropPodStuffNow(IncidentDef incidentDef, string sender, string letterTitle, string letterText, List<Thing> stuff)
+        {
+            ArchipelagoItemIncidentParams incidentParams = new ArchipelagoItemIncidentParams();
+            incidentParams.target = Find.AnyPlayerHomeMap;
+            if (incidentDef.category.needsParmsPoints)
+            {
+                incidentParams.points = StorytellerUtility.DefaultThreatPointsNow(Find.AnyPlayerHomeMap);
+            }
+            incidentParams.sender = sender;
+            incidentParams.letterTitle = letterTitle;
+            incidentParams.letterText = letterText;
+            incidentParams.gifts = stuff;
+            incidentDef.Worker.TryExecute(incidentParams);
+        }
+
         public static void IncidentReceived(ArchipelagoItemDef itemDef, string sender)
         {
             string incidentDefName = itemDef.defName.Replace("Incident", "");
@@ -185,26 +202,20 @@ namespace RimworldArchipelago
             else
             {
                 IncidentDef incidentDef = DefDatabase<IncidentDef>.GetNamed(incidentDefName);
-                ArchipelagoItemIncidentParams incidentParams = new ArchipelagoItemIncidentParams();
-                incidentParams.target = Find.AnyPlayerHomeMap;
-                if (incidentDef.category.needsParmsPoints)
-                {
-                    incidentParams.points = StorytellerUtility.DefaultThreatPointsNow(Find.AnyPlayerHomeMap);
-                }
-                incidentParams.sender = sender;
                 if (itemDef.defName == "ArchipelagoSculpturePodIncident")
                 {
                     ThingDef sculptureDef = DefDatabase<ThingDef>.GetNamed(RoomRoleWorker_MultiworldMonument.ARCHIPELAGO_STRUCTURE_DEF_NAME);
                     ThingDef sculptureStuff = GenStuff.RandomStuffFor(sculptureDef);
                     Thing sculpture = ThingMaker.MakeThing(sculptureDef, sculptureStuff);
                     sculpture = sculpture.MakeMinified();
-                    incidentParams.gifts = new List<Thing>() { sculpture };
-                    incidentParams.letterTitle = "Archipelago Sculpture";
-                    incidentParams.letterText = $"{sender} sent you an Archipelago Sculpture! Construct this in a room with the other monument requirements to win!";
+                    List<Thing> stuff = new List<Thing>() { sculpture };
+                    string letterTitle = "Archipelago Sculpture";
+                    string letterText = $"{sender} sent you an Archipelago Sculpture! Construct this in a room with the other monument requirements to win!";
+                    DropPodStuffNow(incidentDef, sender, letterTitle, letterText, stuff);
                 }
                 else if (itemDef.defName == "ArchipelagoColonistPodIncident")
                 {
-                    PawnGenerationRequest pawnGenerationRequest = new PawnGenerationRequest(kind: PawnKindDefOf.Colonist, faction: Find.FactionManager.OfPlayer, tile: incidentParams.target.Tile, inhabitant: true, dontGiveWeapon: true);
+                    PawnGenerationRequest pawnGenerationRequest = new PawnGenerationRequest(kind: PawnKindDefOf.Colonist, faction: Find.FactionManager.OfPlayer, tile: Find.AnyPlayerHomeMap.Tile, inhabitant: true, dontGiveWeapon: true);
                     Pawn newPawn = PawnGenerator.GeneratePawn(pawnGenerationRequest);
                     if (ArchipelagoClient.Connected && ArchipelagoClient.SlotData.SlotOptions.PlayerNamesAsColonistItems)
                     {
@@ -219,11 +230,11 @@ namespace RimworldArchipelago
                             }
                         }
                     }
-                    incidentParams.gifts = new List<Thing>() { newPawn };
-                    incidentParams.letterTitle = "Archipelago Colonist";
-                    incidentParams.letterText = $"{sender} sent you a colonist!";
+                    List<Thing> stuff = new List<Thing>() { newPawn };
+                    string letterTitle = "Archipelago Colonist";
+                    string letterText = $"{sender} sent you a colonist!";
+                    DropPodStuffNow(incidentDef, sender, letterTitle, letterText, stuff);
                 }
-                incidentDef.Worker.TryExecute(incidentParams);
             }
         }
 
@@ -357,6 +368,7 @@ namespace RimworldArchipelago
                     ResearchProjectDef research = DefDatabase<ResearchProjectDef>.GetNamed(researchDefName);
                     if (research != null)
                     {
+                        GrantBonusItems(research, itemInfo.Player.Name);
                         Find.ResearchManager.FinishProject(research, doCompletionDialog: false);
                     }
                 }
@@ -368,6 +380,86 @@ namespace RimworldArchipelago
             else
             {
                 Log.Error("Cannot receive an item while not playing a game. This is an AP mod error.");
+            }
+        }
+
+        private static void GrantBonusItems(ResearchProjectDef researchDef, string sender)
+        {
+            int itemCount = SlotData.SlotOptions.BonusResearchItems;
+            if (itemCount == 0)
+            {
+                return;
+            }
+
+            List<ThingDef> possibleThingRewards = new List<ThingDef>();
+            List<Pair<UnlockedHeader, List<Def>>> unlockedInfo = ResearchPrerequisitesUtility.UnlockedDefsGroupedByPrerequisites(researchDef);
+            foreach (Pair<UnlockedHeader, List<Def>> headerAndList in unlockedInfo)
+            {
+                UnlockedHeader header = headerAndList.First;
+                List<Def> unlockedDefs = headerAndList.Second;
+                if (header.unlockedBy != null || header.unlockedBy.Count == 0)
+                {
+                    foreach (Def unlockedDef in unlockedDefs)
+                    {
+                        if (unlockedDef is ThingDef unlockedThing &&
+                            (unlockedThing.Minifiable ||
+                             unlockedThing.category == ThingCategory.Item))
+                        {
+                            possibleThingRewards.Add(unlockedThing);
+                        }
+                    }
+                }
+            }
+
+            List<ThingDef> thingsToReward;
+            if (itemCount == -1)
+            {
+                thingsToReward = possibleThingRewards;
+            }
+            else
+            {
+                thingsToReward = new List<ThingDef>();
+                for (int i = 0; i < itemCount; i++)
+                {
+                    int randIndex = UnityEngine.Random.Range(0, possibleThingRewards.Count);
+                    thingsToReward.Add(possibleThingRewards[randIndex]);
+                }
+            }
+
+            IncidentDef incidentDef = DefDatabase<IncidentDef>.GetNamed("ArchipelagoStuffPod");
+            string letterTitle = "Bonus Item Drop";
+            string letterText = $"{sender} sent you the following items: ";
+            List<Thing> stuff = new List<Thing>();
+            bool firstThing = true;
+            //if (possibleThingRewards.Count > 0)
+            foreach (ThingDef thingDef in thingsToReward)
+            {
+                Thing thing;
+                if (thingDef.MadeFromStuff)
+                {
+                    ThingDef randomStuff = GenStuff.RandomStuffFor(thingDef);
+                    thing = ThingMaker.MakeThing(thingDef, randomStuff);
+                }
+                else
+                {
+                    thing = ThingMaker.MakeThing(thingDef);
+                }
+                if (thingDef.Minifiable)
+                {
+                    thing = thing.MakeMinified();
+                }
+                stuff.Add(thing);
+                if (!firstThing)
+                {
+                    letterText += ", ";
+                }
+                firstThing = false;
+                letterText += $"{thingDef.LabelCap}";
+            }
+
+            if (stuff.Count > 0)
+            {
+                ArchipelagoGameComponent.DropPodStuffNow(incidentDef, sender, letterTitle, letterText, stuff);
             }
         }
 

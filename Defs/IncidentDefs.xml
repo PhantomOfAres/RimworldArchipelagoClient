@@ -8,7 +8,7 @@
       <li>Map_PlayerHome</li>
     </targetTags>
     <workerClass>IncidentWorker_ArchipelagoItemPod</workerClass>
-    <baseChance>1.0</baseChance>
+    <baseChance>0</baseChance>
   </IncidentDef>
   <IncidentDef>
     <defName>ArchipelagoColonistPod</defName>
@@ -18,6 +18,16 @@
       <li>Map_PlayerHome</li>
     </targetTags>
     <workerClass>IncidentWorker_ArchipelagoItemPod</workerClass>
-    <baseChance>1.0</baseChance>
+    <baseChance>0</baseChance>
+  </IncidentDef>
+  <IncidentDef>
+    <defName>ArchipelagoStuffPod</defName>
+    <label>stuff</label>
+    <category>Misc</category>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+    <workerClass>IncidentWorker_ArchipelagoItemPod</workerClass>
+    <baseChance>0</baseChance>
   </IncidentDef>
 </Defs>
