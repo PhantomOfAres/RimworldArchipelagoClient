@@ -125,6 +125,13 @@ namespace RimworldArchipelago
                     checkedLocations.Contains(GetLocationId(researchProjectDef.defName)) &&
                     !researchProjectDef.IsFinished)
                 {
+                    // I don't love this, but RimWorld auto-completes all prereqs when you complete a research project, so
+                    //   when locations get released server-side (like when someone's game is collected on finish,) the
+                    //   default behavior auto-releases a bunch of locations.
+                    if (!researchProjectDef.PrerequisitesCompleted)
+                    {
+                        researchProjectDef.prerequisites.Clear();
+                    }
                     Find.ResearchManager.FinishProject(researchProjectDef);
                 }
             }
@@ -244,12 +251,15 @@ namespace RimworldArchipelago
             bool showSummary = false;
             bool showItem = false;
 
-            if (playingGame && archipelagoResearch.IsFinished)
+            if (scoutedItem == null)
+            {
+                showNothing = true;
+            }
+            else if (playingGame && archipelagoResearch.IsFinished)
             {
                 showItem = true;
             }
-            else if (scoutedItem == null ||
-                ArchipelagoClient.SlotData.SlotOptions.ResearchScoutType == ScoutType.None ||
+            else if (ArchipelagoClient.SlotData.SlotOptions.ResearchScoutType == ScoutType.None ||
                 ((!playingGame || !archipelagoResearch.CanStartNow) &&
                 (ArchipelagoClient.SlotData.SlotOptions.ResearchScoutType == ScoutType.SummaryAvailable ||
                 ArchipelagoClient.SlotData.SlotOptions.ResearchScoutType == ScoutType.FullItemAvailable)))

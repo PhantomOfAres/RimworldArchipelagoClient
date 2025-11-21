@@ -63,6 +63,11 @@ namespace RimworldArchipelago
 
             StringBuilder stringBuilder = new StringBuilder();
             Dictionary<string, int> requirements = ArchipelagoClient.SlotData.MonumentBuildings;
+            if (requirements == null)
+            {
+                return "Error: Couldn't find the monument requirements. Do your mod and apworld versions match?";
+            }
+
             Dictionary<string, int> fulfilled = new Dictionary<string, int>();
             foreach (string thingDefName in requirements.Keys)
             {
