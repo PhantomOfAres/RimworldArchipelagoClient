@@ -364,7 +364,12 @@ namespace RimworldArchipelago
                 }
                 if (archipelagoItem.DefType == "ResearchProjectDef")
                 {
-                    string researchDefName = archipelagoItem.defName.Replace("Research", "");
+                    string researchDefName = archipelagoItem.defName;
+                    int index = archipelagoItem.defName.LastIndexOf("Research");
+                    if (index >= 0)
+                    {
+                        researchDefName = researchDefName.Remove(index, "Research".Length);
+                    }
                     ResearchProjectDef research = DefDatabase<ResearchProjectDef>.GetNamed(researchDefName);
                     if (research != null)
                     {
