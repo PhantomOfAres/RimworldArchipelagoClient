@@ -20,6 +20,9 @@ namespace RimworldArchipelago
 
         public static void ExportArchipelagoDefs()
         {
+            // Some items in the DLCs require multiple DLC. Since by the time we reach export, those items have lost that context, and in the interest of not requiring
+            //  everyone to generate for all combinations of DLC, we just exclude those few problem items here.
+            List<string> problematicDefs = new List<string> { "Building_KidOutfitStand", "Gun_HellcatRifle_Unique", "Apparel_VacsuitChildren", "Gun_BeamGraser" };
             long nextId = 0;
 
             Dictionary<string, ArchipelagoItemDef> allDefs = new Dictionary<string, ArchipelagoItemDef>();
@@ -29,6 +32,10 @@ namespace RimworldArchipelago
             {
                 nextId += 1;
                 ArchipelagoItemDef item = new ArchipelagoItemDef();
+                if (problematicDefs.Contains(research.defName))
+                {
+                    continue;
+                }
                 item.Id = nextId;
                 item.DefType = "ResearchProjectDef";
                 item.defName = $"{research.defName}Research";
@@ -96,6 +103,10 @@ namespace RimworldArchipelago
 
                     foreach (ThingDefCountClass product in recipeDef.products)
                     {
+                        if (problematicDefs.Contains(product.thingDef.defName))
+                        {
+                            continue;
+                        }
                         // Ensure we haven't already included this item type, and ensure we're only targeting items, not buildings or mechs or whatever.
                         if (!alreadyPopulatedItem.Contains(product.thingDef.defName) &&
                             product.thingDef.category == ThingCategory.Item &&
@@ -232,6 +243,10 @@ namespace RimworldArchipelago
             IncidentTargetTagDef playerHomeTag = DefDatabase<IncidentTargetTagDef>.GetNamed("Map_PlayerHome");
             foreach (IncidentDef incidentDef in DefDatabase<IncidentDef>.AllDefs)
             {
+                if (problematicDefs.Contains(incidentDef.defName))
+                {
+                    continue;
+                }
                 if ((incidentDef.defName == "ArchipelagoSculpturePod" ||
                     incidentDef.defName == "ArchipelagoColonistPod" ||
                     badThreatIncidentCategories.Contains(incidentDef.category) ||
@@ -265,6 +280,10 @@ namespace RimworldArchipelago
             List<string> basicResources = new List<string>() { "Bioferrite", "Shard", "HemogenPack", "Plasteel", "Gold", "WoodLog", "Uranium", "Cloth" };
             foreach (ThingDef thingDef in DefDatabase<ThingDef>.AllDefs)
             {
+                if (problematicDefs.Contains(thingDef.defName))
+                {
+                    continue;
+                }
                 // Excluding a bunch of things that aren't properly counted by rooms, created by everyone, or are otherwise problematic
                 if ((thingDef.thingClass == typeof(Building) || thingDef.thingClass.IsSubclassOf(typeof(Building))) &&
                     thingDef.IsEdifice() &&
@@ -348,6 +367,10 @@ namespace RimworldArchipelago
             // Now that we have items for everything, add prereq archipelago names.
             foreach (ResearchProjectDef research in DefDatabase<ResearchProjectDef>.AllDefs)
             {
+                if (problematicDefs.Contains(research.defName))
+                {
+                    continue;
+                }
                 string researchId = $"{research.defName}Research";
                 ArchipelagoItemDef item = allDefs[researchId];
                 if (research.prerequisites != null)
