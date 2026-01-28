@@ -2,7 +2,13 @@
 <Defs>
   <JobDef>
     <defName>SendRaidLocation</defName>
-    <driverClass>JobDriver_SendRaidLocation</driverClass>
+    <driverClass>JobDriver_UseItem</driverClass>
+    <reportString>sending TargetA to another world.</reportString>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+  <JobDef>
+    <defName>SendTradeLocation</defName>
+    <driverClass>JobDriver_UseItem</driverClass>
     <reportString>sending TargetA to another world.</reportString>
     <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
   </JobDef>

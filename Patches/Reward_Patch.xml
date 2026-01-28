@@ -3,7 +3,7 @@
   <Operation Class="PatchOperationAttributeSet">
     <xpath>Defs/ThingSetMakerDef[defName="OutlanderRaidLootMaker" or defName="PirateRaidLootMaker" or defName="TribeRaidLootMaker" or defName="MechanoidRaidLootMaker"]/root</xpath>
     <attribute>Class</attribute>
-    <value>ThingSetMaker_ArchipelagoReward</value>
+    <value>ThingSetMaker_ArchipelagoRaidReward</value>
   </Operation>
   <Operation Class="PatchOperationFindMod">
     <mods>
@@ -12,7 +12,7 @@
     <match Class="PatchOperationAttributeSet">
       <xpath>Defs/ThingSetMakerDef[defName="TradersGuildRaidLootMaker"]/root</xpath>
       <attribute>Class</attribute>
-      <value>ThingSetMaker_ArchipelagoReward</value>
+      <value>ThingSetMaker_ArchipelagoRaidReward</value>
     </match>
   </Operation>
   <Operation Class="PatchOperationFindMod">
@@ -22,7 +22,7 @@
     <match Class="PatchOperationAttributeSet">
       <xpath>Defs/ThingSetMakerDef[defName="EmpireRaidLootMaker"]/root</xpath>
       <attribute>Class</attribute>
-      <value>ThingSetMaker_ArchipelagoReward</value>
+      <value>ThingSetMaker_ArchipelagoRaidReward</value>
     </match>
   </Operation>
 </Patch>

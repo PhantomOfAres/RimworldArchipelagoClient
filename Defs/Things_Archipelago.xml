@@ -59,7 +59,9 @@
   <ThingDef ParentName="ResourceBase">
     <defName>RaidLocationItem</defName>
     <label>Archipelago Location (Raid)</label>
-    <description>In the aftermath of the battle, this... thing was left behind. It's hard to look at, and you don't understand what it is. But you know this: You must send it. Send it where? To whom? Your nose begins to bleed as you contemplate this impossibility.</description>
+    <description>In the aftermath of the battle, this... thing was left behind. It's hard to look at, and you don't understand what it is. But you know this: You must send it. Send it where? To whom? Your nose begins to bleed as you contemplate this impossibility.
+
+    Use this item to send the next Raid Location to the multiworld.</description>
     <graphicData>
       <texPath>ArchipelagoIcons/ColorIcon</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -92,6 +94,49 @@
       <li Class="CompProperties_UseEffectDestroySelf"/>
       <li Class="CompProperties_SendAPLocation">
         <locationType>Raid</locationType>
+      </li>
+    </comps>
+  </ThingDef>
+  <ThingDef ParentName="ResourceBase">
+    <defName>TradeLocationItem</defName>
+    <label>Archipelago Location (Trade)</label>
+    <description>The trader has something, and you must have it. Any price would be worth the riches that you will send to the others. It might be progression! Or maybe it will be a funny trap! Wait... What is progression? What trap? What... others? Thoughts dance through your mind, slipping out of your grasp whenever you focus on them. But you do know that you must use it.
+
+    Use this item to send the next Trade Location to the multiworld.</description>
+    <graphicData>
+      <texPath>ArchipelagoIcons/ColorIcon</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <resourceReadoutPriority>First</resourceReadoutPriority>
+    <useHitPoints>false</useHitPoints>
+    <healthAffectsPrice>false</healthAffectsPrice>
+    <resourceReadoutAlwaysShow>true</resourceReadoutAlwaysShow>
+    <statBases>
+      <MarketValue>0</MarketValue>
+      <Mass>0.008</Mass>
+      <StuffPower_Armor_Sharp>0</StuffPower_Armor_Sharp>
+      <StuffPower_Armor_Blunt>0</StuffPower_Armor_Blunt>
+      <StuffPower_Armor_Heat>0</StuffPower_Armor_Heat>
+      <StuffPower_Insulation_Cold>0</StuffPower_Insulation_Cold>
+      <StuffPower_Insulation_Heat>0</StuffPower_Insulation_Heat>
+      <SharpDamageMultiplier>0</SharpDamageMultiplier>
+      <BluntDamageMultiplier>0</BluntDamageMultiplier>
+      <MarketValue>100</MarketValue>
+    </statBases>
+    <tradeability>Buyable</tradeability>
+    <stackLimit>500</stackLimit>
+    <smallVolume>true</smallVolume>
+    <burnableByRecipe>false</burnableByRecipe>
+    <smeltable>false</smeltable>
+    <comps>
+      <li Class="CompProperties_Usable">
+        <useJob>SendTradeLocation</useJob>
+        <useLabel>Send Trade Location</useLabel>
+        <useDuration>300</useDuration>
+      </li>
+      <li Class="CompProperties_UseEffectDestroySelf"/>
+      <li Class="CompProperties_SendAPLocation">
+        <locationType>Trade</locationType>
       </li>
     </comps>
   </ThingDef>

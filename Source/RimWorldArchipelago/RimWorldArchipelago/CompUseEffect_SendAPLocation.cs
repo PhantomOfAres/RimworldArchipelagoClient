@@ -1,4 +1,5 @@
 ﻿using RimWorld;
+using RimworldArchipelago;
 using System;
 using Verse;
 
@@ -25,7 +26,14 @@ public class CompUseEffect_SendAPLocation : CompUseEffect
 
     private void SendLocation()
     {
-        Log.Message($"Squeeble deeble sending the thingle: {Props.locationType}");
+        if (Props.locationType == APItemLocationType.Raid)
+        {
+            ArchipelagoGameComponent.SendRaidLocation();
+        }
+        if (Props.locationType == APItemLocationType.Trade)
+        {
+            ArchipelagoGameComponent.SendTradeLocation();
+        }
     }
 
     public override void PostExposeData()

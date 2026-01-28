@@ -4,7 +4,8 @@ using System;
 public enum APItemLocationType
 {
     None = 0,
-    Raid = 1
+    Raid = 1,
+    Trade = 2,
 }
 
 public class CompProperties_SendAPLocation : CompProperties_UseEffect

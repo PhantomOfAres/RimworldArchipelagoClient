@@ -73,6 +73,7 @@ namespace RimworldArchipelago
         public int HiTechResearchLocationCount { get; set; }
         public int MultiAnalyzerResearchLocationCount { get; set; }
         public int RaidLocationCount { get; set; }
+        public int TradeLocationCount { get; set; }
         public int ResearchBaseCost { get; set; }
         public int ResearchMaxPrerequisites { get; set; }
         public bool PlayerNamesAsColonistItems {  get; set; }
@@ -163,6 +164,30 @@ namespace RimworldArchipelago
         public static bool PlayerHasMoreRaidLocations()
         {
             return nextRaidOffset < ArchipelagoClient.SlotData.SlotOptions.RaidLocationCount;
+        }
+
+        public static void SendTradeLocation()
+        {
+            long id = BASE_TRADE_ID + nextTradeOffset;
+            // Safety check - if a check was released, skip it.
+            while (ArchipelagoClient.AllLocationsChecked.Contains(id))
+            {
+                nextTradeOffset += 1;
+                id = BASE_TRADE_ID + nextTradeOffset;
+            }
+
+            // If we've somehow gotten too many raid items, don't send it.
+            if (nextTradeOffset >= ArchipelagoClient.SlotData.SlotOptions.TradeLocationCount)
+            {
+                return;
+            }
+            nextTradeOffset += 1;
+            LocationsToSend.Add(id);
+        }
+
+        public static bool PlayerHasMoreTradeLocations()
+        {
+            return nextTradeOffset < ArchipelagoClient.SlotData.SlotOptions.TradeLocationCount;
         }
 
         public override void FinalizeInit()

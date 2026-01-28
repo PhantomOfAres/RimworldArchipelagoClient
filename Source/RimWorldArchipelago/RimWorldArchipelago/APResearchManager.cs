@@ -231,6 +231,7 @@ namespace RimworldArchipelago
 
         public static void UpdateAllDescriptions(bool playingGame = true)
         {
+            Log.Message("Updating all!");
             int trapCount = 0;
             foreach ((long id, string name) in apResearch)
             {
@@ -326,11 +327,12 @@ namespace RimworldArchipelago
                 }
                 else if (scoutedItem.Flags.HasFlag(ItemFlags.Trap))
                 {
-                    if (ArchipelagoClient.SlotData.SlotOptions.ResearchScoutSecretTraps == SecretTrapType.On)
+                    if (ArchipelagoClient.SlotData.SlotOptions.ResearchScoutSecretTraps == SecretTrapType.On && !archipelagoResearch.IsFinished)
                     {
                         string lieString = ArchipelagoClient.SlotData.FakeTrapOptions[trapCount];
                         string[] lieComponents = lieString.Split(',');
                         archipelagoResearch.label = $"{lieComponents[0]}'s {lieComponents[1]}";
+                        archipelagoResearch.description = $"This research has {lieComponents[0]}'s important item, {lieComponents[1]}!";
                     }
                     else
                     {

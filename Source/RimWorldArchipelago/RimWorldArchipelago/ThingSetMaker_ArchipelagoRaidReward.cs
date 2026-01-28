@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using Verse;
 
-public class ThingSetMaker_ArchipelagoReward : ThingSetMaker_MarketValue
+public class ThingSetMaker_ArchipelagoRaidReward : ThingSetMaker_MarketValue
 {
     protected override void Generate(ThingSetMakerParams parms, List<Thing> outThings)
     {
