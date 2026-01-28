@@ -15,8 +15,15 @@ namespace RimworldArchipelago
         public const string AnyElectricityRequirement = "AnyElectricity";
         public const string FabricationRequirement = "Fabrication";
         public const string AdvancedFabricationRequirement = "Advanced Fabrication";
+        public const string MechanitorRequirement = "Basic Mechtech";
+        public const string SignalChipRequirement = "Standard Mechtech";
+        public const string PowerfocusChipRequirement = "High Mechtech";
+        public const string NanostructuringChipRequirement = "Ultra Mechtech";
         public const string ComponentDefName = "ComponentIndustrial";
         public const string AdvancedComponentDefName = "ComponentSpacer";
+        public const string SignalChipDefName = "SignalChip";
+        public const string PowerfocusChipDefName = "PowerfocusChip";
+        public const string NanostructuringChipDefName = "NanostructuringChip";
 
         public static void ExportArchipelagoDefs()
         {
@@ -217,6 +224,52 @@ namespace RimworldArchipelago
                                 if (ingredientCount.IsFixedIngredient && ingredientCount.FixedIngredient.defName == AdvancedComponentDefName && !item.Prerequisites.Contains(FabricationRequirement))
                                 {
                                     item.Prerequisites.Add(AdvancedFabricationRequirement);
+                                }
+                                // Mechanitor items have more complex requirements (you need to have access to standard mechtech to summon a diabolus to craft those items, etc.
+                                if (ingredientCount.IsFixedIngredient && ingredientCount.FixedIngredient.defName == SignalChipDefName)
+                                {
+                                    if (!item.Prerequisites.Contains(MechanitorRequirement))
+                                    {
+                                        item.Prerequisites.Add(MechanitorRequirement);
+                                    }
+                                    if (!item.Prerequisites.Contains(SignalChipRequirement))
+                                    {
+                                        item.Prerequisites.Add(SignalChipRequirement);
+                                    }
+                                }
+                                if (ingredientCount.IsFixedIngredient && ingredientCount.FixedIngredient.defName == PowerfocusChipDefName)
+                                {
+                                    if (!item.Prerequisites.Contains(MechanitorRequirement))
+                                    {
+                                        item.Prerequisites.Add(MechanitorRequirement);
+                                    }
+                                    if (!item.Prerequisites.Contains(SignalChipRequirement))
+                                    {
+                                        item.Prerequisites.Add(SignalChipRequirement);
+                                    }
+                                    if (!item.Prerequisites.Contains(PowerfocusChipRequirement))
+                                    {
+                                        item.Prerequisites.Add(PowerfocusChipRequirement);
+                                    }
+                                }
+                                if (ingredientCount.IsFixedIngredient && ingredientCount.FixedIngredient.defName == NanostructuringChipDefName)
+                                {
+                                    if (!item.Prerequisites.Contains(MechanitorRequirement))
+                                    {
+                                        item.Prerequisites.Add(MechanitorRequirement);
+                                    }
+                                    if (!item.Prerequisites.Contains(SignalChipRequirement))
+                                    {
+                                        item.Prerequisites.Add(SignalChipRequirement);
+                                    }
+                                    if (!item.Prerequisites.Contains(PowerfocusChipRequirement))
+                                    {
+                                        item.Prerequisites.Add(PowerfocusChipRequirement);
+                                    }
+                                    if (!item.Prerequisites.Contains(NanostructuringChipRequirement))
+                                    {
+                                        item.Prerequisites.Add(NanostructuringChipRequirement);
+                                    }
                                 }
                             }
                             allDefs[item.defName] = item;
