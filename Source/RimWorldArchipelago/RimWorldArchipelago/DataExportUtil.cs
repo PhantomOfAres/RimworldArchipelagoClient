@@ -22,7 +22,7 @@ namespace RimworldArchipelago
         {
             // Some items in the DLCs require multiple DLC. Since by the time we reach export, those items have lost that context, and in the interest of not requiring
             //  everyone to generate for all combinations of DLC, we just exclude those few problem items here.
-            List<string> problematicDefs = new List<string> { "Building_KidOutfitStand", "Gun_HellcatRifle_Unique", "Apparel_VacsuitChildren", "Gun_BeamGraser" };
+            List<string> problematicDefs = new List<string> { "Building_KidOutfitStand", "Gun_HellcatRifle_Unique", "Apparel_VacsuitChildren", "Gun_BeamGraser", "WatermillGenerator" };
             long nextId = 0;
 
             Dictionary<string, ArchipelagoItemDef> allDefs = new Dictionary<string, ArchipelagoItemDef>();
@@ -32,10 +32,6 @@ namespace RimworldArchipelago
             {
                 nextId += 1;
                 ArchipelagoItemDef item = new ArchipelagoItemDef();
-                if (problematicDefs.Contains(research.defName))
-                {
-                    continue;
-                }
                 item.Id = nextId;
                 item.DefType = "ResearchProjectDef";
                 item.defName = $"{research.defName}Research";
@@ -367,10 +363,6 @@ namespace RimworldArchipelago
             // Now that we have items for everything, add prereq archipelago names.
             foreach (ResearchProjectDef research in DefDatabase<ResearchProjectDef>.AllDefs)
             {
-                if (problematicDefs.Contains(research.defName))
-                {
-                    continue;
-                }
                 string researchId = $"{research.defName}Research";
                 ArchipelagoItemDef item = allDefs[researchId];
                 if (research.prerequisites != null)
