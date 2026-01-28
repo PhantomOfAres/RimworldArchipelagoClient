@@ -231,7 +231,6 @@ namespace RimworldArchipelago
 
         public static void UpdateAllDescriptions(bool playingGame = true)
         {
-            Log.Message("Updating all!");
             int trapCount = 0;
             foreach ((long id, string name) in apResearch)
             {
