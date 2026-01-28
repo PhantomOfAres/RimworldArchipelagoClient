@@ -295,6 +295,27 @@ namespace RimworldArchipelago
             }
         }
 
+        public static void ThingReceived(ArchipelagoItemDef itemDef, string sender)
+        {
+            string thingName = itemDef.defName;
+            int index = thingName.LastIndexOf("Thing");
+            if (index >= 0)
+            {
+                thingName = thingName.Remove(index, "Thing".Length);
+            }
+
+            ThingDef thingDef = DefDatabase<ThingDef>.GetNamed(thingName);
+            ThingDef generatedStuff = GenStuff.RandomStuffFor(thingDef);
+            Thing generatedThing = ThingMaker.MakeThing(thingDef, generatedStuff);
+            generatedThing.stackCount = itemDef.StackSize;
+            List<Thing> stuff = new List<Thing>() { generatedThing };
+            string letterTitle = thingDef.LabelCap;
+            string letterText;
+            letterText = $"{sender} sent you {itemDef.StackSize} {thingDef.LabelCap}!";
+            IncidentDef incidentDef = DefDatabase<IncidentDef>.GetNamed("ArchipelagoStuffPod");
+            DropPodStuffNow(incidentDef, sender, letterTitle, letterText, stuff);
+        }
+
         public override void GameComponentTick()
         {
             if (ticksLeftInTimer > 0)
@@ -437,6 +458,10 @@ namespace RimworldArchipelago
                 else if (archipelagoItem.DefType == "IncidentDef")
                 {
                     ArchipelagoGameComponent.IncidentReceived(archipelagoItem, itemInfo.Player.Alias);
+                }
+                else if (archipelagoItem.DefType == "ThingDef")
+                {
+                    ArchipelagoGameComponent.ThingReceived(archipelagoItem, itemInfo.Player.Alias);
                 }
             }
             else
