@@ -73,9 +73,12 @@
   <ItemGroup>
     <Compile Include="APCraftManager.cs" />
     <Compile Include="ArchipelagoClient.cs" />
+    <Compile Include="CompProperties_SendAPLocation.cs" />
+    <Compile Include="CompUseEffect_SendAPLocation.cs" />
     <Compile Include="DataExportUtil.cs" />
     <Compile Include="HarmonyPatches.cs" />
     <Compile Include="IncidentWorker_ArchipelagoItemPod.cs" />
+    <Compile Include="JobDriver_SendLocation.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="MainMenu.cs" />
     <Compile Include="Alert_MonumentAlert.cs" />
@@ -83,6 +86,7 @@
     <Compile Include="APResearchManager.cs" />
     <Compile Include="RoomWorker_MultiworldMonument.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="ThingSetMaker_ArchipelagoReward.cs" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />

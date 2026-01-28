@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
   <ThingDef ParentName="ResourceBase">
     <defName>ArchipelagoChecked</defName>
@@ -55,5 +55,44 @@
     <smallVolume>true</smallVolume>
     <burnableByRecipe>false</burnableByRecipe>
     <smeltable>false</smeltable>
+  </ThingDef>
+  <ThingDef ParentName="ResourceBase">
+    <defName>RaidLocationItem</defName>
+    <label>Archipelago Location (Raid)</label>
+    <description>In the aftermath of the battle, this... thing was left behind. It's hard to look at, and you don't understand what it is. But you know this: You must send it. Send it where? To whom? Your nose begins to bleed as you contemplate this impossibility.</description>
+    <graphicData>
+      <texPath>ArchipelagoIcons/ColorIcon</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <resourceReadoutPriority>First</resourceReadoutPriority>
+    <useHitPoints>false</useHitPoints>
+    <healthAffectsPrice>false</healthAffectsPrice>
+    <resourceReadoutAlwaysShow>true</resourceReadoutAlwaysShow>
+    <statBases>
+      <MarketValue>0</MarketValue>
+      <Mass>0.008</Mass>
+      <StuffPower_Armor_Sharp>0</StuffPower_Armor_Sharp>
+      <StuffPower_Armor_Blunt>0</StuffPower_Armor_Blunt>
+      <StuffPower_Armor_Heat>0</StuffPower_Armor_Heat>
+      <StuffPower_Insulation_Cold>0</StuffPower_Insulation_Cold>
+      <StuffPower_Insulation_Heat>0</StuffPower_Insulation_Heat>
+      <SharpDamageMultiplier>0</SharpDamageMultiplier>
+      <BluntDamageMultiplier>0</BluntDamageMultiplier>
+    </statBases>
+    <stackLimit>500</stackLimit>
+    <smallVolume>true</smallVolume>
+    <burnableByRecipe>false</burnableByRecipe>
+    <smeltable>false</smeltable>
+    <comps>
+      <li Class="CompProperties_Usable">
+        <useJob>SendRaidLocation</useJob>
+        <useLabel>Send Raid Location</useLabel>
+        <useDuration>300</useDuration>
+      </li>
+      <li Class="CompProperties_UseEffectDestroySelf"/>
+      <li Class="CompProperties_SendAPLocation">
+        <locationType>Raid</locationType>
+      </li>
+    </comps>
   </ThingDef>
 </Defs>

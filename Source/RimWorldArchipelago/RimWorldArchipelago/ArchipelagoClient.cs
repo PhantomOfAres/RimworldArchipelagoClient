@@ -72,6 +72,7 @@ namespace RimworldArchipelago
         public int BasicResearchLocationCount { get; set; }
         public int HiTechResearchLocationCount { get; set; }
         public int MultiAnalyzerResearchLocationCount { get; set; }
+        public int RaidLocationCount { get; set; }
         public int ResearchBaseCost { get; set; }
         public int ResearchMaxPrerequisites { get; set; }
         public bool PlayerNamesAsColonistItems {  get; set; }
@@ -90,11 +91,16 @@ namespace RimworldArchipelago
 
     public class ArchipelagoGameComponent: GameComponent
     {
+        private const long BASE_RAID_ID = 4001;
+        private const long BASE_TRADE_ID = 5001;
+
         private const int MIN_TICKS_IN_A_DAYISH = 45000;
         private const int MAX_TICKS_IN_A_DAYISH = 75000;
 
         private int handledIndexCount = 0;
         private int ticksLeftInTimer = 0;
+        private static int nextRaidOffset = 0;
+        private static int nextTradeOffset = 0;
         private static List<string> IncidentsToRunOnTimer = new List<string>();
         private static List<long> LocationsToSend = new List<long>();
         private static List<string> ApNamesUsed = new List<string>();
@@ -114,6 +120,8 @@ namespace RimworldArchipelago
         {
             Scribe_Values.Look(ref handledIndexCount, "handledIndexCount");
             Scribe_Values.Look(ref ticksLeftInTimer, "ticksLeftInTimer");
+            Scribe_Values.Look(ref nextRaidOffset, "nextRaidOffset");
+            Scribe_Values.Look(ref nextTradeOffset, "nextTradeOffset");
             Scribe_Collections.Look(ref IncidentsToRunOnTimer, "incidentsToRunOnTimer", LookMode.Value);
             Scribe_Collections.Look(ref LocationsToSend, "locationsToSend", LookMode.Value);
             Scribe_Collections.Look(ref ApNamesUsed, "locationsToSend", LookMode.Value);
@@ -131,6 +139,30 @@ namespace RimworldArchipelago
         {
             long id = APCraftManager.GetLocationId(craftRecipeName);
             LocationsToSend.Add(id);
+        }
+        
+        public static void SendRaidLocation()
+        {
+            long id = BASE_RAID_ID + nextRaidOffset;
+            // Safety check - if a check was released, skip it.
+            while (ArchipelagoClient.AllLocationsChecked.Contains(id))
+            {
+                nextRaidOffset += 1;
+                id = BASE_RAID_ID + nextRaidOffset;
+            }
+
+            // If we've somehow gotten too many raid items, don't send it.
+            if (nextRaidOffset >= ArchipelagoClient.SlotData.SlotOptions.RaidLocationCount)
+            {
+                return;
+            }
+            nextRaidOffset += 1;
+            LocationsToSend.Add(id);
+        }
+
+        public static bool PlayerHasMoreRaidLocations()
+        {
+            return nextRaidOffset < ArchipelagoClient.SlotData.SlotOptions.RaidLocationCount;
         }
 
         public override void FinalizeInit()

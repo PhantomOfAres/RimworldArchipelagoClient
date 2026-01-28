@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+  <Operation Class="PatchOperationAttributeSet">
+    <xpath>Defs/ThingSetMakerDef[defName="OutlanderRaidLootMaker" or defName="PirateRaidLootMaker" or defName="TribeRaidLootMaker" or defName="MechanoidRaidLootMaker"]/root</xpath>
+    <attribute>Class</attribute>
+    <value>ThingSetMaker_ArchipelagoReward</value>
+  </Operation>
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Odyssey</li>
+    </mods>
+    <match Class="PatchOperationAttributeSet">
+      <xpath>Defs/ThingSetMakerDef[defName="TradersGuildRaidLootMaker"]/root</xpath>
+      <attribute>Class</attribute>
+      <value>ThingSetMaker_ArchipelagoReward</value>
+    </match>
+  </Operation>
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Royalty</li>
+    </mods>
+    <match Class="PatchOperationAttributeSet">
+      <xpath>Defs/ThingSetMakerDef[defName="EmpireRaidLootMaker"]/root</xpath>
+      <attribute>Class</attribute>
+      <value>ThingSetMaker_ArchipelagoReward</value>
+    </match>
+  </Operation>
+</Patch>
