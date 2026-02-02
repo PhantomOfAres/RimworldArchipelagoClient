@@ -5,8 +5,6 @@ using Verse;
 
 public class Alert_MonumentAlert : Alert
 {
-    private AlertReport alwaysOnReport = new AlertReport();
-
     public override string GetLabel()
     {
         if (ArchipelagoGameComponent.HasAchievedMonumentVictory)

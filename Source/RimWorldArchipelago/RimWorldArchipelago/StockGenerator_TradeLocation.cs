@@ -18,10 +18,6 @@ class StockGenerator_TradeLocation : StockGenerator
                 yield return item;
             }
         }
-        else
-        {
-            yield return null;
-        }
     }
 
     public override bool HandlesThingDef(ThingDef thingDef)
