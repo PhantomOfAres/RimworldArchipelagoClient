@@ -2,6 +2,7 @@
 using Archipelago.MultiClient.Net.Models;
 using RimWorld;
 using RimWorldArchipelago;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using UnityEngine;
@@ -20,29 +21,40 @@ namespace RimworldArchipelago
 
         public static void DisableNormalResearch()
         {
+            Log.Message("[CHECKPOINT 1] Slot options");
             SlotOptions slotOptions = ArchipelagoClient.SlotData.SlotOptions;
+            Log.Message($"slotOptions null? {slotOptions == null}");
             foreach (ResearchProjectDef researchProject in DefDatabase<ResearchProjectDef>.AllDefs)
             {
-                if ((!slotOptions.RoyaltyEnabled && researchProject.modContentPack.PackageId == ModContentPack.RoyaltyModPackageId) ||
+                try
+                {
+                    if ((!slotOptions.RoyaltyEnabled && researchProject.modContentPack.PackageId == ModContentPack.RoyaltyModPackageId) ||
                     (!slotOptions.IdeologyEnabled && researchProject.modContentPack.PackageId == ModContentPack.IdeologyModPackageId) ||
                     (!slotOptions.BiotechEnabled && researchProject.modContentPack.PackageId == ModContentPack.BiotechModPackageId) ||
                     (!slotOptions.AnomalyEnabled && researchProject.modContentPack.PackageId == ModContentPack.AnomalyModPackageId) ||
                     (!slotOptions.OdysseyEnabled && researchProject.modContentPack.PackageId == ModContentPack.OdysseyModPackageId))
+                    {
+                        disabledExpansionResearchNames.Add(researchProject.defName);
+                        continue;
+                    }
+
+                    if (IsApResearch(researchProject.defName))
+                    {
+                        continue;
+                    }
+
+                    if (researchProject != null)
+                    {
+                        researchProject.prerequisites = null;
+                        researchProject.hiddenPrerequisites = null;
+                    }  
+                }
+                catch (Exception e)
                 {
-                    disabledExpansionResearchNames.Add(researchProject.defName);
-                    continue;
+                    Log.Error($"Failed disabling research def: {researchProject.defName ?? "NULL"}\n{e}");
                 }
 
-                if (IsApResearch(researchProject.defName))
-                {
-                    continue;
-                }
 
-                if (researchProject != null)
-                {
-                    researchProject.prerequisites = null;
-                    researchProject.hiddenPrerequisites = null;
-                }
             }
         }
 
@@ -114,6 +126,7 @@ namespace RimworldArchipelago
             }
 
             ResearchProjectDef.GenerateNonOverlappingCoordinates();
+            Find.WindowStack.Add(new Dialog_MessageBox("Generated Archipelago Research"));
         }
 
         // This simply catches up research locations - it's mostly for users starting a new settlement to recover their data.

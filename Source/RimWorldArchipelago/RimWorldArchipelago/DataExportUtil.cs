@@ -1,12 +1,14 @@
 ﻿using RimWorld;
 using RimWorldArchipelago;
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Xml;
 using UnityEngine;
 using Verse;
+using System.Reflection;
 
 namespace RimworldArchipelago
 {
@@ -468,8 +470,9 @@ namespace RimworldArchipelago
                 Indent = true,
 
             };
-
-            string path = Environment.ExpandEnvironmentVariables("%userprofile%\\Documents\\ArchipelagoItemDefs.xml");
+            string directory = Path.Combine(GenFilePaths.ConfigFolderPath,"RimWorldArchipelago");
+            Directory.CreateDirectory(directory);
+            string path = Path.Combine(directory,"ArchipelagoItemDefs.xml"); //The only way I can think of actually writing consistently to a cross-platform location.
             XmlWriter writer = XmlWriter.Create(path, sts);
             writer.WriteStartDocument();
             writer.WriteStartElement("Defs");
@@ -546,6 +549,7 @@ namespace RimworldArchipelago
             writer.WriteEndElement();
             writer.WriteEndDocument();
             writer.Flush();
+            Find.WindowStack.Add(new Dialog_MessageBox("ItemDefs written to: "+path)); //Tell user where it is written
         }
     }
 }
