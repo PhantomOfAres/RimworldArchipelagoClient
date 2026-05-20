@@ -21,9 +21,7 @@ namespace RimworldArchipelago
 
         public static void DisableNormalResearch()
         {
-            Log.Message("[CHECKPOINT 1] Slot options");
             SlotOptions slotOptions = ArchipelagoClient.SlotData.SlotOptions;
-            Log.Message($"slotOptions null? {slotOptions == null}");
             foreach (ResearchProjectDef researchProject in DefDatabase<ResearchProjectDef>.AllDefs)
             {
                 try
@@ -51,7 +49,7 @@ namespace RimworldArchipelago
                 }
                 catch (Exception e)
                 {
-                    Log.Error($"Failed disabling research def: {researchProject.defName ?? "NULL"}\n{e}");
+                    Log.Warning($"Failed disabling research def: {researchProject.defName ?? "NULL"}\n{e}");
                 }
 
 

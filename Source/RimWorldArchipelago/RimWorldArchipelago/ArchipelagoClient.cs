@@ -576,11 +576,9 @@ namespace RimworldArchipelago
             //Log.Message("[CHECKPOINT 0] TryCatch Block");
             try
             {
-                //Log.Message("[CHECKPOINT 1] TryConnectAndLogin");
                 // handle TryConnectAndLogin attempt here and save the returned object to `result`
                 result = session.TryConnectAndLogin("Rimworld", user, ItemsHandlingFlags.AllItems, password: pass);
             
-                //Log.Message("[CHECKPOINT 2] Checking Failure.");
                 if (!result.Successful)
                 {
                     LoginFailure failure = (LoginFailure)result;
@@ -598,27 +596,15 @@ namespace RimworldArchipelago
 
                     return; // Did not connect, show the user the contents of `errorMessage`
                 }
-                //Log.Message("[CHECKPOINT 3] Assumed Success.");
                 ConnectionFailed = false;
                 var loginSuccess = (LoginSuccessful)result;
-                //Log.Message($"session null? {session == null}");
-                //Log.Message($"session.Socket null? {session.Socket == null}");
-                //Log.Message($"session.Locations null? {session.Locations == null}");
-                //Log.Message($"session.Locations.AllLocations null? {session.Locations.AllLocations == null}");
 
                 long[] allLocations = session.Locations.AllLocations.ToArray();
-                //Log.Message($"AllLocations count: {allLocations.Length}");
                 // TODO: Pare this back, but for now, it demonstrates the system using correctly.
                 Dictionary<long, ScoutedItemInfo> scoutedItemInfo = await session.Locations.ScoutLocationsAsync(false, allLocations);
-                //Log.Message("[CHECKPOINT 4] Awaiting Scouted Item Info");
-                //Log.Message($"SlotData null? {SlotData == null}");
-                //Log.Message("[CHECKPOINT 5] CheckingIfNewSeed");
                 bool isNewSeed = oldSeed != SlotData.Seed;
-                //Log.Message("[CHECKPOINT 6] Disabling Research");
                 APResearchManager.DisableNormalResearch();
-                //Log.Message("[CHECKPOINT 7] Generated Research");
                 APResearchManager.GenerateArchipelagoResearch(scoutedItemInfo, isNewSeed);
-                Log.Message("I should have generated research. If I hadnt something is wrong with the research generations.");
                 APCraftManager.GenerateArchipelagoCrafts();
                 AddVictoryDescriptions();
             }
