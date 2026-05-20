@@ -573,7 +573,6 @@ namespace RimworldArchipelago
             session.Socket.SocketClosed += Socket_Closed;
             session.Locations.CheckedLocationsUpdated += Locations_CheckedLocationsUpdated;
             session.MessageLog.OnMessageReceived += MessageLog_OnMessageReceived;
-            //Log.Message("[CHECKPOINT 0] TryCatch Block");
             try
             {
                 // handle TryConnectAndLogin attempt here and save the returned object to `result`
