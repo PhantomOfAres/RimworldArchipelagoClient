@@ -567,7 +567,7 @@ namespace RimworldArchipelago
         public async static void Connect(string server, string user, string pass, string oldSeed)
         {
             LoginResult result;
-
+            Log.Message("Connect function called");
             session = ArchipelagoSessionFactory.CreateSession(server);
             session.Socket.ErrorReceived += Socket_ErrorReceived;
             session.Socket.SocketClosed += Socket_Closed;
@@ -577,41 +577,53 @@ namespace RimworldArchipelago
             {
                 // handle TryConnectAndLogin attempt here and save the returned object to `result`
                 result = session.TryConnectAndLogin("Rimworld", user, ItemsHandlingFlags.AllItems, password: pass);
+            
+                if (!result.Successful)
+                {
+                    LoginFailure failure = (LoginFailure)result;
+                    ConnectionErrorReason = $"Failed to Connect to {server} as {user}:";
+                    foreach (string error in failure.Errors)
+                    {
+                        ConnectionErrorReason += $"\n    {error}";
+                    }
+                    foreach (ConnectionRefusedError error in failure.ErrorCodes)
+                    {
+                        ConnectionErrorReason += $"\n    {error}";
+                    }
+                    Log.Message(ConnectionErrorReason);
+                    ConnectionFailed = true;
+
+                    return; // Did not connect, show the user the contents of `errorMessage`
+                }
+                ConnectionFailed = false;
+                var loginSuccess = (LoginSuccessful)result;
+
+                long[] allLocations = session.Locations.AllLocations.ToArray();
+                // TODO: Pare this back, but for now, it demonstrates the system using correctly.
+                Dictionary<long, ScoutedItemInfo> scoutedItemInfo = await session.Locations.ScoutLocationsAsync(false, allLocations);
+                bool isNewSeed = oldSeed != SlotData.Seed;
+                APResearchManager.DisableNormalResearch();
+                APResearchManager.GenerateArchipelagoResearch(scoutedItemInfo, isNewSeed);
+                APCraftManager.GenerateArchipelagoCrafts();
+                AddVictoryDescriptions();
             }
             catch (Exception e)
             {
                 result = new LoginFailure(e.GetBaseException().Message);
-            }
+                Log.Error("[RimWorldArchipelago] Connect failed");
+                Log.Error($"Exception type: {e.GetType().FullName}");
+                Log.Error($"Message: {e.Message}");
+                Log.Error($"Base exception type: {e.GetBaseException().GetType().FullName}");
+                Log.Error($"Base exception message: {e.GetBaseException().Message}");
+                Log.Error($"Stack trace:\n{e.StackTrace}");
 
-            if (!result.Successful)
-            {
-                LoginFailure failure = (LoginFailure)result;
-                ConnectionErrorReason = $"Failed to Connect to {server} as {user}:";
-                foreach (string error in failure.Errors)
+                if (e.InnerException != null)
                 {
-                    ConnectionErrorReason += $"\n    {error}";
+                    Log.Error($"Inner exception type: {e.InnerException.GetType().FullName}");
+                    Log.Error($"Inner exception message: {e.InnerException.Message}");
+                    Log.Error($"Inner stack trace:\n{e.InnerException.StackTrace}");
                 }
-                foreach (ConnectionRefusedError error in failure.ErrorCodes)
-                {
-                    ConnectionErrorReason += $"\n    {error}";
-                }
-                Log.Message(ConnectionErrorReason);
-                ConnectionFailed = true;
-
-                return; // Did not connect, show the user the contents of `errorMessage`
             }
-
-            ConnectionFailed = false;
-            var loginSuccess = (LoginSuccessful)result;
-
-            // TODO: Pare this back, but for now, it demonstrates the system using correctly.
-            Dictionary<long, ScoutedItemInfo> scoutedItemInfo = await session.Locations.ScoutLocationsAsync(false, session.Locations.AllLocations.ToArray());
-
-            bool isNewSeed = oldSeed != SlotData.Seed;
-            APResearchManager.DisableNormalResearch();
-            APResearchManager.GenerateArchipelagoResearch(scoutedItemInfo, isNewSeed);
-            APCraftManager.GenerateArchipelagoCrafts();
-            AddVictoryDescriptions();
         }
 
         private static void AddVictoryDescriptions()
