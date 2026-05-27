@@ -10,8 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>RimworldArchipelago</RootNamespace>
     <AssemblyName>RimworldArchipelago</AssemblyName>
-    <TargetFramework>net472</TargetFramework>
-    <FrameworkPathOverride>/usr/lib/mono/4.7.2-api</FrameworkPathOverride>
+    <TargetFramework>v4.7.2</TargetFramework>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
