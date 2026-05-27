@@ -398,6 +398,6 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
-
-LocalSettings.props
+# Developer Specific Files
+LocalSettings.props 
 .vscode/
