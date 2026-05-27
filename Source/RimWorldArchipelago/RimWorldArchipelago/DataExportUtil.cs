@@ -470,9 +470,9 @@ namespace RimworldArchipelago
                 Indent = true,
 
             };
-            string directory = Path.Combine(GenFilePaths.ConfigFolderPath,"RimWorldArchipelago");
+            string directory = Path.Combine(GenFilePaths.ConfigFolderPath, "RimWorldArchipelago");
             Directory.CreateDirectory(directory);
-            string path = Path.Combine(directory,"ArchipelagoItemDefs.xml"); //The only way I can think of actually writing consistently to a cross-platform location.
+            string path = Path.Combine(directory, "ArchipelagoItemDefs.xml"); //The only way I can think of actually writing consistently to a cross-platform location.
             XmlWriter writer = XmlWriter.Create(path, sts);
             writer.WriteStartDocument();
             writer.WriteStartElement("Defs");
@@ -549,7 +549,16 @@ namespace RimworldArchipelago
             writer.WriteEndElement();
             writer.WriteEndDocument();
             writer.Flush();
-            Find.WindowStack.Add(new Dialog_MessageBox("ItemDefs written to: "+path)); //Tell user where it is written
+            Find.WindowStack.Add(new Dialog_MessageBox(
+                text: $"ArchipelagoItemDefs.xml written to {path}", //Tell user where it is written
+                buttonAText: "Open Folder",
+                buttonAAction: () =>
+                {
+                    Application.OpenURL(directory); //This appears to work on linux and windows and SHOULD work on OSX as well.
+                },
+                buttonBText: "Close",
+                title: "Config succesfully written"
+            ));
         }
     }
 }
