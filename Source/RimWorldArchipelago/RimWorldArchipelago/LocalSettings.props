@@ -1,8 +1,0 @@
-<!-- These are the DLL locations for the project. Please ensure these link to the appropriate DLL. Rimworld Assembly DLL should link to Assembly-CSharp.dll, netstandardDll should link to netstandard.dll and CoreModuleDll should like to UnityEngine.CoreModule.dll.-->
-<Project>
-  <PropertyGroup>
-    <RimworldAssemblyDll>..\..\..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</RimworldAssemblyDll>
-    <NetStandardDll>..\..\..\..\..\RimWorldWin64_Data\Managed\netstandard.dll</NetStandardDll>
-    <CoreModuleDll>..\..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.CoreModule.dll</CoreModuleDll>
-  </PropertyGroup>
-</Project>
