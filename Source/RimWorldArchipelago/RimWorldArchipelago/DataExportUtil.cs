@@ -549,7 +549,14 @@ namespace RimworldArchipelago
             writer.WriteEndElement();
             writer.WriteEndDocument();
             writer.Flush();
-            Find.WindowStack.Add(new Dialog_MessageBox("ItemDefs written to: "+path)); //Tell user where it is written
+            string openFolderText = null;
+            Action openFolderAction = null;
+            if (Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.WindowsEditor)
+            {
+                openFolderText = "Open Folder";
+                openFolderAction = delegate { Application.OpenURL(directory); };
+            }
+            Find.WindowStack.Add(new Dialog_MessageBox("ItemDefs written to: "+path, buttonBText:openFolderText, buttonBAction:openFolderAction)); //Tell user where it is written
         }
     }
 }

@@ -59,6 +59,8 @@ namespace RimworldArchipelago
                         }
                         optList.Insert(newColonyIndex + 1, new ListableOption("Connected!", () =>
                         {
+                            Find.WindowStack.Add(new Dialog_Grinder());
+
                             Messages.Message("RimWorld can't unload Archipelago's changes.\nRestart RimWorld to connect to a different Archipelago server or player slot.",
                                 MessageTypeDefOf.SilentInput, false);
                         }));
@@ -73,6 +75,7 @@ namespace RimworldArchipelago
     {
         ArchipelagoSettings settings;
         private bool newConnection = false;
+
         public ArchipelagoOptionsMenu()
         {
             settings = ArchipelagoMod.Instance.GetSettings<ArchipelagoSettings>();

@@ -105,6 +105,7 @@ namespace RimworldArchipelago
         private static List<string> IncidentsToRunOnTimer = new List<string>();
         private static List<long> LocationsToSend = new List<long>();
         private static List<string> ApNamesUsed = new List<string>();
+        private static List<string> CraftRecipesQueued = new List<string>();
 
         private float cachedMonumentScore = -1;
         private float winningFadeOutTime = -1f;
@@ -126,6 +127,7 @@ namespace RimworldArchipelago
             Scribe_Collections.Look(ref IncidentsToRunOnTimer, "incidentsToRunOnTimer", LookMode.Value);
             Scribe_Collections.Look(ref LocationsToSend, "locationsToSend", LookMode.Value);
             Scribe_Collections.Look(ref ApNamesUsed, "locationsToSend", LookMode.Value);
+            Scribe_Collections.Look(ref CraftRecipesQueued, "craftRecipesQueued", LookMode.Value);
             base.ExposeData();
         }
 
@@ -415,6 +417,37 @@ namespace RimworldArchipelago
                     CachedRequirementString = RoomRoleWorker_MultiworldMonument.GetRequirementString(null);
                 }
             }
+        }
+
+        public static void QueueCraftLocation(string recipeId)
+        {
+            CraftRecipesQueued.Add(recipeId);
+        }
+
+        public static void RemoveQueuedCraftLocation(string recipeId)
+        {
+            CraftRecipesQueued.Remove(recipeId);
+        }
+
+        public static void QueueAllCrafts()
+        {
+            foreach (string id in APCraftManager.craftRecipesToArchipelagoIds.Keys)
+            {
+                if (!CraftRecipesQueued.Contains(id))
+                {
+                    CraftRecipesQueued.Add(id);
+                }
+            }
+        }
+        
+        public static void ClearQueuedCrafts()
+        {
+            CraftRecipesQueued.Clear();
+        }
+
+        public static List<string> GetCraftRecipesQueued()
+        {
+            return CraftRecipesQueued;
         }
     }
 

@@ -12,7 +12,8 @@ namespace RimworldArchipelago
 {
     internal class APCraftManager
     {
-        private static Dictionary<string, long> craftRecipesToArchipelagoIds = new Dictionary<string, long>();
+        public static Dictionary<string, long> craftRecipesToArchipelagoIds = new Dictionary<string, long>();
+        public static long FirstCraftLocationId = -1;
 
         public static void GenerateArchipelagoCrafts()
         {
@@ -22,12 +23,11 @@ namespace RimworldArchipelago
             archipelagoBench.recipes = new List<RecipeDef>();
             SkillDef craftingSkill = DefDatabase<SkillDef>.GetNamed("Crafting");
             StatDef generalLaborSpeedStat = DefDatabase<StatDef>.GetNamed("GeneralLaborSpeed");
-            long firstLocationId = -1;
             foreach (long locationId in slotData.CraftRecipes.Keys)
             {
-                if (firstLocationId == -1 || locationId < firstLocationId)
+                if (FirstCraftLocationId == -1 || locationId < FirstCraftLocationId)
                 {
-                    firstLocationId = locationId;
+                    FirstCraftLocationId = locationId;
                 }
             }
 
@@ -37,7 +37,7 @@ namespace RimworldArchipelago
                 List<ThingDef> thingDefs = new List<ThingDef>();
                 recipeDef.ingredients = new List<IngredientCount>();
                 StringBuilder labelBuilder = new StringBuilder();
-                long locationLabel = locationId - firstLocationId;
+                long locationLabel = locationId - FirstCraftLocationId;
                 foreach (string item in recipe)
                 {
                     ThingDef ingredient = DefDatabase<ThingDef>.GetNamed(item);
