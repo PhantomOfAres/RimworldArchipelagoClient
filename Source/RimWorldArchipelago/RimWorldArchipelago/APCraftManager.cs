@@ -3,6 +3,7 @@ using Archipelago.MultiClient.Net.Models;
 using RimWorld;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Text;
 using UnityEngine;
@@ -13,6 +14,7 @@ namespace RimworldArchipelago
     internal class APCraftManager
     {
         public static Dictionary<string, long> craftRecipesToArchipelagoIds = new Dictionary<string, long>();
+        public static Dictionary<long, string> archipelagoIdsToCraftRecipes= new Dictionary<long, string>();
         public static long FirstCraftLocationId = -1;
 
         public static void GenerateArchipelagoCrafts()
@@ -63,6 +65,7 @@ namespace RimworldArchipelago
                 recipeDef.workSkillLearnFactor = 0;
 
                 craftRecipesToArchipelagoIds[recipeDef.defName] = locationId;
+                archipelagoIdsToCraftRecipes[locationId] = recipeDef.defName;
                 archipelagoBench.recipes.Add(recipeDef);
                 DefDatabase<RecipeDef>.Add(recipeDef);
             }
@@ -92,6 +95,11 @@ namespace RimworldArchipelago
             return craftRecipesToArchipelagoIds.ContainsKey(craftRecipeName);
         }
 
+        public static bool IsApCraft(long archipelagoId)
+        {
+            return archipelagoIdsToCraftRecipes.ContainsKey(archipelagoId);
+        }
+
         public static long GetLocationId(string craftRecipeName)
         {
             if (craftRecipesToArchipelagoIds.ContainsKey(craftRecipeName))
@@ -100,6 +108,50 @@ namespace RimworldArchipelago
             }
 
             return 0;
+        }
+
+        public static string GetCraftName(long archipelagoId)
+        {
+            if (archipelagoIdsToCraftRecipes.ContainsKey(archipelagoId))
+            {
+                return archipelagoIdsToCraftRecipes[archipelagoId];
+            }
+
+            return "";
+        }
+
+        public static void CompleteLocations(ReadOnlyCollection<long> checkedArchipelagoIds)
+        {
+            foreach (long archipelagoId in checkedArchipelagoIds)
+            {
+                string craftName = GetCraftName(archipelagoId);
+                if (IsApCraft(archipelagoId) && !ArchipelagoGameComponent.IsCraftLocationHandled(craftName))
+                {
+                    RemoveCompletedArchipelagoBills(craftName);
+                    ArchipelagoGameComponent.CraftLocationHandled(craftName);
+                }
+            }
+        }
+
+        public static void RemoveCompletedArchipelagoBills(string recipeName)
+        {
+            IEnumerable<Building_ArchipelagoGrinder> mapGrinders = Find.AnyPlayerHomeMap.listerBuildings.AllBuildingsColonistOfClass<Building_ArchipelagoGrinder>();
+            foreach (Building_ArchipelagoGrinder grinder in mapGrinders)
+            {
+                List<Bill> toDelete = new List<Bill>();
+                foreach (Bill bill in grinder.billStack.Bills)
+                {
+                    if (bill.recipe.defName == recipeName)
+                    {
+                        toDelete.Add(bill);
+                    }
+                }
+
+                foreach (Bill bill in toDelete)
+                {
+                    grinder.billStack.Delete(bill);
+                }
+            }
         }
     }
 }

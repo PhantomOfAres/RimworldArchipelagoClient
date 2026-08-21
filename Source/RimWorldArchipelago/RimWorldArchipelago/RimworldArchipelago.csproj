@@ -64,6 +64,15 @@
       <HintPath>..\..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>..\..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.InputModule">
+      <HintPath>..\..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.InputModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>..\..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
+    </Reference>
     <Reference Include="websocket-sharp, Version=1.0.2.34775, Culture=neutral, PublicKeyToken=5660b08a1845a91e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Assemblies\websocket-sharp.dll</HintPath>
@@ -73,9 +82,11 @@
   <ItemGroup>
     <Compile Include="APCraftManager.cs" />
     <Compile Include="ArchipelagoClient.cs" />
+    <Compile Include="Building_ArchipelagoGrinder.cs" />
     <Compile Include="CompProperties_SendAPLocation.cs" />
     <Compile Include="CompUseEffect_SendAPLocation.cs" />
     <Compile Include="DataExportUtil.cs" />
+    <Compile Include="Dialog_Grinder.cs" />
     <Compile Include="HarmonyPatches.cs" />
     <Compile Include="IncidentWorker_ArchipelagoItemPod.cs" />
     <Compile Include="Main.cs" />

@@ -1,4 +1,5 @@
-﻿using RimworldArchipelago;
+﻿using RimWorld;
+using RimworldArchipelago;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Reflection.Emit;
@@ -9,13 +10,17 @@ public class Dialog_Grinder : Window
 {
     private Vector2 unqueuedListScrollPos;
     private Vector2 queuedListScrollPos;
-    public string selectedRecipe;
+    private Building_ArchipelagoGrinder grinder;
+
+    private string selectedRecipe;
     public override Vector2 InitialSize => new Vector2(960f, 640f);
 
-    public Dialog_Grinder()
+
+    public Dialog_Grinder(Building_ArchipelagoGrinder grinder)
     {
         closeOnClickedOutside = true;
         doCloseX = true;
+        this.grinder = grinder;
     }
 
     public override void DoWindowContents(Rect inRect)
@@ -40,34 +45,61 @@ public class Dialog_Grinder : Window
         Rect queuedSection = contentSection.RightHalf();
         DoQueuedList(queuedSection);
 
-        List<string> queuedRecipes = ArchipelagoGameComponent.GetCraftRecipesQueued();
+        bool selectedRecipeQueued = !string.IsNullOrEmpty(selectedRecipe) && grinder.billStack.Bills.Find(x => x.recipe.defName == selectedRecipe) != null;
         Rect addSectionRect = buttonSection.LeftHalf();
         Rect addButtonRect = new Rect(addSectionRect.x + 8f, addSectionRect.y + 8f, (addSectionRect.width - 16f) / 2 , 46f);
-        if (Widgets.ButtonText(addButtonRect, "Add", active: !string.IsNullOrEmpty(selectedRecipe) && !queuedRecipes.Contains(selectedRecipe)))
+        if (Widgets.ButtonText(addButtonRect, "Add", active: !string.IsNullOrEmpty(selectedRecipe) && !selectedRecipeQueued))
         {
-            ArchipelagoGameComponent.QueueCraftLocation(selectedRecipe);
+            RecipeDef selectedRecipeDef = DefDatabase<RecipeDef>.GetNamed(selectedRecipe);
+            Bill bill = BillUtility.MakeNewBill(selectedRecipeDef);
+            grinder.billStack.AddBill(bill);
         }
         Rect addAllButtonRect = new Rect(addSectionRect.x + addSectionRect.width / 2 + 8f, addSectionRect.y + 8f, (addSectionRect.width - 16f) / 2 - 8f, 46f);
         if (Widgets.ButtonText(addAllButtonRect, "Add All"))
         {
-            ArchipelagoGameComponent.QueueAllCrafts();
+            foreach (string recipeId in APCraftManager.craftRecipesToArchipelagoIds.Keys)
+            {
+                if (!ArchipelagoGameComponent.IsCraftLocationHandled(recipeId) && grinder.billStack.Bills.Find(x => x.recipe.defName == recipeId ) == null)
+                {
+                    RecipeDef selectedRecipeDef = DefDatabase<RecipeDef>.GetNamed(recipeId);
+                    Bill bill = BillUtility.MakeNewBill(selectedRecipeDef);
+                    grinder.billStack.AddBill(bill);
+                }
+            }
         }
 
 
         Rect removeSectionRect = buttonSection.RightHalf();
         Rect removeButtonRect = new Rect(removeSectionRect.x + 8f, removeSectionRect.y + 8f, (removeSectionRect.width - 16f) / 2, 46f);
-        if (Widgets.ButtonText(removeButtonRect, "Remove", active: !string.IsNullOrEmpty(selectedRecipe) && queuedRecipes.Contains(selectedRecipe)))
+        if (Widgets.ButtonText(removeButtonRect, "Remove", active: !string.IsNullOrEmpty(selectedRecipe) && selectedRecipeQueued))
         {
-           ArchipelagoGameComponent.RemoveQueuedCraftLocation(selectedRecipe);
+            Bill toDelete = null;
+            foreach (Bill bill in grinder.billStack.Bills)
+            {
+                if (bill.recipe.defName == selectedRecipe)
+                {
+                    toDelete = bill;
+                    break;
+                }
+            }
+
+            if (toDelete != null)
+            {
+                grinder.billStack.Delete(toDelete);
+            }
         }
         Rect removeAllButtonRect = new Rect(removeSectionRect.x + removeSectionRect.width / 2 + 8f, removeSectionRect.y + 8f, (removeSectionRect.width - 16f) / 2 - 8f, 46f);
         if (Widgets.ButtonText(removeAllButtonRect, "Remove All"))
         {
-            ArchipelagoGameComponent.ClearQueuedCrafts();
+            List<Bill> billsCopy = new List<Bill>(grinder.billStack.Bills);
+            foreach (Bill bill in billsCopy)
+            {
+                grinder.billStack.Delete(bill);
+            }
         }
 
         Rect confirmButtonRect = buttonSection.BottomHalf();
-        confirmButtonRect = confirmButtonRect.MiddlePartPixels(120f, 46f);
+        confirmButtonRect = confirmButtonRect.MiddlePartPixels(180f, 46f);
         confirmButtonRect = new Rect(confirmButtonRect.x, confirmButtonRect.y + 8f, confirmButtonRect.width, confirmButtonRect.height - 8f);
         if (Widgets.ButtonText(confirmButtonRect, "Confirm"))
         {
@@ -77,7 +109,24 @@ public class Dialog_Grinder : Window
 
     private void DoUnqueuedList(Rect inRect)
     {
-        List<string> queuedRecipes = ArchipelagoGameComponent.GetCraftRecipesQueued();
+        List<string> allArchipelagoRecipes = new List<string>(APCraftManager.craftRecipesToArchipelagoIds.Keys);
+        List<string> unqueuedRecipes = new List<string>();
+        foreach (string recipeName in allArchipelagoRecipes)
+        {
+            if (!ArchipelagoGameComponent.IsCraftLocationHandled(recipeName))
+            {
+                unqueuedRecipes.Add(recipeName);
+            }
+        }
+
+        foreach (Bill bill in grinder.billStack.Bills)
+        {
+            if (allArchipelagoRecipes.Contains(bill.recipe.defName))
+            {
+                unqueuedRecipes.Remove(bill.recipe.defName);
+            }
+        }
+
         Widgets.DrawMenuSection(inRect);
         var position = inRect.position;
         position += new Vector2(8f, 8f);
@@ -86,17 +135,12 @@ public class Dialog_Grinder : Window
             x = position.x,
             y = position.y,
             width = inRect.width,
-            height = 16 + 80 * APCraftManager.craftRecipesToArchipelagoIds.Count
+            height = 16 + 80 * unqueuedRecipes.Count
         };
         position += new Vector2(8f, 8f);
         Widgets.BeginScrollView(inRect, ref unqueuedListScrollPos, viewRect, true);
-        foreach (string id in APCraftManager.craftRecipesToArchipelagoIds.Keys)
+        foreach (string id in unqueuedRecipes)
         {
-            if (queuedRecipes.Contains(id))
-            {
-                continue;
-            }
-
             RecipeDef recipe = DefDatabase<RecipeDef>.GetNamed(id);
             Rect rect = new Rect(position, new Vector2(viewRect.width - 28f, 72f));
             WidgetRow widgetRow = new WidgetRow();
@@ -126,7 +170,6 @@ public class Dialog_Grinder : Window
 
             if (Widgets.ButtonInvisible(rect))
             {
-                Log.Message($"Selected {id}");
                 selectedRecipe = id;
             }
             position.y += 80f;
@@ -136,7 +179,6 @@ public class Dialog_Grinder : Window
 
     private void DoQueuedList(Rect inRect)
     {
-        List<string> queuedRecipes = ArchipelagoGameComponent.GetCraftRecipesQueued();
         Widgets.DrawMenuSection(inRect);
         var position = inRect.position;
         position += new Vector2(8f, 8f);
@@ -145,12 +187,13 @@ public class Dialog_Grinder : Window
             x = position.x,
             y = position.y,
             width = inRect.width,
-            height = 16 + 80 * queuedRecipes.Count
+            height = 16 + 80 * grinder.billStack.Bills.Count
         };
         position += new Vector2(8f, 8f);
         Widgets.BeginScrollView(inRect, ref queuedListScrollPos, viewRect, true);
-        foreach (string id in queuedRecipes)
+        foreach (Bill bill in grinder.billStack.Bills)
         {
+            string id = bill.recipe.defName;
             RecipeDef recipe = DefDatabase<RecipeDef>.GetNamed(id);
             Rect rect = new Rect(position, new Vector2(viewRect.width - 28f, 72f));
 
@@ -181,7 +224,6 @@ public class Dialog_Grinder : Window
 
             if (Widgets.ButtonInvisible(rect))
             {
-                Log.Message($"Selected {id}");
                 selectedRecipe = id;
             }
             position.y += 80f;

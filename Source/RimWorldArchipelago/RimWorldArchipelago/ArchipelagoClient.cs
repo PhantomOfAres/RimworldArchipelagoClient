@@ -105,7 +105,7 @@ namespace RimworldArchipelago
         private static List<string> IncidentsToRunOnTimer = new List<string>();
         private static List<long> LocationsToSend = new List<long>();
         private static List<string> ApNamesUsed = new List<string>();
-        private static List<string> CraftRecipesQueued = new List<string>();
+        private static List<string> HandledCraftLocations = new List<string>();
 
         private float cachedMonumentScore = -1;
         private float winningFadeOutTime = -1f;
@@ -127,7 +127,7 @@ namespace RimworldArchipelago
             Scribe_Collections.Look(ref IncidentsToRunOnTimer, "incidentsToRunOnTimer", LookMode.Value);
             Scribe_Collections.Look(ref LocationsToSend, "locationsToSend", LookMode.Value);
             Scribe_Collections.Look(ref ApNamesUsed, "locationsToSend", LookMode.Value);
-            Scribe_Collections.Look(ref CraftRecipesQueued, "craftRecipesQueued", LookMode.Value);
+            Scribe_Collections.Look(ref HandledCraftLocations, "handledCraftLocations", LookMode.Value);
             base.ExposeData();
         }
 
@@ -194,6 +194,7 @@ namespace RimworldArchipelago
 
         public override void FinalizeInit()
         {
+            APCraftManager.CompleteLocations(ArchipelagoClient.AllLocationsChecked);
             APResearchManager.CompleteLocations(ArchipelagoClient.AllLocationsChecked);
             APResearchManager.UpdateAllDescriptions();
         }
@@ -419,35 +420,14 @@ namespace RimworldArchipelago
             }
         }
 
-        public static void QueueCraftLocation(string recipeId)
+        public static void CraftLocationHandled(string recipeId)
         {
-            CraftRecipesQueued.Add(recipeId);
+            HandledCraftLocations.Add(recipeId);
         }
 
-        public static void RemoveQueuedCraftLocation(string recipeId)
+        public static bool IsCraftLocationHandled(string recipeId)
         {
-            CraftRecipesQueued.Remove(recipeId);
-        }
-
-        public static void QueueAllCrafts()
-        {
-            foreach (string id in APCraftManager.craftRecipesToArchipelagoIds.Keys)
-            {
-                if (!CraftRecipesQueued.Contains(id))
-                {
-                    CraftRecipesQueued.Add(id);
-                }
-            }
-        }
-        
-        public static void ClearQueuedCrafts()
-        {
-            CraftRecipesQueued.Clear();
-        }
-
-        public static List<string> GetCraftRecipesQueued()
-        {
-            return CraftRecipesQueued;
+            return HandledCraftLocations.Contains(recipeId);
         }
     }
 
@@ -762,6 +742,7 @@ namespace RimworldArchipelago
         private static void Locations_CheckedLocationsUpdated(ReadOnlyCollection<long> newCheckedLocations)
         {
             APResearchManager.CompleteLocations(newCheckedLocations);
+            APCraftManager.CompleteLocations(newCheckedLocations);
         }
 
         public static ReadOnlyCollection<long> AllLocationsChecked

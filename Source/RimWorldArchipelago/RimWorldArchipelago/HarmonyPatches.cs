@@ -95,6 +95,7 @@ namespace RimWorldArchipelago
             if (APCraftManager.IsApCraft(__instance.recipe.defName))
             {
                 ArchipelagoGameComponent.SendCraftLocation(__instance.recipe.defName);
+                APCraftManager.RemoveCompletedArchipelagoBills(__instance.recipe.defName);
             }
 
             return true;
