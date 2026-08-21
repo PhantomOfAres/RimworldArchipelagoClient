@@ -212,7 +212,7 @@ namespace RimworldArchipelago
 
             apResearch[archipelagoId] = archipelagoResearch.defName;
             UpdateResearchDescription(archipelagoResearch, archipelagoId, false, ref trapCount);
-            archipelagoResearch.baseCost = slotData.SlotOptions.ResearchBaseCost;
+            archipelagoResearch.baseCost = slotData.SlotOptions.ResearchBaseCost + rand.Next(slotData.SlotOptions.ResearchCostVariance) + slotData.SlotOptions.ResearchCostIncreasePerTier * xIndex;
             archipelagoResearch.tab = archipelagoTab;
             archipelagoResearch.researchViewX = xIndex * 1.0f;
             archipelagoResearch.researchViewY = yIndex * 0.7f;

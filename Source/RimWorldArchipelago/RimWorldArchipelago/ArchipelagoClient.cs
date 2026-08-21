@@ -75,6 +75,8 @@ namespace RimworldArchipelago
         public int RaidLocationCount { get; set; }
         public int TradeLocationCount { get; set; }
         public int ResearchBaseCost { get; set; }
+        public int ResearchCostVariance{ get; set; }
+        public int ResearchCostIncreasePerTier { get; set; }
         public int ResearchMaxPrerequisites { get; set; }
         public bool PlayerNamesAsColonistItems {  get; set; }
         public int BonusResearchItems { get; set; }
