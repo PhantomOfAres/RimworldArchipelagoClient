@@ -470,10 +470,18 @@ namespace RimworldArchipelago
                 Indent = true,
 
             };
+
+            string zipDirectory = Path.Combine(GenFilePaths.ModsFolderPath, "RimworldArchipelago/Source");
+            string zipFilePath = Path.Combine(zipDirectory, "rimworld.apworld");
             string directory = Path.Combine(GenFilePaths.ConfigFolderPath,"RimWorldArchipelago");
+
+            string extractPath = Path.Combine(directory, "Extract");
+            string destinationDefPath = Path.Combine(extractPath, "rimworld/ArchipelagoItemDefs.xml");
+            System.IO.Compression.ZipFile.ExtractToDirectory(zipFilePath, extractPath);
+
             Directory.CreateDirectory(directory);
-            string path = Path.Combine(directory,"ArchipelagoItemDefs.xml"); //The only way I can think of actually writing consistently to a cross-platform location.
-            XmlWriter writer = XmlWriter.Create(path, sts);
+            string rawItemDefPath = Path.Combine(directory,"ArchipelagoItemDefs.xml"); //The only way I can think of actually writing consistently to a cross-platform location.
+            XmlWriter writer = XmlWriter.Create(rawItemDefPath, sts);
             writer.WriteStartDocument();
             writer.WriteStartElement("Defs");
             foreach ((string _, ArchipelagoItemDef def) in allDefs)
@@ -549,6 +557,13 @@ namespace RimworldArchipelago
             writer.WriteEndElement();
             writer.WriteEndDocument();
             writer.Flush();
+
+            File.Copy(rawItemDefPath, destinationDefPath, true);
+            string moddedFilePath = Path.Combine(directory, "rimworld.apworld");
+            System.IO.Compression.ZipFile.CreateFromDirectory(extractPath, moddedFilePath);
+            DirectoryInfo tempDirectory = new DirectoryInfo(extractPath);
+            tempDirectory.Delete(true);
+
             string openFolderText = null;
             Action openFolderAction = null;
             if (Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.WindowsEditor)
@@ -556,7 +571,7 @@ namespace RimworldArchipelago
                 openFolderText = "Open Folder";
                 openFolderAction = delegate { Application.OpenURL(directory); };
             }
-            Find.WindowStack.Add(new Dialog_MessageBox("ItemDefs written to: "+path, buttonBText:openFolderText, buttonBAction:openFolderAction)); //Tell user where it is written
+            Find.WindowStack.Add(new Dialog_MessageBox("ItemDefs written to: "+rawItemDefPath, buttonBText:openFolderText, buttonBAction:openFolderAction)); //Tell user where it is written
         }
     }
 }

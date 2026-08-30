@@ -126,23 +126,25 @@ namespace RimworldArchipelago
                     settings.Write();
                 }
 
-                if (newConnection)
+                if (!ArchipelagoClient.ApworldContentVerified)
                 {
-                    listingStandard.Label("Connected to a new server! Disabling loading for this session, you should start a new game.");
-                    listingStandard.GapLine();
+                    listingStandard.Label(ArchipelagoClient.ApworldContentErrorReason);
                 }
+                else
+                {
+                    if (newConnection)
+                    {
+                        listingStandard.Label("Connected to a new server! Disabling loading for this session, you should start a new game.");
+                        listingStandard.GapLine();
+                    }
 
-                listingStandard.Label("If you want to connect to a different server, you must restart the client.");
+                    listingStandard.Label("If you want to connect to a different server, you must restart the client.");
+                }
             }
 
-            listingStandard.Gap();
-            listingStandard.Gap();
-            listingStandard.Gap();
-            listingStandard.Gap();
-            listingStandard.Gap();
-            listingStandard.Gap();
-            listingStandard.Gap();
-            if (listingStandard.ButtonText("Close"))
+            Rect buttonRect = inRect.BottomPartPixels(80);
+            buttonRect = buttonRect.MiddlePartPixels(200, 60);
+            if (Widgets.ButtonText(buttonRect, "Close"))
             {
                 Close();
             }

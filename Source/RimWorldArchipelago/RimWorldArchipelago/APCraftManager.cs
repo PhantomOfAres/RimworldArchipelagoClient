@@ -69,25 +69,6 @@ namespace RimworldArchipelago
                 archipelagoBench.recipes.Add(recipeDef);
                 DefDatabase<RecipeDef>.Add(recipeDef);
             }
-
-            SortBenchRecipes();
-        }
-
-        public static void SortBenchRecipes()
-        {
-            ThingDef archipelagoBench = DefDatabase<ThingDef>.GetNamed("ArchipelagoGrinder");
-            archipelagoBench.recipes.Sort(delegate(RecipeDef def1, RecipeDef def2)
-            {
-                long locationId1 = GetLocationId(def1.defName);
-                long locationId2 = GetLocationId(def2.defName);
-                bool def1Complete = ArchipelagoClient.IsLocationComplete(locationId1);
-                bool def2Complete = ArchipelagoClient.IsLocationComplete(locationId2);
-                if (def1Complete && !def2Complete) { return 1; }
-                if (def2Complete && !def1Complete) { return -1; }
-                return (int) (locationId1 - locationId2);
-            });
-
-            archipelagoBench.ClearCachedData();
         }
 
         public static bool IsApCraft(string craftRecipeName)

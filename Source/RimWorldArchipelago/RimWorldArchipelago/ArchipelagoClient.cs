@@ -11,7 +11,9 @@ using RimWorldArchipelago;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using UnityEngine;
 using Verse;
@@ -55,6 +57,10 @@ namespace RimworldArchipelago
     {
         [JsonProperty("seed")]
         public string Seed { get; set; }
+        [JsonProperty("item_def_sha")]
+        public string ItemDefSha { get; set; }
+        [JsonProperty("apworld_version")]
+        public string ApworldVersion { get; set; }
         [JsonProperty("options")]
         public SlotOptions SlotOptions { get; set; }
         [JsonProperty("fake_trap_options")]
@@ -437,7 +443,9 @@ namespace RimworldArchipelago
     {
         private static ArchipelagoSession session = null;
         public static bool ConnectionFailed { get; private set; } = false;
+        public static bool ApworldContentVerified { get; private set; } = false;
         public static string ConnectionErrorReason;
+        public static string ApworldContentErrorReason = "";
 
         public static void ItemReceived(ItemInfo itemInfo)
         {
@@ -621,6 +629,32 @@ namespace RimworldArchipelago
                 APResearchManager.GenerateArchipelagoResearch(scoutedItemInfo, isNewSeed);
                 APCraftManager.GenerateArchipelagoCrafts();
                 AddVictoryDescriptions();
+
+                string directory = Path.Combine(GenFilePaths.ModsFolderPath, "RimworldArchipelago/Defs");
+                string path = Path.Combine(directory, "ArchipelagoItemDefs.xml");
+                FileStream itemDefsStream = File.OpenRead(path);
+                SHA256 hash = SHA256.Create();
+                byte[] computedHash = hash.ComputeHash(itemDefsStream);
+                var hashString = new System.Text.StringBuilder();
+                foreach (byte nextByte in computedHash)
+                {
+                    hashString.Append(nextByte.ToString("x2"));
+                }
+
+                ApworldContentVerified = true;
+                Log.Message($"Checking hashes: {hashString.ToString()}, {SlotData.ItemDefSha}");
+                if (hashString.ToString() != SlotData.ItemDefSha)
+                {
+                    ApworldContentVerified = false;
+                    ApworldContentErrorReason += "Item Def verification failed! The apworld and client mod must match. Please double check that your apworld and client versions match, and if you've done advanced mod setup, that you've done every step in the advanced setup doc.\n";
+                }
+
+                ModMetaData modMetaData = ModLister.GetActiveModWithIdentifier("PhantomOfAres.RimworldArchipelago");
+                if (modMetaData.ModVersion != SlotData.ApworldVersion)
+                {
+                    ApworldContentVerified = false;
+                    ApworldContentErrorReason += $"Version verification failed! Apworld is version {SlotData.ApworldVersion} and mod is version {modMetaData.ModVersion}\n";
+                }
             }
             catch (Exception e)
             {

@@ -124,7 +124,6 @@ namespace RimworldArchipelago
             }
 
             ResearchProjectDef.GenerateNonOverlappingCoordinates();
-            Find.WindowStack.Add(new Dialog_MessageBox("Generated Archipelago Research"));
         }
 
         // This simply catches up research locations - it's mostly for users starting a new settlement to recover their data.
