@@ -96,6 +96,9 @@
         <locationType>Raid</locationType>
       </li>
     </comps>
+    <thingCategories>
+      <li>ItemsMisc</li>
+    </thingCategories>
   </ThingDef>
   <ThingDef ParentName="ResourceBase">
     <defName>TradeLocationItem</defName>
@@ -139,5 +142,8 @@
         <locationType>Trade</locationType>
       </li>
     </comps>
+    <thingCategories>
+      <li>ItemsMisc</li>
+    </thingCategories>
   </ThingDef>
 </Defs>
