@@ -475,9 +475,9 @@ namespace RimworldArchipelago
             string folderName = modMetaData.FolderName;
             string zipDirectory = Path.Combine(GenFilePaths.ModsFolderPath, $"{folderName}/Source");
             string zipFilePath = Path.Combine(zipDirectory, "rimworld.apworld");
-            string directory = Path.Combine(GenFilePaths.ConfigFolderPath, folderName);
+            string configDirectory = Path.Combine(GenFilePaths.ConfigFolderPath, folderName);
 
-            string extractPath = Path.Combine(directory, "Extract");
+            string extractPath = Path.Combine(configDirectory, "Extract");
             DirectoryInfo tempDirectory = new DirectoryInfo(extractPath);
             if (tempDirectory.Exists)
             {
@@ -486,8 +486,8 @@ namespace RimworldArchipelago
             string destinationDefPath = Path.Combine(extractPath, "rimworld/ArchipelagoItemDefs.xml");
             System.IO.Compression.ZipFile.ExtractToDirectory(zipFilePath, extractPath);
 
-            Directory.CreateDirectory(directory);
-            string rawItemDefPath = Path.Combine(directory,"ArchipelagoItemDefs.xml"); //The only way I can think of actually writing consistently to a cross-platform location.
+            Directory.CreateDirectory(configDirectory);
+            string rawItemDefPath = Path.Combine(configDirectory,"ArchipelagoItemDefs.xml"); //The only way I can think of actually writing consistently to a cross-platform location.
             File.Delete(rawItemDefPath);
             XmlWriter writer = XmlWriter.Create(rawItemDefPath, sts);
             writer.WriteStartDocument();
@@ -567,18 +567,20 @@ namespace RimworldArchipelago
             writer.Flush();
 
             File.Copy(rawItemDefPath, destinationDefPath, true);
-            string moddedFilePath = Path.Combine(directory, "rimworld.apworld");
+            string moddedFilePath = Path.Combine(configDirectory, "rimworld.apworld");
             File.Delete(moddedFilePath);
             System.IO.Compression.ZipFile.CreateFromDirectory(extractPath, moddedFilePath);
             tempDirectory = new DirectoryInfo(extractPath);
-            tempDirectory.Delete(true);
-
+            if (tempDirectory.Exists)
+            {
+                tempDirectory.Delete(true);
+            }
             string openFolderText = null;
             Action openFolderAction = null;
             if (Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.WindowsEditor)
             {
                 openFolderText = "Open Folder";
-                openFolderAction = delegate { Application.OpenURL(directory); };
+                openFolderAction = delegate { Application.OpenURL(configDirectory); };
             }
             Find.WindowStack.Add(new Dialog_MessageBox("ItemDefs written to: "+rawItemDefPath, buttonBText:openFolderText, buttonBAction:openFolderAction)); //Tell user where it is written
         }
