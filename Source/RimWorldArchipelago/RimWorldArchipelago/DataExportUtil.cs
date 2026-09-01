@@ -471,16 +471,21 @@ namespace RimworldArchipelago
 
             };
 
-            string zipDirectory = Path.Combine(GenFilePaths.ModsFolderPath, "RimworldArchipelago/Source");
+            ModMetaData modMetaData = ModLister.GetActiveModWithIdentifier("PhantomOfAres.RimworldArchipelago");
+            string folderName = modMetaData.FolderName;
+            string zipDirectory = Path.Combine(GenFilePaths.ModsFolderPath, $"{folderName}/Source");
             string zipFilePath = Path.Combine(zipDirectory, "rimworld.apworld");
-            string directory = Path.Combine(GenFilePaths.ConfigFolderPath,"RimWorldArchipelago");
+            string directory = Path.Combine(GenFilePaths.ConfigFolderPath, folderName);
 
             string extractPath = Path.Combine(directory, "Extract");
+            DirectoryInfo tempDirectory = new DirectoryInfo(extractPath);
+            tempDirectory.Delete(true);
             string destinationDefPath = Path.Combine(extractPath, "rimworld/ArchipelagoItemDefs.xml");
             System.IO.Compression.ZipFile.ExtractToDirectory(zipFilePath, extractPath);
 
             Directory.CreateDirectory(directory);
             string rawItemDefPath = Path.Combine(directory,"ArchipelagoItemDefs.xml"); //The only way I can think of actually writing consistently to a cross-platform location.
+            File.Delete(rawItemDefPath);
             XmlWriter writer = XmlWriter.Create(rawItemDefPath, sts);
             writer.WriteStartDocument();
             writer.WriteStartElement("Defs");
@@ -560,8 +565,9 @@ namespace RimworldArchipelago
 
             File.Copy(rawItemDefPath, destinationDefPath, true);
             string moddedFilePath = Path.Combine(directory, "rimworld.apworld");
+            File.Delete(moddedFilePath);
             System.IO.Compression.ZipFile.CreateFromDirectory(extractPath, moddedFilePath);
-            DirectoryInfo tempDirectory = new DirectoryInfo(extractPath);
+            tempDirectory = new DirectoryInfo(extractPath);
             tempDirectory.Delete(true);
 
             string openFolderText = null;
