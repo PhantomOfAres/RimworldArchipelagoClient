@@ -481,7 +481,15 @@ namespace RimworldArchipelago
             DirectoryInfo tempDirectory = new DirectoryInfo(extractPath);
             if (tempDirectory.Exists)
             {
-                tempDirectory.Delete(true);
+                // I don't love dropping this exception, but I don't understand how else to check to stop it.
+                try
+                {
+                    tempDirectory.Delete(true);
+                }
+                catch (DirectoryNotFoundException e)
+                {
+
+                }
             }
             string destinationDefPath = Path.Combine(extractPath, "rimworld/ArchipelagoItemDefs.xml");
             System.IO.Compression.ZipFile.ExtractToDirectory(zipFilePath, extractPath);
@@ -565,6 +573,7 @@ namespace RimworldArchipelago
             writer.WriteEndElement();
             writer.WriteEndDocument();
             writer.Flush();
+            writer.Close();
 
             File.Copy(rawItemDefPath, destinationDefPath, true);
             string moddedFilePath = Path.Combine(configDirectory, "rimworld.apworld");
@@ -573,7 +582,14 @@ namespace RimworldArchipelago
             tempDirectory = new DirectoryInfo(extractPath);
             if (tempDirectory.Exists)
             {
-                tempDirectory.Delete(true);
+                try
+                { 
+                    tempDirectory.Delete(true);
+                }
+                catch (DirectoryNotFoundException e)
+                {
+
+                }
             }
             string openFolderText = null;
             Action openFolderAction = null;
