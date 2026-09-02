@@ -29,7 +29,6 @@ namespace RimworldArchipelago
 
         public static void ExportArchipelagoDefs()
         {
-            Log.Message("0");
             // Some items in the DLCs require multiple DLC. Since by the time we reach export, those items have lost that context, and in the interest of not requiring
             //  everyone to generate for all combinations of DLC, we just exclude those few problem items here.
             List<string> problematicDefs = new List<string> { "Building_KidOutfitStand", "Gun_HellcatRifle_Unique", "Apparel_VacsuitChildren", "Gun_BeamGraser", "WatermillGenerator", "VacskinGland", "BloodWarmer" };
@@ -91,7 +90,6 @@ namespace RimworldArchipelago
                 allDefsByLabel[item.label] = item;
             }
 
-            Log.Message("1");
             // Hold on to each item uniquely. If you can make 1 or 4 fine meals, count it once.
             HashSet<string> alreadyPopulatedItem = new HashSet<string>();
             foreach (RecipeDef recipeDef in DefDatabase<RecipeDef>.AllDefs)
@@ -317,7 +315,6 @@ namespace RimworldArchipelago
                 }
             }
 
-            Log.Message("2");
             IncidentCategoryDef bigThreatCategory = DefDatabase<IncidentCategoryDef>.GetNamed("ThreatSmall");
             IncidentCategoryDef smallThreatCategory = DefDatabase<IncidentCategoryDef>.GetNamed("ThreatBig");
             IncidentCategoryDef diseaseThreatCategory = DefDatabase<IncidentCategoryDef>.GetNamed("DiseaseHuman");
@@ -365,7 +362,6 @@ namespace RimworldArchipelago
                 }
             }
 
-            Log.Message("3");
             List<string> basicResources = new List<string>() { "Bioferrite", "Shard", "HemogenPack", "Plasteel", "Gold", "WoodLog", "Uranium", "Cloth" };
             foreach (ThingDef thingDef in DefDatabase<ThingDef>.AllDefs)
             {
@@ -453,7 +449,6 @@ namespace RimworldArchipelago
                 }
             }
 
-            Log.Message("4");
             // Now that we have items for everything, add prereq archipelago names.
             foreach (ResearchProjectDef research in DefDatabase<ResearchProjectDef>.AllDefs)
             {
@@ -470,32 +465,27 @@ namespace RimworldArchipelago
                 }
             }
 
-            Log.Message("5");
             var sts = new XmlWriterSettings()
             {
                 Indent = true,
 
             };
 
-            Log.Message("A");
             ModMetaData modMetaData = ModLister.GetActiveModWithIdentifier("PhantomOfAres.RimworldArchipelago");
             string folderName = modMetaData.FolderName;
             string zipDirectory = Path.Combine(GenFilePaths.ModsFolderPath, $"{folderName}/Source");
             string zipFilePath = Path.Combine(zipDirectory, "rimworld.apworld");
             string configDirectory = Path.Combine(GenFilePaths.ConfigFolderPath, folderName);
 
-            Log.Message("B");
             string extractPath = Path.Combine(configDirectory, "Extract");
             Directory.CreateDirectory(configDirectory);
             Directory.CreateDirectory(extractPath);
 
-            Log.Message("C");
             string destinationDefPath = Path.Combine(extractPath, "rimworld/ArchipelagoItemDefs.xml");
             System.IO.Compression.ZipFile.ExtractToDirectory(zipFilePath, extractPath);
 
-            Log.Message("D");
             string rawItemDefPath = Path.Combine(configDirectory,"ArchipelagoItemDefs.xml"); //The only way I can think of actually writing consistently to a cross-platform location.
-            //File.Delete(rawItemDefPath);
+            File.Delete(rawItemDefPath);
             XmlWriter writer = XmlWriter.Create(rawItemDefPath, sts);
             writer.WriteStartDocument();
             writer.WriteStartElement("Defs");
@@ -574,21 +564,15 @@ namespace RimworldArchipelago
             writer.Flush();
             writer.Close();
 
-            Log.Message("E");
             File.Copy(rawItemDefPath, destinationDefPath, true);
             string moddedFilePath = Path.Combine(configDirectory, "rimworld.apworld");
-            //File.Delete(moddedFilePath);
+            File.Delete(moddedFilePath);
             System.IO.Compression.ZipFile.CreateFromDirectory(extractPath, moddedFilePath);
             DirectoryInfo tempDirectory = new DirectoryInfo(extractPath);
-            /*if (tempDirectory.Exists)
+            if (tempDirectory.Exists)
             {
-                try
-                {
-                    tempDirectory.Delete(true);
-                }
-                catch { }
-            }*/
-            Log.Message("F");
+                tempDirectory.Delete(true);
+            }
             string openFolderText = null;
             Action openFolderAction = null;
             if (Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.WindowsEditor)
