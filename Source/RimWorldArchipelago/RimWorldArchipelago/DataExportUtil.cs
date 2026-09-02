@@ -485,7 +485,7 @@ namespace RimworldArchipelago
             System.IO.Compression.ZipFile.ExtractToDirectory(zipFilePath, extractPath);
 
             string rawItemDefPath = Path.Combine(configDirectory,"ArchipelagoItemDefs.xml"); //The only way I can think of actually writing consistently to a cross-platform location.
-            File.Delete(rawItemDefPath);
+            //File.Delete(rawItemDefPath);
             XmlWriter writer = XmlWriter.Create(rawItemDefPath, sts);
             writer.WriteStartDocument();
             writer.WriteStartElement("Defs");
@@ -566,7 +566,7 @@ namespace RimworldArchipelago
 
             File.Copy(rawItemDefPath, destinationDefPath, true);
             string moddedFilePath = Path.Combine(configDirectory, "rimworld.apworld");
-            File.Delete(moddedFilePath);
+            //File.Delete(moddedFilePath);
             System.IO.Compression.ZipFile.CreateFromDirectory(extractPath, moddedFilePath);
             DirectoryInfo tempDirectory = new DirectoryInfo(extractPath);
             /*if (tempDirectory.Exists)
