@@ -580,7 +580,11 @@ namespace RimworldArchipelago
             tempDirectory = new DirectoryInfo(extractPath);
             if (tempDirectory.Exists)
             {
-                tempDirectory.Delete(true);
+                try
+                {
+                    tempDirectory.Delete(true);
+                }
+                catch { }
             }
             string openFolderText = null;
             Action openFolderAction = null;
