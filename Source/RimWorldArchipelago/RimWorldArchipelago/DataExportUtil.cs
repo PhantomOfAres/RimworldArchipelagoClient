@@ -481,21 +481,14 @@ namespace RimworldArchipelago
             DirectoryInfo tempDirectory = new DirectoryInfo(extractPath);
             if (tempDirectory.Exists)
             {
-                // I don't love dropping this exception, but I don't understand how else to check to stop it.
-                try
-                {
-                    tempDirectory.Delete(true);
-                }
-                catch (DirectoryNotFoundException e)
-                {
-
-                }
+                tempDirectory.Delete(true);
             }
-            string destinationDefPath = Path.Combine(extractPath, "rimworld/ArchipelagoItemDefs.xml");
+            Directory.CreateDirectory(configDirectory);
             Directory.CreateDirectory(extractPath);
+
+            string destinationDefPath = Path.Combine(extractPath, "rimworld/ArchipelagoItemDefs.xml");
             System.IO.Compression.ZipFile.ExtractToDirectory(zipFilePath, extractPath);
 
-            Directory.CreateDirectory(configDirectory);
             string rawItemDefPath = Path.Combine(configDirectory,"ArchipelagoItemDefs.xml"); //The only way I can think of actually writing consistently to a cross-platform location.
             File.Delete(rawItemDefPath);
             XmlWriter writer = XmlWriter.Create(rawItemDefPath, sts);
@@ -583,14 +576,7 @@ namespace RimworldArchipelago
             tempDirectory = new DirectoryInfo(extractPath);
             if (tempDirectory.Exists)
             {
-                try
-                { 
-                    tempDirectory.Delete(true);
-                }
-                catch (DirectoryNotFoundException e)
-                {
-
-                }
+                tempDirectory.Delete(true);
             }
             string openFolderText = null;
             Action openFolderAction = null;
