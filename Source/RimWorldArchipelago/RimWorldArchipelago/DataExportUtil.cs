@@ -29,6 +29,7 @@ namespace RimworldArchipelago
 
         public static void ExportArchipelagoDefs()
         {
+            Log.Message("0");
             // Some items in the DLCs require multiple DLC. Since by the time we reach export, those items have lost that context, and in the interest of not requiring
             //  everyone to generate for all combinations of DLC, we just exclude those few problem items here.
             List<string> problematicDefs = new List<string> { "Building_KidOutfitStand", "Gun_HellcatRifle_Unique", "Apparel_VacsuitChildren", "Gun_BeamGraser", "WatermillGenerator", "VacskinGland", "BloodWarmer" };
@@ -90,6 +91,7 @@ namespace RimworldArchipelago
                 allDefsByLabel[item.label] = item;
             }
 
+            Log.Message("1");
             // Hold on to each item uniquely. If you can make 1 or 4 fine meals, count it once.
             HashSet<string> alreadyPopulatedItem = new HashSet<string>();
             foreach (RecipeDef recipeDef in DefDatabase<RecipeDef>.AllDefs)
@@ -315,6 +317,7 @@ namespace RimworldArchipelago
                 }
             }
 
+            Log.Message("2");
             IncidentCategoryDef bigThreatCategory = DefDatabase<IncidentCategoryDef>.GetNamed("ThreatSmall");
             IncidentCategoryDef smallThreatCategory = DefDatabase<IncidentCategoryDef>.GetNamed("ThreatBig");
             IncidentCategoryDef diseaseThreatCategory = DefDatabase<IncidentCategoryDef>.GetNamed("DiseaseHuman");
@@ -362,6 +365,7 @@ namespace RimworldArchipelago
                 }
             }
 
+            Log.Message("3");
             List<string> basicResources = new List<string>() { "Bioferrite", "Shard", "HemogenPack", "Plasteel", "Gold", "WoodLog", "Uranium", "Cloth" };
             foreach (ThingDef thingDef in DefDatabase<ThingDef>.AllDefs)
             {
@@ -449,6 +453,7 @@ namespace RimworldArchipelago
                 }
             }
 
+            Log.Message("4");
             // Now that we have items for everything, add prereq archipelago names.
             foreach (ResearchProjectDef research in DefDatabase<ResearchProjectDef>.AllDefs)
             {
@@ -465,6 +470,7 @@ namespace RimworldArchipelago
                 }
             }
 
+            Log.Message("5");
             var sts = new XmlWriterSettings()
             {
                 Indent = true,
