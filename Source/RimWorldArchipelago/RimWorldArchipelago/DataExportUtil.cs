@@ -478,12 +478,12 @@ namespace RimworldArchipelago
             string configDirectory = Path.Combine(GenFilePaths.ConfigFolderPath, folderName);
 
             string extractPath = Path.Combine(configDirectory, "Extract");
+            Directory.CreateDirectory(configDirectory);
             DirectoryInfo tempDirectory = new DirectoryInfo(extractPath);
             if (tempDirectory.Exists)
             {
                 tempDirectory.Delete(true);
             }
-            Directory.CreateDirectory(configDirectory);
             Directory.CreateDirectory(extractPath);
 
             string destinationDefPath = Path.Combine(extractPath, "rimworld/ArchipelagoItemDefs.xml");
