@@ -479,15 +479,6 @@ namespace RimworldArchipelago
 
             string extractPath = Path.Combine(configDirectory, "Extract");
             Directory.CreateDirectory(configDirectory);
-            DirectoryInfo tempDirectory = new DirectoryInfo(extractPath);
-            if (tempDirectory.Exists)
-            {
-                try
-                {
-                    tempDirectory.Delete(true);
-                }
-                catch { }
-            }
             Directory.CreateDirectory(extractPath);
 
             string destinationDefPath = Path.Combine(extractPath, "rimworld/ArchipelagoItemDefs.xml");
@@ -577,7 +568,7 @@ namespace RimworldArchipelago
             string moddedFilePath = Path.Combine(configDirectory, "rimworld.apworld");
             File.Delete(moddedFilePath);
             System.IO.Compression.ZipFile.CreateFromDirectory(extractPath, moddedFilePath);
-            tempDirectory = new DirectoryInfo(extractPath);
+            DirectoryInfo tempDirectory = new DirectoryInfo(extractPath);
             if (tempDirectory.Exists)
             {
                 try
