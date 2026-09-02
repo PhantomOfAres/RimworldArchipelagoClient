@@ -482,7 +482,11 @@ namespace RimworldArchipelago
             DirectoryInfo tempDirectory = new DirectoryInfo(extractPath);
             if (tempDirectory.Exists)
             {
-                tempDirectory.Delete(true);
+                try
+                {
+                    tempDirectory.Delete(true);
+                }
+                catch { }
             }
             Directory.CreateDirectory(extractPath);
 
