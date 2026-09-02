@@ -492,6 +492,7 @@ namespace RimworldArchipelago
                 }
             }
             string destinationDefPath = Path.Combine(extractPath, "rimworld/ArchipelagoItemDefs.xml");
+            Directory.CreateDirectory(extractPath);
             System.IO.Compression.ZipFile.ExtractToDirectory(zipFilePath, extractPath);
 
             Directory.CreateDirectory(configDirectory);
