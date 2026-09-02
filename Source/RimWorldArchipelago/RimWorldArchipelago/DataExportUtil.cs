@@ -471,19 +471,23 @@ namespace RimworldArchipelago
 
             };
 
+            Log.Message("A");
             ModMetaData modMetaData = ModLister.GetActiveModWithIdentifier("PhantomOfAres.RimworldArchipelago");
             string folderName = modMetaData.FolderName;
             string zipDirectory = Path.Combine(GenFilePaths.ModsFolderPath, $"{folderName}/Source");
             string zipFilePath = Path.Combine(zipDirectory, "rimworld.apworld");
             string configDirectory = Path.Combine(GenFilePaths.ConfigFolderPath, folderName);
 
+            Log.Message("B");
             string extractPath = Path.Combine(configDirectory, "Extract");
             Directory.CreateDirectory(configDirectory);
             Directory.CreateDirectory(extractPath);
 
+            Log.Message("C");
             string destinationDefPath = Path.Combine(extractPath, "rimworld/ArchipelagoItemDefs.xml");
             System.IO.Compression.ZipFile.ExtractToDirectory(zipFilePath, extractPath);
 
+            Log.Message("D");
             string rawItemDefPath = Path.Combine(configDirectory,"ArchipelagoItemDefs.xml"); //The only way I can think of actually writing consistently to a cross-platform location.
             //File.Delete(rawItemDefPath);
             XmlWriter writer = XmlWriter.Create(rawItemDefPath, sts);
@@ -564,6 +568,7 @@ namespace RimworldArchipelago
             writer.Flush();
             writer.Close();
 
+            Log.Message("E");
             File.Copy(rawItemDefPath, destinationDefPath, true);
             string moddedFilePath = Path.Combine(configDirectory, "rimworld.apworld");
             //File.Delete(moddedFilePath);
@@ -577,6 +582,7 @@ namespace RimworldArchipelago
                 }
                 catch { }
             }*/
+            Log.Message("F");
             string openFolderText = null;
             Action openFolderAction = null;
             if (Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.WindowsEditor)
