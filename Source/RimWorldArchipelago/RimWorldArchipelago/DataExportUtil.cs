@@ -569,14 +569,14 @@ namespace RimworldArchipelago
             File.Delete(moddedFilePath);
             System.IO.Compression.ZipFile.CreateFromDirectory(extractPath, moddedFilePath);
             DirectoryInfo tempDirectory = new DirectoryInfo(extractPath);
-            if (tempDirectory.Exists)
+            /*if (tempDirectory.Exists)
             {
                 try
                 {
                     tempDirectory.Delete(true);
                 }
                 catch { }
-            }
+            }*/
             string openFolderText = null;
             Action openFolderAction = null;
             if (Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.WindowsEditor)
