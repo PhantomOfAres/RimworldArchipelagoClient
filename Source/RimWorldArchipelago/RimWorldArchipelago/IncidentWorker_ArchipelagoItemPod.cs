@@ -23,7 +23,7 @@ public class IncidentWorker_ArchipelagoItemPod : IncidentWorker
             description = apParms.letterText;
         }
         Map map = (Map)parms.target;
-        IntVec3 intVec = DropCellFinder.RandomDropSpot(map);
+        IntVec3 intVec = DropCellFinder.TradeDropSpot(map);
         DropPodUtility.DropThingsNear(intVec, map, parms.gifts);
         SendStandardLetter(title, description, LetterDefOf.PositiveEvent, parms, new TargetInfo(intVec, map));
         return true;

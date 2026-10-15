@@ -26,6 +26,7 @@ namespace RimworldArchipelago
         public const string SignalChipDefName = "SignalChip";
         public const string PowerfocusChipDefName = "PowerfocusChip";
         public const string NanostructuringChipDefName = "NanostructuringChip";
+        public const float MarketValuePerStack = 200;
 
         public static void ExportArchipelagoDefs()
         {
@@ -124,39 +125,7 @@ namespace RimworldArchipelago
                             item.Id = nextId;
                             item.DefType = "ThingDef";
                             item.defName = $"{product.thingDef.defName}Thing";
-                            int stackSize = product.thingDef.stackLimit;
-                            // Some manual adjustments based on what seems roughly reasonable to randomly give to the player.
-                            if (product.thingDef.defName.Contains("Subcore"))
-                            {
-                                stackSize = 1;
-                            }
-                            else if (product.thingDef.defName.Contains("Shell") || product.thingDef.defName.Contains("Serum"))
-                            {
-                                stackSize = stackSize / 5;
-                            }
-                            else if (product.thingDef.defName == "ComponentIndustrial")
-                            {
-                                stackSize = 20;
-                            }
-                            else if (product.thingDef.defName == "ComponentSpacer")
-                            {
-                                stackSize = 2;
-                            }
-                            else
-                            {
-                                foreach (ThingCategoryDef category in product.thingDef.thingCategories)
-                                {
-                                    if (category.defName == "Medicine")
-                                    {
-                                        stackSize = stackSize / 5;
-                                        break;
-                                    }
-                                    if (category.defName == "Drugs")
-                                    {
-                                        stackSize = stackSize / 10;
-                                    }
-                                }
-                            }
+                            int stackSize = Mathf.CeilToInt(MarketValuePerStack / product.thingDef.BaseMarketValue);
                             item.StackSize = stackSize;
                             if (product.thingDef.modContentPack != null)
                             {
