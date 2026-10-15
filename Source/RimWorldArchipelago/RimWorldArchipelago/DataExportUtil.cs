@@ -32,7 +32,7 @@ namespace RimworldArchipelago
         {
             // Some items in the DLCs require multiple DLC. Since by the time we reach export, those items have lost that context, and in the interest of not requiring
             //  everyone to generate for all combinations of DLC, we just exclude those few problem items here.
-            List<string> problematicDefs = new List<string> { "Building_KidOutfitStand", "Gun_HellcatRifle_Unique", "Apparel_VacsuitChildren", "Gun_BeamGraser", "WatermillGenerator", "VacskinGland", "BloodWarmer" };
+            List<string> problematicDefs = new List<string> { "Building_KidOutfitStand", "Gun_HellcatRifle_Unique", "Apparel_VacsuitChildren", "Gun_BeamGraser", "WatermillGenerator", "VacskinGland", "BloodWarmer", "BloodRain" };
             long nextId = 0;
 
             Dictionary<string, ArchipelagoItemDef> allDefs = new Dictionary<string, ArchipelagoItemDef>();
@@ -298,6 +298,10 @@ namespace RimworldArchipelago
             foreach (IncidentDef incidentDef in DefDatabase<IncidentDef>.AllDefs)
             {
                 if (problematicDefs.Contains(incidentDef.defName))
+                {
+                    continue;
+                }
+                if (incidentDef.minThreatPoints > 0)
                 {
                     continue;
                 }
