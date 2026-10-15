@@ -17,6 +17,7 @@ using System.Security.Cryptography;
 using System.Text;
 using UnityEngine;
 using Verse;
+using Verse.Noise;
 using static RimWorld.ResearchPrerequisitesUtility;
 
 namespace RimworldArchipelago
@@ -100,16 +101,16 @@ namespace RimworldArchipelago
 
     public class ArchipelagoGameComponent: GameComponent
     {
-        private const long BASE_RAID_ID = 4001;
-        private const long BASE_TRADE_ID = 5001;
+        public const long BASE_RAID_ID = 4001;
+        public const long BASE_TRADE_ID = 5001;
 
         private const int MIN_TICKS_IN_A_DAYISH = 45000;
         private const int MAX_TICKS_IN_A_DAYISH = 75000;
 
         private int handledIndexCount = 0;
         private int ticksLeftInTimer = 0;
-        private static int nextRaidOffset = 0;
-        private static int nextTradeOffset = 0;
+        public static int nextRaidOffset = 0;
+        public static int nextTradeOffset = 0;
         private static List<string> IncidentsToRunOnTimer = new List<string>();
         private static List<long> LocationsToSend = new List<long>();
         private static List<string> ApNamesUsed = new List<string>();
@@ -185,6 +186,7 @@ namespace RimworldArchipelago
                 nextTradeOffset += 1;
                 id = BASE_TRADE_ID + nextTradeOffset;
             }
+
 
             // If we've somehow gotten too many raid items, don't send it.
             if (nextTradeOffset >= ArchipelagoClient.SlotData.SlotOptions.TradeLocationCount)
@@ -630,7 +632,9 @@ namespace RimworldArchipelago
                 APCraftManager.GenerateArchipelagoCrafts();
                 AddVictoryDescriptions();
 
-                string directory = Path.Combine(GenFilePaths.ModsFolderPath, "RimworldArchipelago/Defs");
+                ModMetaData modMetaData = ModLister.GetActiveModWithIdentifier("PhantomOfAres.RimworldArchipelago");
+                string folderName = modMetaData.FolderName;
+                string directory = Path.Combine(GenFilePaths.ModsFolderPath, $"{folderName}/Defs");
                 string path = Path.Combine(directory, "ArchipelagoItemDefs.xml");
                 FileStream itemDefsStream = File.OpenRead(path);
                 SHA256 hash = SHA256.Create();
@@ -649,7 +653,6 @@ namespace RimworldArchipelago
                     ApworldContentErrorReason += "Item Def verification failed! The apworld and client mod must match. Please double check that your apworld and client versions match, and if you've done advanced mod setup, that you've done every step in the advanced setup doc.\n";
                 }
 
-                ModMetaData modMetaData = ModLister.GetActiveModWithIdentifier("PhantomOfAres.RimworldArchipelago");
                 if (modMetaData.ModVersion != SlotData.ApworldVersion)
                 {
                     ApworldContentVerified = false;
