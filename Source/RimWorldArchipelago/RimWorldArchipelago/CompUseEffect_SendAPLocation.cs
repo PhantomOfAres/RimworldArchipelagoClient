@@ -6,6 +6,7 @@ using Verse;
 public class CompUseEffect_SendAPLocation : CompUseEffect
 {
     private int delayTicks = -1;
+    public long locationId;
 
     private CompProperties_SendAPLocation Props => (CompProperties_SendAPLocation)props;
 
@@ -26,14 +27,7 @@ public class CompUseEffect_SendAPLocation : CompUseEffect
 
     private void SendLocation()
     {
-        if (Props.locationType == APItemLocationType.Raid)
-        {
-            ArchipelagoGameComponent.SendRaidLocation();
-        }
-        if (Props.locationType == APItemLocationType.Trade)
-        {
-            ArchipelagoGameComponent.SendTradeLocation();
-        }
+        ArchipelagoGameComponent.SendLocation(locationId);
     }
 
     public override void PostExposeData()

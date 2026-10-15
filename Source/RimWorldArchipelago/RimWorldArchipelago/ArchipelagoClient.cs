@@ -17,7 +17,6 @@ using System.Security.Cryptography;
 using System.Text;
 using UnityEngine;
 using Verse;
-using Verse.Noise;
 using static RimWorld.ResearchPrerequisitesUtility;
 
 namespace RimworldArchipelago
@@ -111,6 +110,7 @@ namespace RimworldArchipelago
         private int ticksLeftInTimer = 0;
         public static int nextRaidOffset = 0;
         public static int nextTradeOffset = 0;
+        private static bool hasCheckedPreviousOffsets = false;
         private static List<string> IncidentsToRunOnTimer = new List<string>();
         private static List<long> LocationsToSend = new List<long>();
         private static List<string> ApNamesUsed = new List<string>();
@@ -133,6 +133,7 @@ namespace RimworldArchipelago
             Scribe_Values.Look(ref ticksLeftInTimer, "ticksLeftInTimer");
             Scribe_Values.Look(ref nextRaidOffset, "nextRaidOffset");
             Scribe_Values.Look(ref nextTradeOffset, "nextTradeOffset");
+            Scribe_Values.Look(ref hasCheckedPreviousOffsets, "hasCheckedPreviousOffsets");
             Scribe_Collections.Look(ref IncidentsToRunOnTimer, "incidentsToRunOnTimer", LookMode.Value);
             Scribe_Collections.Look(ref LocationsToSend, "locationsToSend", LookMode.Value);
             Scribe_Collections.Look(ref ApNamesUsed, "locationsToSend", LookMode.Value);
@@ -153,22 +154,8 @@ namespace RimworldArchipelago
             LocationsToSend.Add(id);
         }
         
-        public static void SendRaidLocation()
+        public static void SendLocation(long id)
         {
-            long id = BASE_RAID_ID + nextRaidOffset;
-            // Safety check - if a check was released, skip it.
-            while (ArchipelagoClient.AllLocationsChecked.Contains(id))
-            {
-                nextRaidOffset += 1;
-                id = BASE_RAID_ID + nextRaidOffset;
-            }
-
-            // If we've somehow gotten too many raid items, don't send it.
-            if (nextRaidOffset >= ArchipelagoClient.SlotData.SlotOptions.RaidLocationCount)
-            {
-                return;
-            }
-            nextRaidOffset += 1;
             LocationsToSend.Add(id);
         }
 
@@ -218,6 +205,26 @@ namespace RimworldArchipelago
 
                 ArchipelagoClient.SendLocations(ArchipelagoGameComponent.LocationsToSend);
                 LocationsToSend.Clear();
+
+                if (!hasCheckedPreviousOffsets)
+                {
+                    int checkedOffset = 0;
+                    while (ArchipelagoClient.AllLocationsChecked.Contains(BASE_RAID_ID))
+                    {
+                        checkedOffset += 1;
+                    }
+                    nextRaidOffset = checkedOffset;
+
+                    checkedOffset = 0;
+                    while (ArchipelagoClient.AllLocationsChecked.Contains(BASE_TRADE_ID))
+                    {
+                        checkedOffset += 1;
+                    }
+                    nextTradeOffset = checkedOffset;
+
+
+                    hasCheckedPreviousOffsets = true;
+                }
             }
 
             if (winningFadeOutTime > 0f)
