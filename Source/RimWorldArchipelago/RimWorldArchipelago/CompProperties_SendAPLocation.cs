@@ -6,6 +6,7 @@ public enum APItemLocationType
     None = 0,
     Raid = 1,
     Trade = 2,
+    Quest = 3
 }
 
 public class CompProperties_SendAPLocation : CompProperties_UseEffect

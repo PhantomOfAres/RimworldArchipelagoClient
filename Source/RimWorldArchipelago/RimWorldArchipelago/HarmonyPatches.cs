@@ -186,4 +186,28 @@ namespace RimWorldArchipelago
             return true;
         }
     }
+
+    [HarmonyPatch(typeof(RewardsGenerator))]
+    [HarmonyPatch(nameof(RewardsGenerator.Generate), [typeof(RewardsGeneratorParams), typeof(float)], [ArgumentType.Normal, ArgumentType.Out])]
+    static class RewardsGenerator_Generate_Patch
+    {
+        public static void Postfix(ref List<Reward> __result)
+        {
+            if (!ArchipelagoGameComponent.PlayerHasMoreQuestLocations())
+            {
+                return;
+            }
+
+            foreach (Reward reward in __result)
+            {
+                if (reward is Reward_Items rewardItems)
+                {
+                    ThingDef locationItemDef = DefDatabase<ThingDef>.GetNamed("QuestLocationItem");
+                    Thing newThing = ThingMaker.MakeThing(locationItemDef);
+                    rewardItems.items.Add(newThing);
+                }
+            }
+
+        }
+    }
 }

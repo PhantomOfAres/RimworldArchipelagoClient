@@ -146,4 +146,50 @@
       <li>ItemsMisc</li>
     </thingCategories>
   </ThingDef>
+  <ThingDef ParentName="ResourceBase">
+    <defName>QuestLocationItem</defName>
+    <label>Archipelago Location (Quest)</label>
+    <description>Finally, the quest is complete. You grab your spoils, and... what is this? A "Location Item?" Your mind races about what this eldritch floret might mean. Your head pounds the more you consider it. Best to just send it, whatever that means.
+
+    Use this item to send the next Trade Location to the multiworld.</description>
+    <graphicData>
+      <texPath>ArchipelagoIcons/ColorIcon</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <resourceReadoutPriority>First</resourceReadoutPriority>
+    <useHitPoints>false</useHitPoints>
+    <healthAffectsPrice>false</healthAffectsPrice>
+    <resourceReadoutAlwaysShow>true</resourceReadoutAlwaysShow>
+    <statBases>
+      <MarketValue>0</MarketValue>
+      <Mass>0.008</Mass>
+      <StuffPower_Armor_Sharp>0</StuffPower_Armor_Sharp>
+      <StuffPower_Armor_Blunt>0</StuffPower_Armor_Blunt>
+      <StuffPower_Armor_Heat>0</StuffPower_Armor_Heat>
+      <StuffPower_Insulation_Cold>0</StuffPower_Insulation_Cold>
+      <StuffPower_Insulation_Heat>0</StuffPower_Insulation_Heat>
+      <SharpDamageMultiplier>0</SharpDamageMultiplier>
+      <BluntDamageMultiplier>0</BluntDamageMultiplier>
+      <MarketValue>100</MarketValue>
+    </statBases>
+    <tradeability>Buyable</tradeability>
+    <stackLimit>500</stackLimit>
+    <smallVolume>true</smallVolume>
+    <burnableByRecipe>false</burnableByRecipe>
+    <smeltable>false</smeltable>
+    <comps>
+      <li Class="CompProperties_Usable">
+        <useJob>SendQuestLocation</useJob>
+        <useLabel>Send Quest Location</useLabel>
+        <useDuration>300</useDuration>
+      </li>
+      <li Class="CompProperties_UseEffectDestroySelf"/>
+      <li Class="CompProperties_SendAPLocation">
+        <locationType>Quest</locationType>
+      </li>
+    </comps>
+    <thingCategories>
+      <li>ItemsMisc</li>
+    </thingCategories>
+  </ThingDef>
 </Defs>

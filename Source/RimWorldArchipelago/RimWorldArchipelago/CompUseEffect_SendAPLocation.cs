@@ -27,7 +27,14 @@ public class CompUseEffect_SendAPLocation : CompUseEffect
 
     private void SendLocation()
     {
-        ArchipelagoGameComponent.SendLocation(locationId);
+        if (Props.locationType == APItemLocationType.Quest)
+        {
+            ArchipelagoGameComponent.SendQuestLocation();
+        }
+        else
+        {
+            ArchipelagoGameComponent.SendLocation(locationId);
+        }
     }
 
     public override void PostExposeData()

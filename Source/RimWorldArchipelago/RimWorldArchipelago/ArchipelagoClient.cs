@@ -1,4 +1,5 @@
 ﻿using Archipelago.MultiClient.Net;
+using Archipelago.MultiClient.Net.BounceFeatures.DeathLink;
 using Archipelago.MultiClient.Net.Enums;
 using Archipelago.MultiClient.Net.Helpers;
 using Archipelago.MultiClient.Net.MessageLog.Messages;
@@ -80,6 +81,7 @@ namespace RimworldArchipelago
         public int MultiAnalyzerResearchLocationCount { get; set; }
         public int RaidLocationCount { get; set; }
         public int TradeLocationCount { get; set; }
+        public int QuestLocationCount { get; set; }
         public int ResearchBaseCost { get; set; }
         public int ResearchCostVariance{ get; set; }
         public int ResearchCostIncreasePerTier { get; set; }
@@ -102,6 +104,7 @@ namespace RimworldArchipelago
     {
         public const long BASE_RAID_ID = 4001;
         public const long BASE_TRADE_ID = 5001;
+        public const long BASE_QUEST_ID = 6001;
 
         private const int MIN_TICKS_IN_A_DAYISH = 45000;
         private const int MAX_TICKS_IN_A_DAYISH = 75000;
@@ -110,6 +113,7 @@ namespace RimworldArchipelago
         private int ticksLeftInTimer = 0;
         public static int nextRaidOffset = 0;
         public static int nextTradeOffset = 0;
+        public static int nextQuestOffset = 0;
         private static bool hasCheckedPreviousOffsets = false;
         private static List<string> IncidentsToRunOnTimer = new List<string>();
         private static List<long> LocationsToSend = new List<long>();
@@ -133,6 +137,7 @@ namespace RimworldArchipelago
             Scribe_Values.Look(ref ticksLeftInTimer, "ticksLeftInTimer");
             Scribe_Values.Look(ref nextRaidOffset, "nextRaidOffset");
             Scribe_Values.Look(ref nextTradeOffset, "nextTradeOffset");
+            Scribe_Values.Look(ref nextQuestOffset, "nextQuestOffset");
             Scribe_Values.Look(ref hasCheckedPreviousOffsets, "hasCheckedPreviousOffsets");
             Scribe_Collections.Look(ref IncidentsToRunOnTimer, "incidentsToRunOnTimer", LookMode.Value);
             Scribe_Collections.Look(ref LocationsToSend, "locationsToSend", LookMode.Value);
@@ -159,34 +164,39 @@ namespace RimworldArchipelago
             LocationsToSend.Add(id);
         }
 
+        public static void SendQuestLocation()
+        {
+            long id = BASE_QUEST_ID + nextQuestOffset;
+            // Safety check - if a check was released, skip it.
+            while (ArchipelagoClient.AllLocationsChecked.Contains(id))
+            {
+                nextQuestOffset += 1;
+                id = BASE_QUEST_ID + nextQuestOffset;
+            }
+
+
+            // If we've somehow gotten too many raid items, don't send it.
+            if (nextQuestOffset >= ArchipelagoClient.SlotData.SlotOptions.TradeLocationCount)
+            {
+                return;
+            }
+            nextQuestOffset += 1;
+            LocationsToSend.Add(id);
+        }
+
         public static bool PlayerHasMoreRaidLocations()
         {
             return nextRaidOffset < ArchipelagoClient.SlotData.SlotOptions.RaidLocationCount;
         }
 
-        public static void SendTradeLocation()
-        {
-            long id = BASE_TRADE_ID + nextTradeOffset;
-            // Safety check - if a check was released, skip it.
-            while (ArchipelagoClient.AllLocationsChecked.Contains(id))
-            {
-                nextTradeOffset += 1;
-                id = BASE_TRADE_ID + nextTradeOffset;
-            }
-
-
-            // If we've somehow gotten too many raid items, don't send it.
-            if (nextTradeOffset >= ArchipelagoClient.SlotData.SlotOptions.TradeLocationCount)
-            {
-                return;
-            }
-            nextTradeOffset += 1;
-            LocationsToSend.Add(id);
-        }
-
         public static bool PlayerHasMoreTradeLocations()
         {
             return nextTradeOffset < ArchipelagoClient.SlotData.SlotOptions.TradeLocationCount;
+        }
+
+        public static bool PlayerHasMoreQuestLocations()
+        {
+            return nextQuestOffset < ArchipelagoClient.SlotData.SlotOptions.QuestLocationCount;
         }
 
         public override void FinalizeInit()
@@ -665,6 +675,8 @@ namespace RimworldArchipelago
                     ApworldContentVerified = false;
                     ApworldContentErrorReason += $"Version verification failed! Apworld is version {SlotData.ApworldVersion} and mod is version {modMetaData.ModVersion}\n";
                 }
+
+                // DeathLinkService deathlink = session.CreateDeathLinkService();
             }
             catch (Exception e)
             {

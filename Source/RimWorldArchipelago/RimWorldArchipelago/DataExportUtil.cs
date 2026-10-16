@@ -9,6 +9,7 @@ using System.Xml;
 using UnityEngine;
 using Verse;
 using System.Reflection;
+using RimWorld.QuestGen;
 
 namespace RimworldArchipelago
 {
