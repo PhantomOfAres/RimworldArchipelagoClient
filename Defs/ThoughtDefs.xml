@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ThoughtDef>
+    <defName>DeathlinkThought</defName>
+    <durationDays>1</durationDays>
+    <stackLimit>10</stackLimit>
+    <stages>
+      <li>
+        <label>Multiworld death</label>
+        <description>I'm sad that someone was killed.</description>
+        <baseMoodEffect>-4</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+</Defs>

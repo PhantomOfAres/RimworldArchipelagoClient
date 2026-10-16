@@ -97,6 +97,7 @@ namespace RimworldArchipelago
         public bool AnomalyEnabled { get; set; }
         public bool OdysseyEnabled { get; set; }
         public StartingResearchLevel StartingResearchLevel { get; set; }
+        public bool DeathLink { get; set; }
 
     }
 
@@ -124,6 +125,7 @@ namespace RimworldArchipelago
         private float winningFadeOutTime = -1f;
         public static bool HasAchievedMonumentVictory = false;
         public static string CachedRequirementString { get; private set; } = "";
+        private static DeathLink DeathlinkToHandle = null;
 
         public ArchipelagoGameComponent(Game game)
         {
@@ -403,6 +405,30 @@ namespace RimworldArchipelago
                 return;
             }
 
+            if (DeathlinkToHandle != null)
+            {
+                Map map = Find.CurrentMap;
+                ThoughtDef thoughtDef = DefDatabase<ThoughtDef>.GetNamed("DeathlinkThought");
+                foreach (Pawn pawn in map.mapPawns.AllPawns)
+                {
+                    if (pawn.IsColonistPlayerControlled)
+                    {
+                        Thought thought = ThoughtMaker.MakeThought(thoughtDef);
+                        if (DeathlinkToHandle.Cause == null)
+                        {
+                            thought.CurStage.description = $"I'm sad that {DeathlinkToHandle.Source} was killed.";
+                        }
+                        else
+                        {
+                            thought.CurStage.description = $"I'm sad that {DeathlinkToHandle.Source} was killed by {DeathlinkToHandle.Cause}.";
+                        }
+                        pawn.needs.mood.thoughts.memories.TryGainMemory(thoughtDef);
+                    }
+                }
+
+                DeathlinkToHandle = null;
+            }
+
             if (ArchipelagoClient.SlotData.SlotOptions.VictoryCondition == VictoryType.Monument && !HasAchievedMonumentVictory && winningFadeOutTime < 0f)
             {
                 ThingDef sculptureDef = DefDatabase<ThingDef>.GetNamed(RoomRoleWorker_MultiworldMonument.ARCHIPELAGO_STRUCTURE_DEF_NAME);
@@ -456,6 +482,11 @@ namespace RimworldArchipelago
         {
             return HandledCraftLocations.Contains(recipeId);
         }
+
+        public static void OnDeathlink(DeathLink deathlink)
+        {
+            DeathlinkToHandle = deathlink;
+        }
     }
 
     internal class ArchipelagoClient
@@ -465,6 +496,8 @@ namespace RimworldArchipelago
         public static bool ApworldContentVerified { get; private set; } = false;
         public static string ConnectionErrorReason;
         public static string ApworldContentErrorReason = "";
+        private static string apUserName;
+        private static DeathLinkService deathlinkService;
 
         public static void ItemReceived(ItemInfo itemInfo)
         {
@@ -676,7 +709,14 @@ namespace RimworldArchipelago
                     ApworldContentErrorReason += $"Version verification failed! Apworld is version {SlotData.ApworldVersion} and mod is version {modMetaData.ModVersion}\n";
                 }
 
-                // DeathLinkService deathlink = session.CreateDeathLinkService();
+                apUserName = user;
+                if (SlotData.SlotOptions.DeathLink)
+                {
+                    deathlinkService = session.CreateDeathLinkService();
+                    deathlinkService.EnableDeathLink();
+                    deathlinkService.OnDeathLinkReceived += OnDeathlink;
+                }
+
             }
             catch (Exception e)
             {
@@ -795,6 +835,23 @@ namespace RimworldArchipelago
         static void Socket_Closed(string message)
         {
             Disconnect();
+        }
+
+        static void OnDeathlink(DeathLink deathLink)
+        {
+            if (deathLink.Source != apUserName)
+            {
+                ArchipelagoGameComponent.OnDeathlink(deathLink);
+            }
+        }
+
+        public static void SendDeathlink(string reason)
+        {
+            if (SlotData.SlotOptions.DeathLink)
+            {
+                DeathLink deathlink = new DeathLink(reason);
+                deathlinkService.SendDeathLink(deathlink);
+            }
         }
 
         private static void Locations_CheckedLocationsUpdated(ReadOnlyCollection<long> newCheckedLocations)

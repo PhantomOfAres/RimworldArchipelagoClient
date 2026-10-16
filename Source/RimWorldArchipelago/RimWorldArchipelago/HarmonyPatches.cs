@@ -210,4 +210,34 @@ namespace RimWorldArchipelago
 
         }
     }
+
+    [HarmonyPatch(typeof(Pawn))]
+    [HarmonyPatch(nameof(Pawn.Kill))]
+    static class Pawn_Kill_Patch
+    {
+        public static bool Prefix(Pawn __instance, DamageInfo? dinfo, Hediff exactCulprit = null)
+        {
+            if (__instance == null || !__instance.IsColonistPlayerControlled)
+            {
+                return true;
+            }
+
+            string reason = "";
+            if (dinfo.HasValue)
+            {
+                if (dinfo.Value.Instigator is Pawn killer)
+                {
+                    reason = killer.Name.ToStringShort;
+                }
+                else
+                {
+                    reason = dinfo.Value.Instigator.def.label;
+                }
+            }
+
+            ArchipelagoClient.SendDeathlink(reason);
+
+            return true;
+        }
+    }
 }
