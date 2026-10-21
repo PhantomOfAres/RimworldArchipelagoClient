@@ -110,12 +110,13 @@ namespace RimworldArchipelago
         private const int MIN_TICKS_IN_A_DAYISH = 45000;
         private const int MAX_TICKS_IN_A_DAYISH = 75000;
 
+        private static string savedVersion = "";
+
         private int handledIndexCount = 0;
         private int ticksLeftInTimer = 0;
         public static int nextRaidOffset = 0;
         public static int nextTradeOffset = 0;
         public static int nextQuestOffset = 0;
-        private static bool hasCheckedPreviousOffsets = false;
         private static List<string> IncidentsToRunOnTimer = new List<string>();
         private static List<long> LocationsToSend = new List<long>();
         private static List<string> ApNamesUsed = new List<string>();
@@ -140,7 +141,7 @@ namespace RimworldArchipelago
             Scribe_Values.Look(ref nextRaidOffset, "nextRaidOffset");
             Scribe_Values.Look(ref nextTradeOffset, "nextTradeOffset");
             Scribe_Values.Look(ref nextQuestOffset, "nextQuestOffset");
-            Scribe_Values.Look(ref hasCheckedPreviousOffsets, "hasCheckedPreviousOffsets");
+            Scribe_Values.Look(ref savedVersion, "savedVersion");
             Scribe_Collections.Look(ref IncidentsToRunOnTimer, "incidentsToRunOnTimer", LookMode.Value);
             Scribe_Collections.Look(ref LocationsToSend, "locationsToSend", LookMode.Value);
             Scribe_Collections.Look(ref ApNamesUsed, "locationsToSend", LookMode.Value);
@@ -166,6 +167,46 @@ namespace RimworldArchipelago
             LocationsToSend.Add(id);
         }
 
+        public static void SendRaidLocation()
+        {
+            long id = BASE_RAID_ID + nextRaidOffset;
+            // Safety check - if a check was released, skip it.
+            while (ArchipelagoClient.AllLocationsChecked.Contains(id))
+            {
+                nextRaidOffset += 1;
+                id = BASE_RAID_ID + nextRaidOffset;
+            }
+
+
+            // If we've somehow gotten too many raid items, don't send it.
+            if (nextRaidOffset >= ArchipelagoClient.SlotData.SlotOptions.RaidLocationCount)
+            {
+                return;
+            }
+            nextRaidOffset += 1;
+            LocationsToSend.Add(id);
+        }
+
+        public static void SendTradeLocation()
+        {
+            long id = BASE_TRADE_ID + nextTradeOffset;
+            // Safety check - if a check was released, skip it.
+            while (ArchipelagoClient.AllLocationsChecked.Contains(id))
+            {
+                nextTradeOffset += 1;
+                id = BASE_TRADE_ID + nextTradeOffset;
+            }
+
+
+            // If we've somehow gotten too many raid items, don't send it.
+            if (nextTradeOffset >= ArchipelagoClient.SlotData.SlotOptions.TradeLocationCount)
+            {
+                return;
+            }
+            nextTradeOffset += 1;
+            LocationsToSend.Add(id);
+        }
+
         public static void SendQuestLocation()
         {
             long id = BASE_QUEST_ID + nextQuestOffset;
@@ -178,7 +219,7 @@ namespace RimworldArchipelago
 
 
             // If we've somehow gotten too many raid items, don't send it.
-            if (nextQuestOffset >= ArchipelagoClient.SlotData.SlotOptions.TradeLocationCount)
+            if (nextQuestOffset >= ArchipelagoClient.SlotData.SlotOptions.QuestLocationCount)
             {
                 return;
             }
@@ -217,26 +258,12 @@ namespace RimworldArchipelago
 
                 ArchipelagoClient.SendLocations(ArchipelagoGameComponent.LocationsToSend);
                 LocationsToSend.Clear();
+            }
 
-                if (!hasCheckedPreviousOffsets)
-                {
-                    int checkedOffset = 0;
-                    while (ArchipelagoClient.AllLocationsChecked.Contains(BASE_RAID_ID))
-                    {
-                        checkedOffset += 1;
-                    }
-                    nextRaidOffset = checkedOffset;
-
-                    checkedOffset = 0;
-                    while (ArchipelagoClient.AllLocationsChecked.Contains(BASE_TRADE_ID))
-                    {
-                        checkedOffset += 1;
-                    }
-                    nextTradeOffset = checkedOffset;
-
-
-                    hasCheckedPreviousOffsets = true;
-                }
+            ModMetaData modMetaData = ModLister.GetActiveModWithIdentifier("PhantomOfAres.RimworldArchipelago");
+            if (modMetaData.ModVersion != savedVersion)
+            {
+                UpgradeSave();
             }
 
             if (winningFadeOutTime > 0f)
@@ -264,6 +291,19 @@ namespace RimworldArchipelago
                     GameVictoryUtility.ShowCredits(GameVictoryUtility.MakeEndCredits(intro, ending, stringBuilder.ToString(), "GameOverColonistsEscaped", list), SongDefOf.EndCreditsSong, exitToMainMenu: false, 2.5f);
                 }
             }
+        }
+
+        private static void UpgradeSave()
+        {
+            ModMetaData modMetaData = ModLister.GetActiveModWithIdentifier("PhantomOfAres.RimworldArchipelago");
+            // If the version isn't saved, we need to reset the offsets for raid and trade locations so they can work correctly
+            if (savedVersion == "")
+            {
+                nextRaidOffset = 0;
+                nextTradeOffset = 0;
+            }
+
+            savedVersion = modMetaData.ModVersion;
         }
 
         public static void DropPodStuffNow(IncidentDef incidentDef, string sender, string letterTitle, string letterText, List<Thing> stuff)
@@ -703,7 +743,9 @@ namespace RimworldArchipelago
                     ApworldContentErrorReason += "Item Def verification failed! The apworld and client mod must match. Please double check that your apworld and client versions match, and if you've done advanced mod setup, that you've done every step in the advanced setup doc.\n";
                 }
 
-                if (modMetaData.ModVersion != SlotData.ApworldVersion)
+                Version modVersion = Version.Parse(modMetaData.ModVersion);
+                Version apworldVersion = Version.Parse(SlotData.ApworldVersion);
+                if (modVersion.Major != apworldVersion.Major || modVersion.Minor != apworldVersion.Minor)
                 {
                     ApworldContentVerified = false;
                     ApworldContentErrorReason += $"Version verification failed! Apworld is version {SlotData.ApworldVersion} and mod is version {modMetaData.ModVersion}\n";

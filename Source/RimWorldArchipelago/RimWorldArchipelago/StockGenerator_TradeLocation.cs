@@ -15,8 +15,6 @@ class StockGenerator_TradeLocation : StockGenerator
         {
             foreach (Thing item in StockGeneratorUtility.TryMakeForStock(thingDef, 1, faction))
             {
-                CompUseEffect_SendAPLocation comp = item.TryGetComp<CompUseEffect_SendAPLocation>();
-                comp.locationId = ArchipelagoGameComponent.BASE_TRADE_ID + ArchipelagoGameComponent.nextTradeOffset++;
                 item.def.tradeability = Tradeability.Buyable;
                 yield return item;
             }

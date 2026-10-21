@@ -17,8 +17,6 @@ public class ThingSetMaker_ArchipelagoRaidReward : ThingSetMaker_MarketValue
 
         ThingDef locationItemDef = DefDatabase<ThingDef>.GetNamed("RaidLocationItem");
         Thing newThing = ThingMaker.MakeThing(locationItemDef);
-        CompUseEffect_SendAPLocation comp = newThing.TryGetComp<CompUseEffect_SendAPLocation>();
-        comp.locationId = ArchipelagoGameComponent.BASE_RAID_ID + ArchipelagoGameComponent.nextRaidOffset++;
         outThings.Add(newThing);
     }
 }
